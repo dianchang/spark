@@ -6,6 +6,20 @@
 	objectVersion = 46;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		0590CFAF1BB4022300097ECF /* Mogenerator */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 0590CFB21BB4022300097ECF /* Build configuration list for PBXAggregateTarget "Mogenerator" */;
+			buildPhases = (
+				0590CFB31BB4023F00097ECF /* ShellScript */,
+			);
+			dependencies = (
+			);
+			name = Mogenerator;
+			productName = Mogenerator;
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
 		0506FA2E1BB3A05500333BDD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0506FA2D1BB3A05500333BDD /* main.m */; };
 		0506FA311BB3A05500333BDD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0506FA301BB3A05500333BDD /* AppDelegate.m */; };
@@ -18,6 +32,16 @@
 		0506FA701BB3B78300333BDD /* BestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0506FA6F1BB3B78300333BDD /* BestViewController.m */; settings = {ASSET_TAGS = (); }; };
 		0506FA731BB3B79500333BDD /* MessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0506FA721BB3B79500333BDD /* MessageViewController.m */; settings = {ASSET_TAGS = (); }; };
 		0506FA761BB3B7AE00333BDD /* MyProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0506FA751BB3B7AE00333BDD /* MyProfileViewController.m */; settings = {ASSET_TAGS = (); }; };
+		0590CFC81BB402C300097ECF /* _SPEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = 0590CFB51BB402C300097ECF /* _SPEntry.m */; settings = {ASSET_TAGS = (); }; };
+		0590CFC91BB402C300097ECF /* _SPMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 0590CFB71BB402C300097ECF /* _SPMessage.m */; settings = {ASSET_TAGS = (); }; };
+		0590CFCA1BB402C300097ECF /* _SPNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 0590CFB91BB402C300097ECF /* _SPNotification.m */; settings = {ASSET_TAGS = (); }; };
+		0590CFCB1BB402C300097ECF /* _SPTopic.m in Sources */ = {isa = PBXBuildFile; fileRef = 0590CFBB1BB402C300097ECF /* _SPTopic.m */; settings = {ASSET_TAGS = (); }; };
+		0590CFCC1BB402C300097ECF /* _SPUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 0590CFBD1BB402C300097ECF /* _SPUser.m */; settings = {ASSET_TAGS = (); }; };
+		0590CFCD1BB402C300097ECF /* SPEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = 0590CFBF1BB402C300097ECF /* SPEntry.m */; settings = {ASSET_TAGS = (); }; };
+		0590CFCE1BB402C300097ECF /* SPMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 0590CFC11BB402C300097ECF /* SPMessage.m */; settings = {ASSET_TAGS = (); }; };
+		0590CFCF1BB402C300097ECF /* SPNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 0590CFC31BB402C300097ECF /* SPNotification.m */; settings = {ASSET_TAGS = (); }; };
+		0590CFD01BB402C300097ECF /* SPTopic.m in Sources */ = {isa = PBXBuildFile; fileRef = 0590CFC51BB402C300097ECF /* SPTopic.m */; settings = {ASSET_TAGS = (); }; };
+		0590CFD11BB402C300097ECF /* SPUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 0590CFC71BB402C300097ECF /* SPUser.m */; settings = {ASSET_TAGS = (); }; };
 		84F1591E2415FBD5B0B396F4 /* libPods-spark.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D28D8D01EBF146990B40B3C /* libPods-spark.a */; };
 /* End PBXBuildFile section */
 
@@ -61,6 +85,26 @@
 		0506FA721BB3B79500333BDD /* MessageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageViewController.m; sourceTree = "<group>"; };
 		0506FA741BB3B7AE00333BDD /* MyProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyProfileViewController.h; sourceTree = "<group>"; };
 		0506FA751BB3B7AE00333BDD /* MyProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyProfileViewController.m; sourceTree = "<group>"; };
+		0590CFB41BB402C300097ECF /* _SPEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _SPEntry.h; sourceTree = "<group>"; };
+		0590CFB51BB402C300097ECF /* _SPEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _SPEntry.m; sourceTree = "<group>"; };
+		0590CFB61BB402C300097ECF /* _SPMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _SPMessage.h; sourceTree = "<group>"; };
+		0590CFB71BB402C300097ECF /* _SPMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _SPMessage.m; sourceTree = "<group>"; };
+		0590CFB81BB402C300097ECF /* _SPNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _SPNotification.h; sourceTree = "<group>"; };
+		0590CFB91BB402C300097ECF /* _SPNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _SPNotification.m; sourceTree = "<group>"; };
+		0590CFBA1BB402C300097ECF /* _SPTopic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _SPTopic.h; sourceTree = "<group>"; };
+		0590CFBB1BB402C300097ECF /* _SPTopic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _SPTopic.m; sourceTree = "<group>"; };
+		0590CFBC1BB402C300097ECF /* _SPUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _SPUser.h; sourceTree = "<group>"; };
+		0590CFBD1BB402C300097ECF /* _SPUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _SPUser.m; sourceTree = "<group>"; };
+		0590CFBE1BB402C300097ECF /* SPEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPEntry.h; sourceTree = "<group>"; };
+		0590CFBF1BB402C300097ECF /* SPEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPEntry.m; sourceTree = "<group>"; };
+		0590CFC01BB402C300097ECF /* SPMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPMessage.h; sourceTree = "<group>"; };
+		0590CFC11BB402C300097ECF /* SPMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPMessage.m; sourceTree = "<group>"; };
+		0590CFC21BB402C300097ECF /* SPNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPNotification.h; sourceTree = "<group>"; };
+		0590CFC31BB402C300097ECF /* SPNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPNotification.m; sourceTree = "<group>"; };
+		0590CFC41BB402C300097ECF /* SPTopic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPTopic.h; sourceTree = "<group>"; };
+		0590CFC51BB402C300097ECF /* SPTopic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPTopic.m; sourceTree = "<group>"; };
+		0590CFC61BB402C300097ECF /* SPUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPUser.h; sourceTree = "<group>"; };
+		0590CFC71BB402C300097ECF /* SPUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPUser.m; sourceTree = "<group>"; };
 		0D1E5D98B2A87B51C002D97B /* Pods-spark.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-spark.debug.xcconfig"; path = "Pods/Target Support Files/Pods-spark/Pods-spark.debug.xcconfig"; sourceTree = "<group>"; };
 		6D28D8D01EBF146990B40B3C /* libPods-spark.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-spark.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D986FAC88F7770D18F3678D3 /* Pods-spark.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-spark.release.xcconfig"; path = "Pods/Target Support Files/Pods-spark/Pods-spark.release.xcconfig"; sourceTree = "<group>"; };
@@ -185,6 +229,26 @@
 		0506FA641BB3B5A600333BDD /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				0590CFB41BB402C300097ECF /* _SPEntry.h */,
+				0590CFB51BB402C300097ECF /* _SPEntry.m */,
+				0590CFB61BB402C300097ECF /* _SPMessage.h */,
+				0590CFB71BB402C300097ECF /* _SPMessage.m */,
+				0590CFB81BB402C300097ECF /* _SPNotification.h */,
+				0590CFB91BB402C300097ECF /* _SPNotification.m */,
+				0590CFBA1BB402C300097ECF /* _SPTopic.h */,
+				0590CFBB1BB402C300097ECF /* _SPTopic.m */,
+				0590CFBC1BB402C300097ECF /* _SPUser.h */,
+				0590CFBD1BB402C300097ECF /* _SPUser.m */,
+				0590CFBE1BB402C300097ECF /* SPEntry.h */,
+				0590CFBF1BB402C300097ECF /* SPEntry.m */,
+				0590CFC01BB402C300097ECF /* SPMessage.h */,
+				0590CFC11BB402C300097ECF /* SPMessage.m */,
+				0590CFC21BB402C300097ECF /* SPNotification.h */,
+				0590CFC31BB402C300097ECF /* SPNotification.m */,
+				0590CFC41BB402C300097ECF /* SPTopic.h */,
+				0590CFC51BB402C300097ECF /* SPTopic.m */,
+				0590CFC61BB402C300097ECF /* SPUser.h */,
+				0590CFC71BB402C300097ECF /* SPUser.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -306,6 +370,9 @@
 						CreatedOnToolsVersion = 7.0;
 						TestTargetID = 0506FA281BB3A05500333BDD;
 					};
+					0590CFAF1BB4022300097ECF = {
+						CreatedOnToolsVersion = 7.0;
+					};
 				};
 			};
 			buildConfigurationList = 0506FA241BB3A05500333BDD /* Build configuration list for PBXProject "spark" */;
@@ -324,6 +391,7 @@
 				0506FA281BB3A05500333BDD /* spark */,
 				0506FA441BB3A05500333BDD /* sparkTests */,
 				0506FA4F1BB3A05500333BDD /* sparkUITests */,
+				0590CFAF1BB4022300097ECF /* Mogenerator */,
 			);
 		};
 /* End PBXProject section */
@@ -355,6 +423,19 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		0590CFB31BB4023F00097ECF /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/mogenerator -m spark/spark.xcdatamodeld/spark.xcdatamodel -O spark/Models --template-var arc=true";
+		};
 		2394B1C8C05379A0002E08CE /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -392,13 +473,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0590CFC91BB402C300097ECF /* _SPMessage.m in Sources */,
+				0590CFCC1BB402C300097ECF /* _SPUser.m in Sources */,
+				0590CFCE1BB402C300097ECF /* SPMessage.m in Sources */,
+				0590CFCB1BB402C300097ECF /* _SPTopic.m in Sources */,
 				0506FA731BB3B79500333BDD /* MessageViewController.m in Sources */,
+				0590CFC81BB402C300097ECF /* _SPEntry.m in Sources */,
+				0590CFD01BB402C300097ECF /* SPTopic.m in Sources */,
 				0506FA311BB3A05500333BDD /* AppDelegate.m in Sources */,
+				0590CFD11BB402C300097ECF /* SPUser.m in Sources */,
 				0506FA6D1BB3B76C00333BDD /* MeetViewController.m in Sources */,
 				0506FA701BB3B78300333BDD /* BestViewController.m in Sources */,
 				0506FA761BB3B7AE00333BDD /* MyProfileViewController.m in Sources */,
 				0506FA2E1BB3A05500333BDD /* main.m in Sources */,
+				0590CFCF1BB402C300097ECF /* SPNotification.m in Sources */,
+				0590CFCD1BB402C300097ECF /* SPEntry.m in Sources */,
 				0506FA3A1BB3A05500333BDD /* spark.xcdatamodeld in Sources */,
+				0590CFCA1BB402C300097ECF /* _SPNotification.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -601,6 +692,20 @@
 			};
 			name = Release;
 		};
+		0590CFB01BB4022300097ECF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		0590CFB11BB4022300097ECF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -639,6 +744,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		0590CFB21BB4022300097ECF /* Build configuration list for PBXAggregateTarget "Mogenerator" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0590CFB01BB4022300097ECF /* Debug */,
+				0590CFB11BB4022300097ECF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 

@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>Mogenerator.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>5</integer>
+		</dict>
 		<key>spark.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -23,6 +28,11 @@
 			<true/>
 		</dict>
 		<key>0506FA4F1BB3A05500333BDD</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>0590CFAF1BB4022300097ECF</key>
 		<dict>
 			<key>primary</key>
 			<true/>
