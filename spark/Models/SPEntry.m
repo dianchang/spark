@@ -8,6 +8,10 @@
 
 @implementation SPEntry
 
-// Custom logic goes here.
+//- (void)awakeFromInsert
+//{
+//    [super awakeFromInsert];
+//    [self setPrimitiveCreatedAt:[NSDate date]];
+//}
 
 @end

@@ -12,7 +12,9 @@
 #import "MessageViewController.h"
 #import "MyProfileViewController.h"
 #import "UIColor+Helper.h"
+#import "Seed.h"
 #import <Fabric/Fabric.h>
+#import <MagicalRecord/MagicalRecord.h>
 #import <Crashlytics/Crashlytics.h>
 #import <ionicons/IonIcons.h>
 
@@ -24,6 +26,14 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [Fabric with:@[[Crashlytics class]]];
+    
+    [MagicalRecord setupCoreDataStackWithStoreNamed:@"spark"];
+    
+    NSLog(@"Documents Directory: %@", [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] firstObject]);
+    
+    // 填充数据
+    [Seed truncateAllData];
+    [Seed seedData];
 
     // 首页
     UIViewController *meetViewController = [MeetViewController new];

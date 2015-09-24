@@ -5,6 +5,7 @@
 
 const struct SPTopicAttributes SPTopicAttributes = {
 	.entriesCount = @"entriesCount",
+	.followersCount = @"followersCount",
 	.name = @"name",
 };
 
@@ -43,6 +44,11 @@ const struct SPTopicRelationships SPTopicRelationships = {
 		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
 		return keyPaths;
 	}
+	if ([key isEqualToString:@"followersCountValue"]) {
+		NSSet *affectingKey = [NSSet setWithObject:@"followersCount"];
+		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
+		return keyPaths;
+	}
 
 	return keyPaths;
 }
@@ -65,6 +71,26 @@ const struct SPTopicRelationships SPTopicRelationships = {
 
 - (void)setPrimitiveEntriesCountValue:(int32_t)value_ {
 	[self setPrimitiveEntriesCount:[NSNumber numberWithInt:value_]];
+}
+
+@dynamic followersCount;
+
+- (int32_t)followersCountValue {
+	NSNumber *result = [self followersCount];
+	return [result intValue];
+}
+
+- (void)setFollowersCountValue:(int32_t)value_ {
+	[self setFollowersCount:[NSNumber numberWithInt:value_]];
+}
+
+- (int32_t)primitiveFollowersCountValue {
+	NSNumber *result = [self primitiveFollowersCount];
+	return [result intValue];
+}
+
+- (void)setPrimitiveFollowersCountValue:(int32_t)value_ {
+	[self setPrimitiveFollowersCount:[NSNumber numberWithInt:value_]];
 }
 
 @dynamic name;

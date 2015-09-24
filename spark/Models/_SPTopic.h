@@ -5,6 +5,7 @@
 
 extern const struct SPTopicAttributes {
 	__unsafe_unretained NSString *entriesCount;
+	__unsafe_unretained NSString *followersCount;
 	__unsafe_unretained NSString *name;
 } SPTopicAttributes;
 
@@ -31,6 +32,14 @@ extern const struct SPTopicRelationships {
 
 //- (BOOL)validateEntriesCount:(id*)value_ error:(NSError**)error_;
 
+@property (nonatomic, strong) NSNumber* followersCount;
+
+@property (atomic) int32_t followersCountValue;
+- (int32_t)followersCountValue;
+- (void)setFollowersCountValue:(int32_t)value_;
+
+//- (BOOL)validateFollowersCount:(id*)value_ error:(NSError**)error_;
+
 @property (nonatomic, strong) NSString* name;
 
 //- (BOOL)validateName:(id*)value_ error:(NSError**)error_;
@@ -56,6 +65,12 @@ extern const struct SPTopicRelationships {
 
 - (int32_t)primitiveEntriesCountValue;
 - (void)setPrimitiveEntriesCountValue:(int32_t)value_;
+
+- (NSNumber*)primitiveFollowersCount;
+- (void)setPrimitiveFollowersCount:(NSNumber*)value;
+
+- (int32_t)primitiveFollowersCountValue;
+- (void)setPrimitiveFollowersCountValue:(int32_t)value_;
 
 - (NSString*)primitiveName;
 - (void)setPrimitiveName:(NSString*)value;
