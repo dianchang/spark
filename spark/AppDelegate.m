@@ -25,12 +25,12 @@
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    NSLog(@"Application Support Directory:\n\n%@\n\n", [NSSearchPathForDirectoriesInDomains(NSApplicationSupportDirectory, NSUserDomainMask, YES) firstObject]);
+    
     [Fabric with:@[[Crashlytics class]]];
     
     [MagicalRecord setupCoreDataStackWithStoreNamed:@"spark"];
-    
-    NSLog(@"Documents Directory: %@", [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] firstObject]);
-    
+
     // 填充数据
     [Seed truncateAllData];
     [Seed seedData];
