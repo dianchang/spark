@@ -7,6 +7,10 @@
 //
 
 #import "AppDelegate.h"
+#import "MeetViewController.h"
+#import "BestViewController.h"
+#import "MessageViewController.h"
+#import "MyProfileViewController.h"
 
 @interface AppDelegate ()
 
@@ -17,6 +21,35 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    UIViewController *meetViewController = [MeetViewController new];
+    UINavigationController *firstNav = [[UINavigationController alloc] initWithRootViewController:meetViewController];
+    firstNav.tabBarItem.title = @"偶遇";
+
+    UIViewController *bestViewController = [BestViewController new];
+    UINavigationController *secondNav = [[UINavigationController alloc] initWithRootViewController:bestViewController];
+    secondNav.tabBarItem.title = @"最佳";
+    
+    UIViewController *messageViewController = [MessageViewController new];
+    UINavigationController *thirdNav = [[UINavigationController alloc] initWithRootViewController:messageViewController];
+    thirdNav.tabBarItem.title = @"消息";
+    
+    UIViewController *myProfileViewController = [MyProfileViewController new];
+    UINavigationController *forthNav = [[UINavigationController alloc] initWithRootViewController:myProfileViewController];
+    forthNav.tabBarItem.title = @"我";
+    
+    // TabBar Controller
+    UITabBarController *tabBarController = [[UITabBarController alloc] init];
+    self.tabBarController = tabBarController;
+    tabBarController.viewControllers = @[firstNav, secondNav, thirdNav, forthNav];
+    
+    // Root Controller
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    [self.window setRootViewController:tabBarController];
+    
+    self.window.backgroundColor = [UIColor whiteColor];
+    [self.window makeKeyAndVisible];
+    
     return YES;
 }
 
