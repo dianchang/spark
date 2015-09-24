@@ -7,6 +7,7 @@ target 'spark' do
 	pod 'MagicalRecord'
 	pod 'Fabric'
 	pod 'Crashlytics'
+    pod 'ionicons'
 end
 
 target 'sparkTests' do

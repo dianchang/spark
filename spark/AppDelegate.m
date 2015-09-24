@@ -11,6 +11,10 @@
 #import "BestViewController.h"
 #import "MessageViewController.h"
 #import "MyProfileViewController.h"
+#import "UIColor+Helper.h"
+#import <Fabric/Fabric.h>
+#import <Crashlytics/Crashlytics.h>
+#import <ionicons/IonIcons.h>
 
 @interface AppDelegate ()
 
@@ -18,25 +22,44 @@
 
 @implementation AppDelegate
 
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
-    
+    [Fabric with:@[[Crashlytics class]]];
+
+    // 首页
     UIViewController *meetViewController = [MeetViewController new];
     UINavigationController *firstNav = [[UINavigationController alloc] initWithRootViewController:meetViewController];
-    firstNav.tabBarItem.title = @"偶遇";
+    UIImage *meetImage = [IonIcons imageWithIcon:ion_android_home size:30 color:[UIColor SPColorLightMain]];
+    UIImage *meetSelecedImage = [IonIcons imageWithIcon:ion_android_home size:30 color:[UIColor SPColorMain]];
+    firstNav.tabBarItem.imageInsets = UIEdgeInsetsMake(5, 0, -5, 0);
+    firstNav.tabBarItem.image = meetImage;
+    firstNav.tabBarItem.selectedImage = meetSelecedImage;
 
+    // 今日最佳
     UIViewController *bestViewController = [BestViewController new];
     UINavigationController *secondNav = [[UINavigationController alloc] initWithRootViewController:bestViewController];
-    secondNav.tabBarItem.title = @"最佳";
+    UIImage *bestImage = [IonIcons imageWithIcon:ion_android_compass size:26 color:[UIColor SPColorLightMain]];
+    UIImage *bestSelecedImage = [IonIcons imageWithIcon:ion_android_compass size:26 color:[UIColor SPColorMain]];
+    secondNav.tabBarItem.imageInsets = UIEdgeInsetsMake(6, 0, -6, 0);
+    secondNav.tabBarItem.image = bestImage;
+    secondNav.tabBarItem.selectedImage = bestSelecedImage;
     
+    // 消息 & 通知
     UIViewController *messageViewController = [MessageViewController new];
     UINavigationController *thirdNav = [[UINavigationController alloc] initWithRootViewController:messageViewController];
-    thirdNav.tabBarItem.title = @"消息";
+    UIImage *messageImage = [IonIcons imageWithIcon:ion_chatbubble_working size:28 color:[UIColor SPColorLightMain]];
+    UIImage *messageSelecedImage = [IonIcons imageWithIcon:ion_chatbubble_working size:28 color:[UIColor SPColorMain]];
+    thirdNav.tabBarItem.imageInsets = UIEdgeInsetsMake(6, 0, -6, 0);
+    thirdNav.tabBarItem.image = messageImage;
+    thirdNav.tabBarItem.selectedImage = messageSelecedImage;
     
+    // 个人设置
     UIViewController *myProfileViewController = [MyProfileViewController new];
     UINavigationController *forthNav = [[UINavigationController alloc] initWithRootViewController:myProfileViewController];
-    forthNav.tabBarItem.title = @"我";
+    UIImage *profileImage = [IonIcons imageWithIcon:ion_person size:30 color:[UIColor SPColorLightMain]];
+    UIImage *profileSelecedImage = [IonIcons imageWithIcon:ion_person size:30 color:[UIColor SPColorMain]];
+    forthNav.tabBarItem.imageInsets = UIEdgeInsetsMake(6, 0, -6, 0);
+    forthNav.tabBarItem.image = profileImage;
+    forthNav.tabBarItem.selectedImage = profileSelecedImage;
     
     // TabBar Controller
     UITabBarController *tabBarController = [[UITabBarController alloc] init];

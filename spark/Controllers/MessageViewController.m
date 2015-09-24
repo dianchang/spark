@@ -14,24 +14,38 @@
 
 @implementation MessageViewController
 
+#pragma mark - LifeCycle
+
+- (void)loadView
+{
+    self.view = [[UIView alloc] initWithFrame:[[UIScreen mainScreen] applicationFrame]];
+    self.view.backgroundColor = [UIColor whiteColor];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    self.navigationItem.title = @"聊天";
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
 }
 
-/*
-#pragma mark - Navigation
+#pragma mark - Layout
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)createViews {
+    
 }
-*/
+
+#pragma mark - Public Interface
+
+#pragma mark - User Interface
+
+#pragma mark - SomeDelegate
+
+#pragma mark - Internal Helpers
+
+#pragma mark - Getters & Setters
+
 
 @end

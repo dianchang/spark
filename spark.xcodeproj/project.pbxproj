@@ -42,6 +42,7 @@
 		0590CFCF1BB402C300097ECF /* SPNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 0590CFC31BB402C300097ECF /* SPNotification.m */; settings = {ASSET_TAGS = (); }; };
 		0590CFD01BB402C300097ECF /* SPTopic.m in Sources */ = {isa = PBXBuildFile; fileRef = 0590CFC51BB402C300097ECF /* SPTopic.m */; settings = {ASSET_TAGS = (); }; };
 		0590CFD11BB402C300097ECF /* SPUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 0590CFC71BB402C300097ECF /* SPUser.m */; settings = {ASSET_TAGS = (); }; };
+		0590CFD41BB40EC300097ECF /* UIColor+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 0590CFD31BB40EC300097ECF /* UIColor+Helper.m */; settings = {ASSET_TAGS = (); }; };
 		84F1591E2415FBD5B0B396F4 /* libPods-spark.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D28D8D01EBF146990B40B3C /* libPods-spark.a */; };
 /* End PBXBuildFile section */
 
@@ -105,6 +106,8 @@
 		0590CFC51BB402C300097ECF /* SPTopic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPTopic.m; sourceTree = "<group>"; };
 		0590CFC61BB402C300097ECF /* SPUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPUser.h; sourceTree = "<group>"; };
 		0590CFC71BB402C300097ECF /* SPUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPUser.m; sourceTree = "<group>"; };
+		0590CFD21BB40EC300097ECF /* UIColor+Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Helper.h"; sourceTree = "<group>"; };
+		0590CFD31BB40EC300097ECF /* UIColor+Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Helper.m"; sourceTree = "<group>"; };
 		0D1E5D98B2A87B51C002D97B /* Pods-spark.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-spark.debug.xcconfig"; path = "Pods/Target Support Files/Pods-spark/Pods-spark.debug.xcconfig"; sourceTree = "<group>"; };
 		6D28D8D01EBF146990B40B3C /* libPods-spark.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-spark.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D986FAC88F7770D18F3678D3 /* Pods-spark.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-spark.release.xcconfig"; path = "Pods/Target Support Files/Pods-spark/Pods-spark.release.xcconfig"; sourceTree = "<group>"; };
@@ -270,6 +273,8 @@
 		0506FA671BB3B5DA00333BDD /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				0590CFD21BB40EC300097ECF /* UIColor+Helper.h */,
+				0590CFD31BB40EC300097ECF /* UIColor+Helper.m */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -303,6 +308,7 @@
 				0506FA261BB3A05500333BDD /* Frameworks */,
 				0506FA271BB3A05500333BDD /* Resources */,
 				2394B1C8C05379A0002E08CE /* Copy Pods Resources */,
+				0590CFD51BB413CD00097ECF /* Fabric */,
 			);
 			buildRules = (
 			);
@@ -436,6 +442,20 @@
 			shellPath = /bin/sh;
 			shellScript = "/usr/local/bin/mogenerator -m spark/spark.xcdatamodeld/spark.xcdatamodel -O spark/Models --template-var arc=true";
 		};
+		0590CFD51BB413CD00097ECF /* Fabric */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = Fabric;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Fabric/Fabric.framework/run\" 381afd6764f80d23443d620e7747e03f867c0ac3 773ed15148084e082507af05b6418cbc08d25458a9d2f0bb194f2538347443a3";
+		};
 		2394B1C8C05379A0002E08CE /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -484,6 +504,7 @@
 				0590CFD11BB402C300097ECF /* SPUser.m in Sources */,
 				0506FA6D1BB3B76C00333BDD /* MeetViewController.m in Sources */,
 				0506FA701BB3B78300333BDD /* BestViewController.m in Sources */,
+				0590CFD41BB40EC300097ECF /* UIColor+Helper.m in Sources */,
 				0506FA761BB3B7AE00333BDD /* MyProfileViewController.m in Sources */,
 				0506FA2E1BB3A05500333BDD /* main.m in Sources */,
 				0590CFCF1BB402C300097ECF /* SPNotification.m in Sources */,
@@ -752,6 +773,7 @@
 				0590CFB11BB4022300097ECF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
