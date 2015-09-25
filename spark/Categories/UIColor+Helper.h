@@ -14,5 +14,7 @@
 + (UIColor *)SPColorMain;
 + (UIColor *)SPColorLightMain;
 + (UIColor *)SPBackgroundColor;
++ (UIColor *)SPTopicBackgroundColor;
++ (UIColor *)SPTopicForegroundColor;
 
 @end

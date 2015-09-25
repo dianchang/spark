@@ -33,4 +33,14 @@
     return [self colorWithRGBA:0xF7F9F8FF];
 }
 
++ (UIColor *)SPTopicBackgroundColor
+{
+    return [self colorWithRGBA:0xF4F4FAFF];
+}
+
++ (UIColor *)SPTopicForegroundColor
+{
+    return [self colorWithRGBA:0x8A8E9BFF];
+}
+
 @end

@@ -6,7 +6,9 @@
 //  Copyright © 2015年 hustlzp. All rights reserved.
 //
 
+#import <QuartzCore/QuartzCore.h>
 #import "AddEntryViewController.h"
+#import "AddTopicViewController.h"
 #import "UIColor+Helper.h"
 #import "SPPresentedViewControllerProtocol.h"
 #import "UIColor+Helper.h"
@@ -16,6 +18,7 @@
 @interface AddEntryViewController ()
 
 @property (strong, nonatomic) UITextView *textView;
+@property (strong, nonatomic) UIView *addTopicWap;
 
 @end
 
@@ -25,7 +28,7 @@
 
 - (void)loadView
 {
-    self.view = [UIView new];
+    self.view = [[UIView alloc] initWithFrame:[[UIScreen mainScreen] applicationFrame]];
     self.view.backgroundColor = [UIColor SPBackgroundColor];
     
     [self createViews];
@@ -36,8 +39,10 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-    self.edgesForExtendedLayout = UIRectEdgeNone;
     [super viewWillAppear:animated];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
     
     [self.navigationController setNavigationBarHidden:YES];
 }
@@ -57,6 +62,10 @@
 - (void)viewDidDisappear:(BOOL)animated
 {
     [super viewDidDisappear:animated];
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil];
+    
     [self.navigationController setNavigationBarHidden:NO];
 }
 
@@ -85,6 +94,28 @@
     textView.font = [UIFont systemFontOfSize:16];
     [self.view addSubview:textView];
     
+    // 添加话题框
+    UIView *addTopicWap = [UIView new];
+    addTopicWap.backgroundColor = [UIColor whiteColor];
+    self.addTopicWap = addTopicWap;
+    CALayer *border = [CALayer layer];
+    border.frame = CGRectMake(0, 0, CGRectGetWidth(self.view.frame), .5);
+    border.backgroundColor = [UIColor colorWithRGBA:0xDDDDDDFF].CGColor;
+    [addTopicWap.layer addSublayer:border];
+    [self.view addSubview:addTopicWap];
+    
+    // 添加话题按钮
+    UIButton *addTopicButton = [UIButton new];
+    [addTopicWap addSubview:addTopicButton];
+    addTopicButton.layer.cornerRadius = 12;
+    addTopicButton.layer.masksToBounds = YES;
+    addTopicButton.contentEdgeInsets = UIEdgeInsetsMake(5, 10, 5, 10);
+    [addTopicButton setTitle:@"+ 添加话题" forState:UIControlStateNormal];
+    [addTopicButton setTitleColor:[UIColor SPTopicForegroundColor] forState:UIControlStateNormal];
+    addTopicButton.titleLabel.font = [UIFont systemFontOfSize:12];
+    addTopicButton.backgroundColor = [UIColor SPTopicBackgroundColor];
+    [addTopicButton addTarget:self action:@selector(addTopic) forControlEvents:UIControlEventTouchUpInside];
+    
     // 约束
     [dismissButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.view).offset(15);
@@ -100,7 +131,17 @@
         make.top.equalTo(dismissButton.mas_bottom).offset(10);
         make.left.equalTo(self.view).offset(15);
         make.right.equalTo(self.view).offset(-15);
-        make.bottom.equalTo(self.view).offset(-15);
+    }];
+    
+    [addTopicWap mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(textView.mas_bottom).offset(15);
+        make.left.right.bottom.equalTo(self.view);
+    }];
+    
+    [addTopicButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(addTopicWap).offset(15);
+        make.top.equalTo(addTopicWap).offset(10);
+        make.bottom.equalTo(addTopicWap).offset(-10);
     }];
 }
 
@@ -115,6 +156,44 @@
 
 - (void)sendEntry
 {
+}
+
+- (void)addTopic
+{
+    UIViewController *addTopicViewController = [AddTopicViewController new];
+    [self.navigationController pushViewController:addTopicViewController animated:YES];
+}
+
+- (void)keyboardWillShow:(NSNotification *)notification
+{
+    NSDictionary *info = [notification userInfo];
+    NSValue *kbFrame = [info objectForKey:UIKeyboardFrameEndUserInfoKey];
+    NSTimeInterval animationDuration = [[info objectForKey:UIKeyboardAnimationDurationUserInfoKey] doubleValue];
+    CGRect keyboardFrame = [kbFrame CGRectValue];
+    
+    [self.addTopicWap mas_updateConstraints:^(MASConstraintMaker *make) {
+        make.bottom.equalTo(self.view).offset(-keyboardFrame.size.height);
+    }];
+    
+    [UIView animateWithDuration:animationDuration animations:^{
+        [self.view setNeedsLayout];
+        [self.view layoutIfNeeded];
+    }];
+}
+
+- (void)keyboardWillHide:(NSNotification *)notification
+{
+    NSDictionary *info = [notification userInfo];
+    NSTimeInterval animationDuration = [[info objectForKey:UIKeyboardAnimationDurationUserInfoKey] doubleValue];
+    
+    [self.addTopicWap mas_updateConstraints:^(MASConstraintMaker *make) {
+        make.bottom.equalTo(self.view);
+    }];
+    
+    [UIView animateWithDuration:animationDuration animations:^{
+        [self.view setNeedsLayout];
+        [self.view layoutIfNeeded];
+    }];
 }
 
 #pragma mark - SomeDelegate

@@ -33,6 +33,7 @@
 		0506FA731BB3B79500333BDD /* MessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0506FA721BB3B79500333BDD /* MessageViewController.m */; settings = {ASSET_TAGS = (); }; };
 		0506FA761BB3B7AE00333BDD /* MyProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0506FA751BB3B7AE00333BDD /* MyProfileViewController.m */; settings = {ASSET_TAGS = (); }; };
 		057A12EA1BB4E09300190955 /* AddEntryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 057A12E91BB4E09300190955 /* AddEntryViewController.m */; settings = {ASSET_TAGS = (); }; };
+		057A12EE1BB4F5F600190955 /* AddTopicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 057A12ED1BB4F5F600190955 /* AddTopicViewController.m */; settings = {ASSET_TAGS = (); }; };
 		0590CFC81BB402C300097ECF /* _SPEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = 0590CFB51BB402C300097ECF /* _SPEntry.m */; settings = {ASSET_TAGS = (); }; };
 		0590CFC91BB402C300097ECF /* _SPMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 0590CFB71BB402C300097ECF /* _SPMessage.m */; settings = {ASSET_TAGS = (); }; };
 		0590CFCA1BB402C300097ECF /* _SPNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 0590CFB91BB402C300097ECF /* _SPNotification.m */; settings = {ASSET_TAGS = (); }; };
@@ -91,6 +92,8 @@
 		057A12E81BB4E09300190955 /* AddEntryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddEntryViewController.h; sourceTree = "<group>"; };
 		057A12E91BB4E09300190955 /* AddEntryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddEntryViewController.m; sourceTree = "<group>"; };
 		057A12EB1BB4E49D00190955 /* SPPresentedViewControllerProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPPresentedViewControllerProtocol.h; sourceTree = "<group>"; };
+		057A12EC1BB4F5F600190955 /* AddTopicViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddTopicViewController.h; sourceTree = "<group>"; };
+		057A12ED1BB4F5F600190955 /* AddTopicViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddTopicViewController.m; sourceTree = "<group>"; };
 		0590CFB41BB402C300097ECF /* _SPEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _SPEntry.h; sourceTree = "<group>"; };
 		0590CFB51BB402C300097ECF /* _SPEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _SPEntry.m; sourceTree = "<group>"; };
 		0590CFB61BB402C300097ECF /* _SPMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _SPMessage.h; sourceTree = "<group>"; };
@@ -230,6 +233,8 @@
 				0506FA751BB3B7AE00333BDD /* MyProfileViewController.m */,
 				057A12E81BB4E09300190955 /* AddEntryViewController.h */,
 				057A12E91BB4E09300190955 /* AddEntryViewController.m */,
+				057A12EC1BB4F5F600190955 /* AddTopicViewController.h */,
+				057A12ED1BB4F5F600190955 /* AddTopicViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -519,6 +524,7 @@
 				0506FA6D1BB3B76C00333BDD /* MeetViewController.m in Sources */,
 				0506FA701BB3B78300333BDD /* BestViewController.m in Sources */,
 				0590CFD41BB40EC300097ECF /* UIColor+Helper.m in Sources */,
+				057A12EE1BB4F5F600190955 /* AddTopicViewController.m in Sources */,
 				0506FA761BB3B7AE00333BDD /* MyProfileViewController.m in Sources */,
 				0506FA2E1BB3A05500333BDD /* main.m in Sources */,
 				0590CFCF1BB402C300097ECF /* SPNotification.m in Sources */,
