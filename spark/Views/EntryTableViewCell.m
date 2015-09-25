@@ -151,14 +151,4 @@
     self.userNameLabel.text = entry.user.name;
 }
 
-- (void)layoutSubviews
-{
-    [super layoutSubviews];
-    
-    [self.contentView setNeedsLayout];
-    [self.contentView layoutIfNeeded];
-    
-    self.contentLabel.preferredMaxLayoutWidth = CGRectGetWidth(self.contentLabel.frame);
-}
-
 @end

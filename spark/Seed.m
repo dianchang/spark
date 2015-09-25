@@ -34,18 +34,18 @@ static const NSString *CDN = @"http://7xn16r.com1.z0.glb.clouddn.com";
     SPTopic *topicAirbnb = [self createTopicWithName:@"Airbnb" entriesCount:@231 followersCount:@93];
     
     // 聊天
-    [self createMessageWithSender:userHardin content:@"好的，有机会再说"];
-    [self createMessageWithSender:userJiuqi content:@"我得把比我高的都删掉..."];
-    [self createMessageWithSender:userHustlzp content:@"这个，也很像，是做创业问答的"];
-    [self createMessageWithSender:userHuangbo content:@"看好你的。"];
-    [self createMessageWithSender:userDante content:@"真心的，哈哈。。"];
-    [self createMessageWithSender:userMichael content:@"问问那些要去硅谷工作的年轻人"];
-    [self createMessageWithSender:userSizhuren content:@"好的，有机会再说"];
+    [self createMessageWithSender:userHardin content:@"好的，有机会再说" createdAt:@"18:44"];
+    [self createMessageWithSender:userJiuqi content:@"我得把比我高的都删掉..." createdAt:@"18:37"];
+    [self createMessageWithSender:userHustlzp content:@"这个，也很像，是做创业问答的" createdAt:@"12:05"];
+    [self createMessageWithSender:userHuangbo content:@"看好你的。" createdAt:@"昨天"];
+    [self createMessageWithSender:userDante content:@"真心的，哈哈。。" createdAt:@"昨天"];
+    [self createMessageWithSender:userMichael content:@"问问那些要去硅谷工作的年轻人" createdAt:@"一周前"];
+    [self createMessageWithSender:userSizhuren content:@"好的，有机会再说" createdAt:@"一周前"];
     
     // 通知
-    [self createNotificationWithSender:userGM content:@"你的笔记「我觉得创业维艰」上榜啦！"];
-    [self createNotificationWithSender:userGaomoliang content:@"你好，这个观点我不是很认同啊..."];
-    [self createNotificationWithSender:userMadelong content:@"考虑加入下拉钩？"];
+    [self createNotificationWithSender:userGM content:@"你的笔记「我觉得创业维艰」上榜啦！" createdAt:@"刚刚"];
+    [self createNotificationWithSender:userGaomoliang content:@"你好，这个观点我不是很认同啊..." createdAt:@"18:22"];
+    [self createNotificationWithSender:userMadelong content:@"考虑加入下拉钩？" createdAt:@"前天"];
     
     // 条目    
     [self createEntryWithUser:userHardin
@@ -99,7 +99,7 @@ static const NSString *CDN = @"http://7xn16r.com1.z0.glb.clouddn.com";
 }
 
 // Message
-+ (SPMessage *)createMessageWithSender:(SPUser *)sender content:(NSString *)content
++ (SPMessage *)createMessageWithSender:(SPUser *)sender content:(NSString *)content createdAt:(NSString *)createdAt
 {
     __block SPMessage *message;
     
@@ -108,13 +108,14 @@ static const NSString *CDN = @"http://7xn16r.com1.z0.glb.clouddn.com";
         SPUser *_sender = [sender MR_inContext:localContext];
         message.sender = _sender;
         message.content = content;
+        message.createAtString = createdAt;
     }];
     
     return message;
 }
 
 // Notification
-+ (SPNotification *)createNotificationWithSender:(SPUser *)sender content:(NSString *)content
++ (SPNotification *)createNotificationWithSender:(SPUser *)sender content:(NSString *)content createdAt:(NSString *)createdAt
 {
     __block SPNotification *noti;
     
@@ -123,6 +124,7 @@ static const NSString *CDN = @"http://7xn16r.com1.z0.glb.clouddn.com";
         SPUser *_sender = [sender MR_inContext:localContext];
         noti.sender = _sender;
         noti.content = content;
+        noti.createdAtString = createdAt;
     }];
     
     return noti;

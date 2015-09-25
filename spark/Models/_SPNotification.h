@@ -6,6 +6,7 @@
 extern const struct SPNotificationAttributes {
 	__unsafe_unretained NSString *content;
 	__unsafe_unretained NSString *createdAt;
+	__unsafe_unretained NSString *createdAtString;
 } SPNotificationAttributes;
 
 extern const struct SPNotificationRelationships {
@@ -31,6 +32,10 @@ extern const struct SPNotificationRelationships {
 
 //- (BOOL)validateCreatedAt:(id*)value_ error:(NSError**)error_;
 
+@property (nonatomic, strong) NSString* createdAtString;
+
+//- (BOOL)validateCreatedAtString:(id*)value_ error:(NSError**)error_;
+
 @property (nonatomic, strong) SPUser *sender;
 
 //- (BOOL)validateSender:(id*)value_ error:(NSError**)error_;
@@ -44,6 +49,9 @@ extern const struct SPNotificationRelationships {
 
 - (NSDate*)primitiveCreatedAt;
 - (void)setPrimitiveCreatedAt:(NSDate*)value;
+
+- (NSString*)primitiveCreatedAtString;
+- (void)setPrimitiveCreatedAtString:(NSString*)value;
 
 - (SPUser*)primitiveSender;
 - (void)setPrimitiveSender:(SPUser*)value;

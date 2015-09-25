@@ -105,7 +105,6 @@ static NSString * const cellIdentifier = @"EntryCell";
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    NSLog(@"%d", self.entries.count);
     return self.entries.count;
 }
 

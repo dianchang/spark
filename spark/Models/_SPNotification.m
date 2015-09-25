@@ -6,6 +6,7 @@
 const struct SPNotificationAttributes SPNotificationAttributes = {
 	.content = @"content",
 	.createdAt = @"createdAt",
+	.createdAtString = @"createdAtString",
 };
 
 const struct SPNotificationRelationships SPNotificationRelationships = {
@@ -44,6 +45,8 @@ const struct SPNotificationRelationships SPNotificationRelationships = {
 @dynamic content;
 
 @dynamic createdAt;
+
+@dynamic createdAtString;
 
 @dynamic sender;
 

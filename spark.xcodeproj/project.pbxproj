@@ -37,6 +37,7 @@
 		057A12F11BB5068900190955 /* EntryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 057A12F01BB5068900190955 /* EntryTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
 		057A12F31BB5485900190955 /* lanting.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 057A12F21BB5483900190955 /* lanting.ttf */; settings = {ASSET_TAGS = (); }; };
 		057A12F51BB54B5A00190955 /* UIColor+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 0590CFD31BB40EC300097ECF /* UIColor+Helper.m */; settings = {ASSET_TAGS = (); }; };
+		057A12F81BB5549900190955 /* BaseMessageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 057A12F71BB5549900190955 /* BaseMessageTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
 		0590CFC81BB402C300097ECF /* _SPEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = 0590CFB51BB402C300097ECF /* _SPEntry.m */; settings = {ASSET_TAGS = (); }; };
 		0590CFC91BB402C300097ECF /* _SPMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 0590CFB71BB402C300097ECF /* _SPMessage.m */; settings = {ASSET_TAGS = (); }; };
 		0590CFCA1BB402C300097ECF /* _SPNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 0590CFB91BB402C300097ECF /* _SPNotification.m */; settings = {ASSET_TAGS = (); }; };
@@ -48,6 +49,7 @@
 		0590CFD01BB402C300097ECF /* SPTopic.m in Sources */ = {isa = PBXBuildFile; fileRef = 0590CFC51BB402C300097ECF /* SPTopic.m */; settings = {ASSET_TAGS = (); }; };
 		0590CFD11BB402C300097ECF /* SPUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 0590CFC71BB402C300097ECF /* SPUser.m */; settings = {ASSET_TAGS = (); }; };
 		0590CFD81BB4149100097ECF /* Seed.m in Sources */ = {isa = PBXBuildFile; fileRef = 0590CFD71BB4149100097ECF /* Seed.m */; settings = {ASSET_TAGS = (); }; };
+		05E5D77E1BB5B0B700D50939 /* MessageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 05E5D77D1BB5B0B700D50939 /* MessageTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
 		84F1591E2415FBD5B0B396F4 /* libPods-spark.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D28D8D01EBF146990B40B3C /* libPods-spark.a */; };
 /* End PBXBuildFile section */
 
@@ -100,6 +102,8 @@
 		057A12F01BB5068900190955 /* EntryTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntryTableViewCell.m; sourceTree = "<group>"; };
 		057A12F21BB5483900190955 /* lanting.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = lanting.ttf; sourceTree = "<group>"; };
 		057A12F41BB54B4E00190955 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		057A12F61BB5549900190955 /* BaseMessageTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseMessageTableViewCell.h; sourceTree = "<group>"; };
+		057A12F71BB5549900190955 /* BaseMessageTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseMessageTableViewCell.m; sourceTree = "<group>"; };
 		0590CFB41BB402C300097ECF /* _SPEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _SPEntry.h; sourceTree = "<group>"; };
 		0590CFB51BB402C300097ECF /* _SPEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _SPEntry.m; sourceTree = "<group>"; };
 		0590CFB61BB402C300097ECF /* _SPMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _SPMessage.h; sourceTree = "<group>"; };
@@ -124,6 +128,8 @@
 		0590CFD31BB40EC300097ECF /* UIColor+Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Helper.m"; sourceTree = "<group>"; };
 		0590CFD61BB4149100097ECF /* Seed.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Seed.h; sourceTree = "<group>"; };
 		0590CFD71BB4149100097ECF /* Seed.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Seed.m; sourceTree = "<group>"; };
+		05E5D77C1BB5B0B700D50939 /* MessageTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageTableViewCell.h; sourceTree = "<group>"; };
+		05E5D77D1BB5B0B700D50939 /* MessageTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageTableViewCell.m; sourceTree = "<group>"; };
 		0D1E5D98B2A87B51C002D97B /* Pods-spark.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-spark.debug.xcconfig"; path = "Pods/Target Support Files/Pods-spark/Pods-spark.debug.xcconfig"; sourceTree = "<group>"; };
 		6D28D8D01EBF146990B40B3C /* libPods-spark.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-spark.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D986FAC88F7770D18F3678D3 /* Pods-spark.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-spark.release.xcconfig"; path = "Pods/Target Support Files/Pods-spark/Pods-spark.release.xcconfig"; sourceTree = "<group>"; };
@@ -252,6 +258,10 @@
 			children = (
 				057A12EF1BB5068900190955 /* EntryTableViewCell.h */,
 				057A12F01BB5068900190955 /* EntryTableViewCell.m */,
+				057A12F61BB5549900190955 /* BaseMessageTableViewCell.h */,
+				057A12F71BB5549900190955 /* BaseMessageTableViewCell.m */,
+				05E5D77C1BB5B0B700D50939 /* MessageTableViewCell.h */,
+				05E5D77D1BB5B0B700D50939 /* MessageTableViewCell.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -533,10 +543,12 @@
 				0590CFD81BB4149100097ECF /* Seed.m in Sources */,
 				0590CFD11BB402C300097ECF /* SPUser.m in Sources */,
 				0506FA6D1BB3B76C00333BDD /* MeetViewController.m in Sources */,
+				057A12F81BB5549900190955 /* BaseMessageTableViewCell.m in Sources */,
 				0506FA701BB3B78300333BDD /* BestViewController.m in Sources */,
 				057A12EE1BB4F5F600190955 /* AddTopicViewController.m in Sources */,
 				0506FA761BB3B7AE00333BDD /* MyProfileViewController.m in Sources */,
 				057A12F51BB54B5A00190955 /* UIColor+Helper.m in Sources */,
+				05E5D77E1BB5B0B700D50939 /* MessageTableViewCell.m in Sources */,
 				0506FA2E1BB3A05500333BDD /* main.m in Sources */,
 				0590CFCF1BB402C300097ECF /* SPNotification.m in Sources */,
 				057A12F11BB5068900190955 /* EntryTableViewCell.m in Sources */,
