@@ -13,6 +13,7 @@
 #import "MyProfileViewController.h"
 #import "UIColor+Helper.h"
 #import "Seed.h"
+#import "Constants.h"
 #import <Fabric/Fabric.h>
 #import <MagicalRecord/MagicalRecord.h>
 #import <Crashlytics/Crashlytics.h>
@@ -82,6 +83,8 @@
     
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
+    
+    [[UINavigationBar appearance] setTitleTextAttributes: @{NSFontAttributeName: [UIFont fontWithName:SPLanTingFontName size:17.0f]}];
     
     return YES;
 }

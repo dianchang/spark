@@ -47,9 +47,7 @@ static const NSString *CDN = @"http://7xn16r.com1.z0.glb.clouddn.com";
     [self createNotificationWithSender:userGaomoliang content:@"你好，这个观点我不是很认同啊..."];
     [self createNotificationWithSender:userMadelong content:@"考虑加入下拉钩？"];
     
-    // 条目
-    [self createEntryWithUser:userHardin content:@"讲实话，我觉得《从0到1》比《创业维艰》思维高度高了有10倍不止。《创业维艰》根本不适合每个创业者去读，而《从0到1》你应该读3遍。" topics:@[topicStartup, topicOne] upvotesCount:@213 downvotesCount:@19];
-    
+    // 条目    
     [self createEntryWithUser:userHardin
                       content:@"讲实话，我觉得《从0到1》比《创业维艰》思维高度高了有10倍不止。《创业维艰》根本不适合每个创业者去读，而《从0到1》你应该读3遍。"
                        topics:@[topicStartup, topicOne, topicAirbnb]

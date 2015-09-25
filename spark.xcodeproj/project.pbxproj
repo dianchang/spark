@@ -34,6 +34,9 @@
 		0506FA761BB3B7AE00333BDD /* MyProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0506FA751BB3B7AE00333BDD /* MyProfileViewController.m */; settings = {ASSET_TAGS = (); }; };
 		057A12EA1BB4E09300190955 /* AddEntryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 057A12E91BB4E09300190955 /* AddEntryViewController.m */; settings = {ASSET_TAGS = (); }; };
 		057A12EE1BB4F5F600190955 /* AddTopicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 057A12ED1BB4F5F600190955 /* AddTopicViewController.m */; settings = {ASSET_TAGS = (); }; };
+		057A12F11BB5068900190955 /* EntryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 057A12F01BB5068900190955 /* EntryTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
+		057A12F31BB5485900190955 /* lanting.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 057A12F21BB5483900190955 /* lanting.ttf */; settings = {ASSET_TAGS = (); }; };
+		057A12F51BB54B5A00190955 /* UIColor+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 0590CFD31BB40EC300097ECF /* UIColor+Helper.m */; settings = {ASSET_TAGS = (); }; };
 		0590CFC81BB402C300097ECF /* _SPEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = 0590CFB51BB402C300097ECF /* _SPEntry.m */; settings = {ASSET_TAGS = (); }; };
 		0590CFC91BB402C300097ECF /* _SPMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 0590CFB71BB402C300097ECF /* _SPMessage.m */; settings = {ASSET_TAGS = (); }; };
 		0590CFCA1BB402C300097ECF /* _SPNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 0590CFB91BB402C300097ECF /* _SPNotification.m */; settings = {ASSET_TAGS = (); }; };
@@ -44,7 +47,6 @@
 		0590CFCF1BB402C300097ECF /* SPNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 0590CFC31BB402C300097ECF /* SPNotification.m */; settings = {ASSET_TAGS = (); }; };
 		0590CFD01BB402C300097ECF /* SPTopic.m in Sources */ = {isa = PBXBuildFile; fileRef = 0590CFC51BB402C300097ECF /* SPTopic.m */; settings = {ASSET_TAGS = (); }; };
 		0590CFD11BB402C300097ECF /* SPUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 0590CFC71BB402C300097ECF /* SPUser.m */; settings = {ASSET_TAGS = (); }; };
-		0590CFD41BB40EC300097ECF /* UIColor+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 0590CFD31BB40EC300097ECF /* UIColor+Helper.m */; settings = {ASSET_TAGS = (); }; };
 		0590CFD81BB4149100097ECF /* Seed.m in Sources */ = {isa = PBXBuildFile; fileRef = 0590CFD71BB4149100097ECF /* Seed.m */; settings = {ASSET_TAGS = (); }; };
 		84F1591E2415FBD5B0B396F4 /* libPods-spark.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D28D8D01EBF146990B40B3C /* libPods-spark.a */; };
 /* End PBXBuildFile section */
@@ -94,6 +96,10 @@
 		057A12EB1BB4E49D00190955 /* SPPresentedViewControllerProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPPresentedViewControllerProtocol.h; sourceTree = "<group>"; };
 		057A12EC1BB4F5F600190955 /* AddTopicViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddTopicViewController.h; sourceTree = "<group>"; };
 		057A12ED1BB4F5F600190955 /* AddTopicViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddTopicViewController.m; sourceTree = "<group>"; };
+		057A12EF1BB5068900190955 /* EntryTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntryTableViewCell.h; sourceTree = "<group>"; };
+		057A12F01BB5068900190955 /* EntryTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntryTableViewCell.m; sourceTree = "<group>"; };
+		057A12F21BB5483900190955 /* lanting.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = lanting.ttf; sourceTree = "<group>"; };
+		057A12F41BB54B4E00190955 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		0590CFB41BB402C300097ECF /* _SPEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _SPEntry.h; sourceTree = "<group>"; };
 		0590CFB51BB402C300097ECF /* _SPEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _SPEntry.m; sourceTree = "<group>"; };
 		0590CFB61BB402C300097ECF /* _SPMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _SPMessage.h; sourceTree = "<group>"; };
@@ -174,6 +180,7 @@
 		0506FA2B1BB3A05500333BDD /* spark */ = {
 			isa = PBXGroup;
 			children = (
+				057A12F41BB54B4E00190955 /* Constants.h */,
 				0506FA381BB3A05500333BDD /* spark.xcdatamodeld */,
 				0506FA671BB3B5DA00333BDD /* Categories */,
 				0506FA661BB3B5D200333BDD /* Additions */,
@@ -189,6 +196,7 @@
 		0506FA2C1BB3A05500333BDD /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				057A12F21BB5483900190955 /* lanting.ttf */,
 				0506FA2F1BB3A05500333BDD /* AppDelegate.h */,
 				0506FA301BB3A05500333BDD /* AppDelegate.m */,
 				0590CFD61BB4149100097ECF /* Seed.h */,
@@ -242,6 +250,8 @@
 		0506FA631BB3B5A000333BDD /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				057A12EF1BB5068900190955 /* EntryTableViewCell.h */,
+				057A12F01BB5068900190955 /* EntryTableViewCell.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -425,6 +435,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0506FA3F1BB3A05500333BDD /* LaunchScreen.storyboard in Resources */,
+				057A12F31BB5485900190955 /* lanting.ttf in Resources */,
 				0506FA3C1BB3A05500333BDD /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -523,11 +534,12 @@
 				0590CFD11BB402C300097ECF /* SPUser.m in Sources */,
 				0506FA6D1BB3B76C00333BDD /* MeetViewController.m in Sources */,
 				0506FA701BB3B78300333BDD /* BestViewController.m in Sources */,
-				0590CFD41BB40EC300097ECF /* UIColor+Helper.m in Sources */,
 				057A12EE1BB4F5F600190955 /* AddTopicViewController.m in Sources */,
 				0506FA761BB3B7AE00333BDD /* MyProfileViewController.m in Sources */,
+				057A12F51BB54B5A00190955 /* UIColor+Helper.m in Sources */,
 				0506FA2E1BB3A05500333BDD /* main.m in Sources */,
 				0590CFCF1BB402C300097ECF /* SPNotification.m in Sources */,
+				057A12F11BB5068900190955 /* EntryTableViewCell.m in Sources */,
 				0590CFCD1BB402C300097ECF /* SPEntry.m in Sources */,
 				0506FA3A1BB3A05500333BDD /* spark.xcdatamodeld in Sources */,
 				0590CFCA1BB402C300097ECF /* _SPNotification.m in Sources */,
