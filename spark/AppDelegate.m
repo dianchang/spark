@@ -34,7 +34,7 @@
     // 填充数据
     [Seed truncateAllData];
     [Seed seedData];
-
+    
     // 首页
     UIViewController *meetViewController = [MeetViewController new];
     UINavigationController *firstNav = [[UINavigationController alloc] initWithRootViewController:meetViewController];
@@ -77,7 +77,7 @@
     tabBarController.viewControllers = @[firstNav, secondNav, thirdNav, forthNav];
     
     // Root Controller
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];    
     [self.window setRootViewController:tabBarController];
     
     self.window.backgroundColor = [UIColor whiteColor];

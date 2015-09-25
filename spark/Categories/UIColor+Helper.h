@@ -13,5 +13,6 @@
 + (UIColor *)colorWithRGBA:(NSUInteger)color;
 + (UIColor *)SPColorMain;
 + (UIColor *)SPColorLightMain;
++ (UIColor *)SPBackgroundColor;
 
 @end

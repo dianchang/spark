@@ -7,6 +7,8 @@
 //
 
 #import "MeetViewController.h"
+#import "AddEntryViewController.h"
+#import <ionicons/IonIcons.h>
 
 @interface MeetViewController ()
 
@@ -27,6 +29,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.title = @"Spark";
+    UIImage *plusIcon = [IonIcons imageWithIcon:ion_android_add size:28 color:[UIColor lightGrayColor]];
+    UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithImage:plusIcon style:UIBarButtonItemStylePlain target:self action:@selector(addEntry)];
+    self.navigationItem.rightBarButtonItem = rightButton;
 }
 
 //- (void)viewWillAppear:(BOOL)animated {
@@ -49,7 +54,20 @@
 
 #pragma mark - User Interface
 
-#pragma mark - SomeDelegate
+- (void)addEntry
+{
+    AddEntryViewController *addEntryViewController = [AddEntryViewController new];
+    addEntryViewController.delegate = self;
+    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:addEntryViewController];
+    [self presentViewController:navController animated:YES completion:nil];
+}
+
+#pragma mark - SPPresentedViewControllerProtocol
+
+- (void)didDismissPresentedViewController
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 
 #pragma mark - Internal Helpers
 

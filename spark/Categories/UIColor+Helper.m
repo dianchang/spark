@@ -28,4 +28,9 @@
     return [self colorWithRGBA:0x9E9F9FFF];
 }
 
++ (UIColor *)SPBackgroundColor
+{
+    return [self colorWithRGBA:0xF7F9F8FF];
+}
+
 @end

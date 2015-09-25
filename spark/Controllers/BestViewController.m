@@ -7,6 +7,8 @@
 //
 
 #import "BestViewController.h"
+#import "AddEntryViewController.h"
+#import <ionicons/IonIcons.h>
 
 @interface BestViewController ()
 
@@ -25,6 +27,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.title = @"今日最佳";
+    UIImage *plusIcon = [IonIcons imageWithIcon:ion_android_add size:28 color:[UIColor lightGrayColor]];
+    UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithImage:plusIcon style:UIBarButtonItemStylePlain target:self action:@selector(addEntry)];
+    self.navigationItem.rightBarButtonItem = rightButton;
 }
 
 #pragma mark - Layout
@@ -37,7 +42,20 @@
 
 #pragma mark - User Interface
 
-#pragma mark - SomeDelegate
+- (void)addEntry
+{
+    AddEntryViewController *addEntryViewController = [AddEntryViewController new];
+    addEntryViewController.delegate = self;
+    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:addEntryViewController];
+    [self presentViewController:navController animated:YES completion:nil];
+}
+
+#pragma mark - SPPresentedViewControllerProtocol
+
+- (void)didDismissPresentedViewController
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 
 #pragma mark - Internal Helpers
 
