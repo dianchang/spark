@@ -15,15 +15,15 @@ static const NSString *CDN = @"http://7xn16r.com1.z0.glb.clouddn.com";
 + (void)seedData {
     // 用户
     SPUser *userHardin = [self createUserWithName:@"哈丁" avatar:@"hardin.png"];
-    SPUser *userJiuqi = [self createUserWithName:@"玖琪" avatar:@"hardin.png"];
-    SPUser *userHustlzp = [self createUserWithName:@"hustlzp" avatar:@"hardin.png"];
-    SPUser *userHuangbo = [self createUserWithName:@"黄博" avatar:@"hardin.png"];
-    SPUser *userDante = [self createUserWithName:@"Dante" avatar:@"hardin.png"];
-    SPUser *userMichael = [self createUserWithName:@"Michael282694" avatar:@"hardin.png"];
-    SPUser *userSizhuren = [self createUserWithName:@"寺主人" avatar:@"hardin.png"];
-    SPUser *userGM = [self createUserWithName:@"管理员" avatar:@"hardin.png"];
-    SPUser *userGaomoliang = [self createUserWithName:@"高末良" avatar:@"hardin.png"];
-    SPUser *userMadelong = [self createUserWithName:@"马德龙" avatar:@"hardin.png"];
+    SPUser *userJiuqi = [self createUserWithName:@"玖琪" avatar:@"jiuqi.png"];
+    SPUser *userHustlzp = [self createUserWithName:@"hustlzp" avatar:@"hustlzp.png"];
+    SPUser *userHuangbo = [self createUserWithName:@"黄博" avatar:@"huangtao.png"];
+    SPUser *userDante = [self createUserWithName:@"Dante" avatar:@"Dante.png"];
+    SPUser *userMichael = [self createUserWithName:@"Michael282694" avatar:@"Michael282694.png"];
+    SPUser *userSizhuren = [self createUserWithName:@"寺主人" avatar:@"Sizhuren.png"];
+    SPUser *userGM = [self createUserWithName:@"管理员" avatar:@"GM.png"];
+    SPUser *userGaomoliang = [self createUserWithName:@"高末良" avatar:@"gaomoliang.png"];
+    SPUser *userMadelong = [self createUserWithName:@"马德龙" avatar:@"madelong.png"];
     
     // 话题
     SPTopic *topicStartup = [self createTopicWithName:@"创业" entriesCount:@273 followersCount:@231];
