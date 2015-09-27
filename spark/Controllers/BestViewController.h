@@ -7,8 +7,9 @@
 //
 
 #import "SPPresentedViewControllerProtocol.h"
+#import "TopicsListView.h"
 #import <UIKit/UIKit.h>
 
-@interface BestViewController : UIViewController <SPPresentedViewControllerProtocol>
+@interface BestViewController : UIViewController <SPPresentedViewControllerProtocol, TopicsListViewDelegate>
 
 @end

@@ -49,6 +49,9 @@
 		0590CFD01BB402C300097ECF /* SPTopic.m in Sources */ = {isa = PBXBuildFile; fileRef = 0590CFC51BB402C300097ECF /* SPTopic.m */; settings = {ASSET_TAGS = (); }; };
 		0590CFD11BB402C300097ECF /* SPUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 0590CFC71BB402C300097ECF /* SPUser.m */; settings = {ASSET_TAGS = (); }; };
 		0590CFD81BB4149100097ECF /* Seed.m in Sources */ = {isa = PBXBuildFile; fileRef = 0590CFD71BB4149100097ECF /* Seed.m */; settings = {ASSET_TAGS = (); }; };
+		05AF29F11BB7877E00496A05 /* TopicView.m in Sources */ = {isa = PBXBuildFile; fileRef = 05AF29F01BB7877E00496A05 /* TopicView.m */; settings = {ASSET_TAGS = (); }; };
+		05AF29F41BB78F9E00496A05 /* TopicsListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 05AF29F31BB78F9E00496A05 /* TopicsListView.m */; settings = {ASSET_TAGS = (); }; };
+		05AF29F71BB7CAAC00496A05 /* TopicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05AF29F61BB7CAAC00496A05 /* TopicViewController.m */; settings = {ASSET_TAGS = (); }; };
 		05E5D77E1BB5B0B700D50939 /* MessageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 05E5D77D1BB5B0B700D50939 /* MessageTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
 		84F1591E2415FBD5B0B396F4 /* libPods-spark.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D28D8D01EBF146990B40B3C /* libPods-spark.a */; };
 /* End PBXBuildFile section */
@@ -128,6 +131,12 @@
 		0590CFD31BB40EC300097ECF /* UIColor+Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Helper.m"; sourceTree = "<group>"; };
 		0590CFD61BB4149100097ECF /* Seed.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Seed.h; sourceTree = "<group>"; };
 		0590CFD71BB4149100097ECF /* Seed.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Seed.m; sourceTree = "<group>"; };
+		05AF29EF1BB7877E00496A05 /* TopicView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopicView.h; sourceTree = "<group>"; };
+		05AF29F01BB7877E00496A05 /* TopicView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopicView.m; sourceTree = "<group>"; };
+		05AF29F21BB78F9E00496A05 /* TopicsListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopicsListView.h; sourceTree = "<group>"; };
+		05AF29F31BB78F9E00496A05 /* TopicsListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopicsListView.m; sourceTree = "<group>"; };
+		05AF29F51BB7CAAC00496A05 /* TopicViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopicViewController.h; sourceTree = "<group>"; };
+		05AF29F61BB7CAAC00496A05 /* TopicViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopicViewController.m; sourceTree = "<group>"; };
 		05E5D77C1BB5B0B700D50939 /* MessageTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageTableViewCell.h; sourceTree = "<group>"; };
 		05E5D77D1BB5B0B700D50939 /* MessageTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageTableViewCell.m; sourceTree = "<group>"; };
 		0D1E5D98B2A87B51C002D97B /* Pods-spark.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-spark.debug.xcconfig"; path = "Pods/Target Support Files/Pods-spark/Pods-spark.debug.xcconfig"; sourceTree = "<group>"; };
@@ -249,6 +258,8 @@
 				057A12E91BB4E09300190955 /* AddEntryViewController.m */,
 				057A12EC1BB4F5F600190955 /* AddTopicViewController.h */,
 				057A12ED1BB4F5F600190955 /* AddTopicViewController.m */,
+				05AF29F51BB7CAAC00496A05 /* TopicViewController.h */,
+				05AF29F61BB7CAAC00496A05 /* TopicViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -262,6 +273,10 @@
 				057A12F71BB5549900190955 /* BaseMessageTableViewCell.m */,
 				05E5D77C1BB5B0B700D50939 /* MessageTableViewCell.h */,
 				05E5D77D1BB5B0B700D50939 /* MessageTableViewCell.m */,
+				05AF29EF1BB7877E00496A05 /* TopicView.h */,
+				05AF29F01BB7877E00496A05 /* TopicView.m */,
+				05AF29F21BB78F9E00496A05 /* TopicsListView.h */,
+				05AF29F31BB78F9E00496A05 /* TopicsListView.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -534,7 +549,9 @@
 				0590CFC91BB402C300097ECF /* _SPMessage.m in Sources */,
 				0590CFCC1BB402C300097ECF /* _SPUser.m in Sources */,
 				0590CFCE1BB402C300097ECF /* SPMessage.m in Sources */,
+				05AF29F11BB7877E00496A05 /* TopicView.m in Sources */,
 				0590CFCB1BB402C300097ECF /* _SPTopic.m in Sources */,
+				05AF29F71BB7CAAC00496A05 /* TopicViewController.m in Sources */,
 				0506FA731BB3B79500333BDD /* MessageViewController.m in Sources */,
 				057A12EA1BB4E09300190955 /* AddEntryViewController.m in Sources */,
 				0590CFC81BB402C300097ECF /* _SPEntry.m in Sources */,
@@ -550,6 +567,7 @@
 				057A12F51BB54B5A00190955 /* UIColor+Helper.m in Sources */,
 				05E5D77E1BB5B0B700D50939 /* MessageTableViewCell.m in Sources */,
 				0506FA2E1BB3A05500333BDD /* main.m in Sources */,
+				05AF29F41BB78F9E00496A05 /* TopicsListView.m in Sources */,
 				0590CFCF1BB402C300097ECF /* SPNotification.m in Sources */,
 				057A12F11BB5068900190955 /* EntryTableViewCell.m in Sources */,
 				0590CFCD1BB402C300097ECF /* SPEntry.m in Sources */,

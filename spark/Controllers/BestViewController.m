@@ -10,6 +10,7 @@
 #import "EntryTableViewCell.h"
 #import "BestViewController.h"
 #import "AddEntryViewController.h"
+#import "TopicViewController.h"
 #import "UIColor+Helper.h"
 #import "Constants.h"
 #import <ionicons/IonIcons.h>
@@ -66,6 +67,7 @@ static NSString * const cellIdentifier = @"EntryCell";
     UITableView *tableView = [UITableView new];
     tableView.delegate = self;
     tableView.dataSource = self;
+    tableView.allowsSelection = NO;
     tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     self.tableView = tableView;
@@ -112,6 +114,7 @@ static NSString * const cellIdentifier = @"EntryCell";
 {
     SPEntry *entry = self.entries[indexPath.row];
     EntryTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    cell.viewController = self;
     [cell updateWithEntry:entry];
     return cell;
 }
@@ -119,6 +122,14 @@ static NSString * const cellIdentifier = @"EntryCell";
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
+#pragma mard - TopicsListViewDelegate
+
+- (void)topicPressed:(SPTopic *)topic
+{
+    TopicViewController *viewController = [[TopicViewController alloc] initWithTopic:topic];
+    [self.navigationController pushViewController:viewController animated:YES];
 }
 
 #pragma mark - SPPresentedViewControllerProtocol

@@ -17,7 +17,7 @@
 @interface EntryTableViewCell ()
 
 @property (strong, nonatomic) SPEntry *entry;
-@property (strong, nonatomic) UIView *topicsView;
+@property (strong, nonatomic) TopicsListView *topicsView;
 @property (strong, nonatomic) UILabel *popularityLabel;
 @property (strong, nonatomic) UILabel *contentLabel;
 @property (strong, nonatomic) UIImageView *userAvatarView;
@@ -30,12 +30,10 @@
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
-//    self.backgroundColor = [UIColor blueColor];
     
     // 话题
-    UIView *topicsView = [UIView new];
+    TopicsListView *topicsView = [TopicsListView new];
     self.topicsView = topicsView;
-    topicsView.backgroundColor = [UIColor greenColor];
     [self.contentView addSubview:topicsView];
     
     // 流行度
@@ -93,6 +91,7 @@
     [popularityWapView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(topicsView);
         make.right.equalTo(self.contentView).offset(-15);
+        make.left.equalTo(topicsView.mas_right).offset(10);
     }];
     
     [heartLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -108,7 +107,7 @@
     [contentLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(topicsView);
         make.right.equalTo(popularityWapView);
-        make.top.equalTo(topicsView.mas_bottom).offset(30);
+        make.top.equalTo(topicsView.mas_bottom).offset(12);
     }];
     
     [userAvatarView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -141,14 +140,18 @@
 - (void)updateWithEntry:(SPEntry *)entry
 {
     self.entry = entry;
-    
-    // Remake topics view
-    // TODO
-    
+    self.topicsView.topics = [entry.topics allObjects];
     self.popularityLabel.text = [NSString stringWithFormat:@"%d%%", (int)((double)entry.upvotesCountValue / (entry.upvotesCountValue + entry.downvotesCountValue))];
     self.contentLabel.text = entry.content;
     [self.userAvatarView setImageWithURL:[NSURL URLWithString:entry.user.avatarUrl]];
     self.userNameLabel.text = entry.user.name;
+}
+
+#pragma mark - Getters & Setters
+
+- (void)setViewController:(id<TopicsListViewDelegate>)viewController
+{
+    self.topicsView.delegate = viewController;
 }
 
 @end
