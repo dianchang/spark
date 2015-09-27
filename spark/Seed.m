@@ -73,7 +73,7 @@ static const NSString *CDN = @"http://7xn16r.com1.z0.glb.clouddn.com";
     [MagicalRecord saveWithBlockAndWait:^(NSManagedObjectContext *localContext) {
         user = [SPUser MR_createEntityInContext:localContext];
         user.name = name;
-        user.desc = @"呵呵";
+        user.desc = @"产品设计 / 健身爱好者 / 创业中";
         user.avatarUrl = [NSString stringWithFormat:@"%@/%@", CDN, avatar];
         user.entriesCount = @91;
         user.followedTopicsCount = @18;
