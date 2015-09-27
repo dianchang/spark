@@ -52,7 +52,7 @@
     UILabel *contentLabel = [UILabel new];
     contentLabel.numberOfLines = 0;
     contentLabel.lineBreakMode = NSLineBreakByWordWrapping;
-    contentLabel.font = [UIFont systemFontOfSize:14];
+    contentLabel.font = [UIFont systemFontOfSize:16];
     self.contentLabel = contentLabel;
     [self.contentView addSubview:contentLabel];
     
@@ -84,13 +84,13 @@
     /* 约束 */
     
     [topicsView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self.contentView).offset(15);
+        make.left.equalTo(self.contentView).offset(20);
         make.top.equalTo(self.contentView).offset(20);
     }];
     
     [popularityWapView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(topicsView);
-        make.right.equalTo(self.contentView).offset(-15);
+        make.centerY.equalTo(topicsView);
+        make.right.equalTo(self.contentView).offset(-20);
         make.left.equalTo(topicsView.mas_right).offset(10);
     }];
     
@@ -122,7 +122,7 @@
     }];
     
     [commentButton mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.right.equalTo(self.contentView).offset(-8);
+        make.right.equalTo(self.contentView).offset(-10);
         make.centerY.equalTo(userAvatarView);
     }];
     
@@ -142,7 +142,13 @@
     self.entry = entry;
     self.topicsView.topics = [entry.topics allObjects];
     self.popularityLabel.text = [NSString stringWithFormat:@"%d%%", (int)((double)entry.upvotesCountValue / (entry.upvotesCountValue + entry.downvotesCountValue))];
-    self.contentLabel.text = entry.content;
+    
+    NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:entry.content];
+    NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
+    paragraphStyle.lineSpacing = 5;
+    [attributedString addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, entry.content.length)];
+    self.contentLabel.attributedText = attributedString;
+    
     [self.userAvatarView setImageWithURL:[NSURL URLWithString:entry.user.avatarUrl]];
     self.userNameLabel.text = entry.user.name;
 }

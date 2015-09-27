@@ -195,6 +195,8 @@
         [topicView removeFromSuperview];
     }
     
+    [self.topicViews removeAllObjects];
+    
     for (SPTopic *topic in topics) {
         [self.topicViews addObject:[self createTopicViewWithTopic:topic]];
     }
