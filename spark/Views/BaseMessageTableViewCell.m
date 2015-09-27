@@ -31,14 +31,14 @@
     // 名称
     UILabel *userNameLabel = [UILabel new];
     self.userNameLabel = userNameLabel;
-    userNameLabel.font = [UIFont systemFontOfSize:15];
+    userNameLabel.font = [UIFont systemFontOfSize:16];
     [self.contentView addSubview:userNameLabel];
     
     // 消息
     UILabel *contentLabel = [UILabel new];
     self.contentLabel = contentLabel;
     contentLabel.textColor = [UIColor colorWithRGBA:0x999999FF];
-    contentLabel.font = [UIFont systemFontOfSize:12];
+    contentLabel.font = [UIFont systemFontOfSize:13];
     [self.contentView addSubview:contentLabel];
     
     // 时间
@@ -56,7 +56,7 @@
     // 约束
     
     [userAvatarView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.left.equalTo(self.contentView).offset(15);
+        make.top.left.equalTo(self.contentView).offset(13);
         make.width.height.equalTo(@40);
         make.bottom.equalTo(self.contentView).offset(-15);
     }];
@@ -68,7 +68,7 @@
     
     [contentLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(userNameLabel);
-        make.top.equalTo(userNameLabel.mas_bottom).offset(8);
+        make.top.equalTo(userNameLabel.mas_bottom).offset(6);
     }];
     
     [createAtLabel mas_makeConstraints:^(MASConstraintMaker *make) {

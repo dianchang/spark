@@ -60,6 +60,19 @@ static NSString * const cellIdentifier = @"MessageCell";
     [tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(self.view);
     }];
+    
+    UIButton *titleView = [[UIButton alloc] initWithFrame:CGRectZero];
+    titleView.frame = CGRectMake(0, 0, [titleView intrinsicContentSize].width, [titleView intrinsicContentSize].height);
+    
+    UIButton *leftButton = [UIButton new];
+    [leftButton setTitle:@"消息" forState:UIControlStateNormal];
+    
+    [titleView setTitle:@"消息" forState:UIControlStateNormal];
+    titleView.backgroundColor = [UIColor blackColor];
+    self.navigationItem.titleView = titleView;
+    
+//    [titleView ma]
+    NSLog(@"%@", self.navigationItem.titleView.superview);
 }
 
 #pragma mark - Public Interface
