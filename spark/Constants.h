@@ -7,9 +7,8 @@
 #define RunOnSimulator 0
 #endif
 
-/**
- *  通知
- */
 #define SPLanTingFontName @"FZLTTHK--GBK1-0"
+
+#define SPTabBarHeight 49
 
 #endif

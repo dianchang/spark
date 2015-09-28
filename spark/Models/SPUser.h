@@ -2,4 +2,7 @@
 
 @interface SPUser : _SPUser {}
 // Custom logic goes here.
+
++ (SPUser *)findCurrentUser;
+
 @end

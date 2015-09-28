@@ -265,7 +265,7 @@
 - (SPUser *)currentUser
 {
     if (!_currentUser) {
-        _currentUser = [SPUser MR_findFirstByAttribute:@"name" withValue:@"哈丁"];
+        _currentUser = [SPUser findCurrentUser];
     }
     
     return _currentUser;

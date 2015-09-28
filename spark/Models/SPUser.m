@@ -1,4 +1,5 @@
 #import "SPUser.h"
+#import <MagicalRecord/MagicalRecord.h>
 
 @interface SPUser ()
 
@@ -8,6 +9,9 @@
 
 @implementation SPUser
 
-// Custom logic goes here.
++ (SPUser *)findCurrentUser
+{
+    return [SPUser MR_findFirstByAttribute:@"name" withValue:@"哈丁"];
+}
 
 @end
