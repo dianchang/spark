@@ -243,7 +243,7 @@
     
 
     
-    NSLog(@"NO");
+    NSLog(@"YES");
 }
 
 - (void)rightAction
@@ -257,7 +257,7 @@
                          [self.delegate cardSwipedRight:self];
                      }];
 
-    NSLog(@"YES");
+    NSLog(@"NO");
 }
 
 -(void)leftClickAction
@@ -272,7 +272,7 @@
                          [self.delegate cardSwipedLeft:self];
                      }];
     
-    NSLog(@"NO");
+    NSLog(@"YES");
 }
 
 -(void)rightClickAction
@@ -287,9 +287,7 @@
                          [self.delegate cardSwipedRight:self];
                      }];
     
-    NSLog(@"YES");
+    NSLog(@"NO");
 }
-
-
 
 @end
