@@ -5,8 +5,8 @@
 
 const struct SPMessageAttributes SPMessageAttributes = {
 	.content = @"content",
-	.createAtString = @"createAtString",
 	.createdAt = @"createdAt",
+	.createdAtString = @"createdAtString",
 };
 
 const struct SPMessageRelationships SPMessageRelationships = {
@@ -44,9 +44,9 @@ const struct SPMessageRelationships SPMessageRelationships = {
 
 @dynamic content;
 
-@dynamic createAtString;
-
 @dynamic createdAt;
+
+@dynamic createdAtString;
 
 @dynamic sender;
 

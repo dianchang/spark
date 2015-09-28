@@ -8,17 +8,25 @@
 
 #import "SPMessage.h"
 #import "SPUser.h"
+#import "SPNotification.h"
 #import "MessageTableViewCell.h"
 #import "MessageViewController.h"
+#import "Constants.h"
+#import "UIColor+Helper.h"
 #import <Masonry/Masonry.h>
 #import <MagicalRecord/MagicalRecord.h>
 
 static NSString * const cellIdentifier = @"MessageCell";
+static UIColor *navButtonInactiveColor;
 
 @interface MessageViewController () <UITableViewDataSource, UITableViewDelegate>
 
+@property (strong, nonatomic) UIButton *leftButton;
+@property (strong, nonatomic) UIButton *rightButton;
+@property (nonatomic) NSInteger currentSelectedIndex;
 @property (strong, nonatomic) UITableView *tableView;
 @property (strong, nonatomic) NSArray *messages;
+@property (strong, nonatomic) NSArray *notifications;
 
 @end
 
@@ -30,6 +38,9 @@ static NSString * const cellIdentifier = @"MessageCell";
 {
     self.view = [[UIView alloc] initWithFrame:[[UIScreen mainScreen] applicationFrame]];
     self.view.backgroundColor = [UIColor whiteColor];
+    self.currentSelectedIndex = 0;
+    
+    navButtonInactiveColor = [UIColor colorWithRGBA:0xAEB2B4FF];
     
     [self createViews];
 }
@@ -61,36 +72,88 @@ static NSString * const cellIdentifier = @"MessageCell";
         make.edges.equalTo(self.view);
     }];
     
-    UIButton *titleView = [[UIButton alloc] initWithFrame:CGRectZero];
-    titleView.frame = CGRectMake(0, 0, [titleView intrinsicContentSize].width, [titleView intrinsicContentSize].height);
+    // titleView
+    UIView *titleView = [UIView new];
     
     UIButton *leftButton = [UIButton new];
-    [leftButton setTitle:@"消息" forState:UIControlStateNormal];
+    self.leftButton = leftButton;
+    [leftButton setTitle:@"聊天" forState:UIControlStateNormal];
+    [leftButton setTitleColor:[UIColor SPColorMain] forState:UIControlStateNormal];
+    leftButton.titleLabel.font = [UIFont fontWithName:SPLanTingFontName size:17];
+    [leftButton addTarget:self action:@selector(leftButtonPressed) forControlEvents:UIControlEventTouchUpInside];
+    leftButton.contentEdgeInsets = UIEdgeInsetsMake(0, 20, 0, 20);
+    [titleView addSubview:leftButton];
     
-    [titleView setTitle:@"消息" forState:UIControlStateNormal];
-    titleView.backgroundColor = [UIColor blackColor];
+    UIButton *rightButton = [UIButton new];
+    self.rightButton = rightButton;
+    [rightButton setTitle:@"通知" forState:UIControlStateNormal];
+    [rightButton setTitleColor:navButtonInactiveColor forState:UIControlStateNormal];
+    rightButton.titleLabel.font = [UIFont fontWithName:SPLanTingFontName size:17];
+    [rightButton addTarget:self action:@selector(rightButtonPressed) forControlEvents:UIControlEventTouchUpInside];
+    rightButton.contentEdgeInsets = UIEdgeInsetsMake(0, 20, 0, 20);
+    [titleView addSubview:rightButton];
+    
+    // titleView 约束
+    [leftButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(titleView).offset(5);
+        make.left.bottom.equalTo(titleView);
+    }];
+    
+    [rightButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(titleView).offset(5);
+        make.right.bottom.equalTo(titleView);
+        make.left.equalTo(leftButton.mas_right).offset(40);
+    }];
+    
+    CGSize size = [titleView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
+    titleView.frame = CGRectMake(0, 0, size.width, size.height);
+    
     self.navigationItem.titleView = titleView;
-    
-//    [titleView ma]
-    NSLog(@"%@", self.navigationItem.titleView.superview);
 }
 
 #pragma mark - Public Interface
 
 #pragma mark - User Interface
 
+- (void)leftButtonPressed
+{
+    self.currentSelectedIndex = 0;
+    [self.leftButton setTitleColor:[UIColor SPColorMain] forState:UIControlStateNormal];
+    [self.rightButton setTitleColor:navButtonInactiveColor forState:UIControlStateNormal];
+    [self.tableView reloadData];
+}
+
+- (void)rightButtonPressed
+{
+    self.currentSelectedIndex = 1;
+    [self.leftButton setTitleColor:navButtonInactiveColor forState:UIControlStateNormal];
+    [self.rightButton setTitleColor:[UIColor SPColorMain] forState:UIControlStateNormal];
+    [self.tableView reloadData];
+}
+
 # pragma mark - tableview delegate
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return self.messages.count;
+    if (self.currentSelectedIndex == 0) {
+        return self.messages.count;
+    } else {
+        return self.notifications.count;
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    SPMessage *message = self.messages[indexPath.row];
     MessageTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-    [cell updateDataWithMessage:message];
+    
+    if (self.currentSelectedIndex == 0) {
+        SPMessage *message = self.messages[indexPath.row];
+        [cell updateDataWithMessage:message];
+    } else {
+        SPNotification *notification = self.notifications[indexPath.row];
+        [cell updateDataWithNotification:notification];
+    }
+
     return cell;
 }
 
@@ -112,5 +175,13 @@ static NSString * const cellIdentifier = @"MessageCell";
     return _messages;
 }
 
+- (NSArray *)notifications
+{
+    if (!_notifications) {
+        _notifications = [SPNotification MR_findAllSortedBy:@"createdAt" ascending:NO];
+    }
+    
+    return _notifications;
+}
 
 @end

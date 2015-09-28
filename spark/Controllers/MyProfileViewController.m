@@ -240,7 +240,7 @@
     }];
     
     [descLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(upvotesLabel.mas_bottom).offset(15);
+        make.top.equalTo(upvotesLabel.mas_bottom).offset(15).priorityHigh();
         make.centerX.equalTo(headerView);
         make.bottom.equalTo(headerView).offset(-30);
     }];

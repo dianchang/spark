@@ -14,18 +14,19 @@
                         <viewControllerLayoutGuide type="bottom" id="xb3-aO-Qok"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="©2015" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uSe-2E-hKE">
-                                <rect key="frame" x="181" y="669" width="52" height="20.5"/>
+                                <rect key="frame" x="134" y="501" width="52" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Spark" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e7V-Yu-0u9">
-                                <rect key="frame" x="156.5" y="86" width="101.5" height="48"/>
-                                <fontDescription key="fontDescription" type="italicSystem" pointSize="40"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Spark" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PgZ-W4-DHQ">
+                                <rect key="frame" x="103.5" y="116" width="113.5" height="54"/>
+                                <fontDescription key="fontDescription" type="italicSystem" pointSize="45"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -33,12 +34,12 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="uSe-2E-hKE" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="8II-RT-NPM"/>
-                            <constraint firstItem="e7V-Yu-0u9" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="66" id="UIx-eP-D7U"/>
-                            <constraint firstItem="e7V-Yu-0u9" firstAttribute="centerX" secondItem="uSe-2E-hKE" secondAttribute="centerX" id="wQt-bE-VmL"/>
+                            <constraint firstItem="PgZ-W4-DHQ" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="MNF-6R-Loy"/>
+                            <constraint firstItem="PgZ-W4-DHQ" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="96" id="TDi-uw-VJV"/>
                             <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="uSe-2E-hKE" secondAttribute="bottom" constant="46" id="zAb-Xu-y3Q"/>
                         </constraints>
                     </view>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -108,7 +108,7 @@ static const NSString *CDN = @"http://7xn16r.com1.z0.glb.clouddn.com";
         SPUser *_sender = [sender MR_inContext:localContext];
         message.sender = _sender;
         message.content = content;
-        message.createAtString = createdAt;
+        message.createdAtString = createdAt;
     }];
     
     return message;

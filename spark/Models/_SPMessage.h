@@ -5,8 +5,8 @@
 
 extern const struct SPMessageAttributes {
 	__unsafe_unretained NSString *content;
-	__unsafe_unretained NSString *createAtString;
 	__unsafe_unretained NSString *createdAt;
+	__unsafe_unretained NSString *createdAtString;
 } SPMessageAttributes;
 
 extern const struct SPMessageRelationships {
@@ -28,13 +28,13 @@ extern const struct SPMessageRelationships {
 
 //- (BOOL)validateContent:(id*)value_ error:(NSError**)error_;
 
-@property (nonatomic, strong) NSString* createAtString;
-
-//- (BOOL)validateCreateAtString:(id*)value_ error:(NSError**)error_;
-
 @property (nonatomic, strong) NSDate* createdAt;
 
 //- (BOOL)validateCreatedAt:(id*)value_ error:(NSError**)error_;
+
+@property (nonatomic, strong) NSString* createdAtString;
+
+//- (BOOL)validateCreatedAtString:(id*)value_ error:(NSError**)error_;
 
 @property (nonatomic, strong) SPUser *sender;
 
@@ -47,11 +47,11 @@ extern const struct SPMessageRelationships {
 - (NSString*)primitiveContent;
 - (void)setPrimitiveContent:(NSString*)value;
 
-- (NSString*)primitiveCreateAtString;
-- (void)setPrimitiveCreateAtString:(NSString*)value;
-
 - (NSDate*)primitiveCreatedAt;
 - (void)setPrimitiveCreatedAt:(NSDate*)value;
+
+- (NSString*)primitiveCreatedAtString;
+- (void)setPrimitiveCreatedAtString:(NSString*)value;
 
 - (SPUser*)primitiveSender;
 - (void)setPrimitiveSender:(SPUser*)value;

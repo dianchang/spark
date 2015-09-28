@@ -10,8 +10,8 @@
     </entity>
     <entity name="SPMessage" representedClassName="SPMessage" syncable="YES">
         <attribute name="content" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="createAtString" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="createdAt" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="createdAtString" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="sender" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="SPUser" inverseName="sendedMessages" inverseEntity="SPUser" syncable="YES"/>
     </entity>
     <entity name="SPNotification" representedClassName="SPNotification" syncable="YES">
