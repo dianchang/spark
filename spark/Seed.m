@@ -32,6 +32,11 @@ static const NSString *CDN = @"http://7xn16r.com1.z0.glb.clouddn.com";
     SPTopic *topicDesign = [self createTopicWithName:@"设计" entriesCount:@231 followersCount:@93];
     SPTopic *topicSocial = [self createTopicWithName:@"社交" entriesCount:@231 followersCount:@93];
     SPTopic *topicAirbnb = [self createTopicWithName:@"Airbnb" entriesCount:@231 followersCount:@93];
+    SPTopic *topicIPhone = [self createTopicWithName:@"iPhone" entriesCount:@243 followersCount:@323];
+    SPTopic *topicMusk = [self createTopicWithName:@"Elon Musk" entriesCount:@32 followersCount:@313];
+    SPTopic *topicWechat = [self createTopicWithName:@"微信" entriesCount:@23 followersCount:@43];
+    SPTopic *topicZhihu = [self createTopicWithName:@"知乎" entriesCount:@249 followersCount:@323];
+    SPTopic *topicSentence = [self createTopicWithName:@"每日好句" entriesCount:@283 followersCount:@313];
     
     // 聊天
     [self createMessageWithSender:userHardin content:@"好的，有机会再说" createdAt:@"18:44"];
@@ -63,6 +68,31 @@ static const NSString *CDN = @"http://7xn16r.com1.z0.glb.clouddn.com";
                        topics:@[topicAirbnb]
                  upvotesCount:@173
                downvotesCount:@7];
+    [self createEntryWithUser:userGaomoliang
+                      content:@"你是准备一辈子给iPhone扩大屏幕，还是和我一起去改变宇宙？"
+                       topics:@[topicMusk, topicIPhone]
+                 upvotesCount:@373
+               downvotesCount:@8];
+    [self createEntryWithUser:userHuangbo
+                      content:@"看到大家都在晒二维码，想到了之前张小龙的观点：设计基本规则，然后看着用户在基本规则下的自发开始行为进化。"
+                       topics:@[topicWechat]
+                 upvotesCount:@123
+               downvotesCount:@8];
+    [self createEntryWithUser:userSizhuren
+                      content:@"像知乎这样的泛话题社区，女生涨粉的最佳方法就是先po几张修过图的美照，还不管和问题沾不沾边儿。"
+                       topics:@[topicZhihu]
+                 upvotesCount:@343
+               downvotesCount:@9];
+    [self createEntryWithUser:userDante
+                      content:@"如果想一个事情变好，一定要先接受它的现状，才能转身使它走向好的方向。我觉得此话有深意。欲速而不达，忍受不完美有时是被迫的最佳策略。"
+                       topics:@[topicStartup]
+                 upvotesCount:@63
+               downvotesCount:@6];
+    [self createEntryWithUser:userMadelong
+                      content:@"人们喜欢听All in的故事，因为All in透露着豪迈，鼓舞着人们，是正能量。可是生活更需要弃牌，弃牌不丢脸，那是为了更大的All in。All in需要勇气，弃牌需要智慧。"
+                       topics:@[topicSentence]
+                 upvotesCount:@173
+               downvotesCount:@3];
 }
 
 // User

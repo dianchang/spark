@@ -20,32 +20,28 @@
 
 @implementation TopicsListView
 
+- (instancetype)initWithTopics:(NSArray *)topics
+{
+    self = [super init];
+    if (!self) {
+        return nil;
+    }
+    
+    _topics = topics;
+    
+    for (SPTopic *topic in topics) {
+        [self.topicViews addObject:[self createTopicViewWithTopic:topic]];
+    }
+    
+    return self;
+}
+
 - (void)addTopic:(SPTopic *)topic
 {
     [self.topicViews addObject:[self createTopicViewWithTopic:topic]];
     [self setNeedsLayout];
     [self layoutIfNeeded];
 }
-
-//- (void)removeAllTopics
-//{
-//    for (TopicView *topicView in self.topicViews) {
-//        [topicView removeFromSuperview];
-//    }
-//    
-//    [self.topicViews removeAllObjects];
-//    [self setNeedsLayout];
-//}
-
-//- (CGSize)intrinsicContentSize
-//{
-//    CGFloat height = self.rows * (self.topicViewHeight + self.margin.bottom);
-//    if (self.rows > 0) {
-//        height -= self.margin.bottom;
-//    }
-//    
-//    return CGSizeMake(self.frame.size.width, height);
-//}
 
 - (void)layoutSubviews
 {

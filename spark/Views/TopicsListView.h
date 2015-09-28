@@ -29,6 +29,7 @@
 //@property (strong, nonatomic) UIFont *textFont;
 @property (strong, nonatomic) NSArray *topics;
 
+- (instancetype)initWithTopics:(NSArray *)topics;
 - (void)addTopic:(SPTopic *)topic;
 //- (void)removeAllTopics;
 

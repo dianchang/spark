@@ -52,6 +52,8 @@
 		05AF29F11BB7877E00496A05 /* TopicView.m in Sources */ = {isa = PBXBuildFile; fileRef = 05AF29F01BB7877E00496A05 /* TopicView.m */; settings = {ASSET_TAGS = (); }; };
 		05AF29F41BB78F9E00496A05 /* TopicsListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 05AF29F31BB78F9E00496A05 /* TopicsListView.m */; settings = {ASSET_TAGS = (); }; };
 		05AF29F71BB7CAAC00496A05 /* TopicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05AF29F61BB7CAAC00496A05 /* TopicViewController.m */; settings = {ASSET_TAGS = (); }; };
+		05EF14DB1BB8DF6E00A9AD58 /* EntryDraggableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 05EF14DA1BB8DF6E00A9AD58 /* EntryDraggableView.m */; settings = {ASSET_TAGS = (); }; };
+		05EF14DE1BB8DFA500A9AD58 /* EntryOverlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 05EF14DD1BB8DFA500A9AD58 /* EntryOverlayView.m */; settings = {ASSET_TAGS = (); }; };
 		84F1591E2415FBD5B0B396F4 /* libPods-spark.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D28D8D01EBF146990B40B3C /* libPods-spark.a */; };
 /* End PBXBuildFile section */
 
@@ -136,6 +138,10 @@
 		05AF29F31BB78F9E00496A05 /* TopicsListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopicsListView.m; sourceTree = "<group>"; };
 		05AF29F51BB7CAAC00496A05 /* TopicViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopicViewController.h; sourceTree = "<group>"; };
 		05AF29F61BB7CAAC00496A05 /* TopicViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopicViewController.m; sourceTree = "<group>"; };
+		05EF14D91BB8DF6E00A9AD58 /* EntryDraggableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntryDraggableView.h; sourceTree = "<group>"; };
+		05EF14DA1BB8DF6E00A9AD58 /* EntryDraggableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntryDraggableView.m; sourceTree = "<group>"; };
+		05EF14DC1BB8DFA500A9AD58 /* EntryOverlayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntryOverlayView.h; sourceTree = "<group>"; };
+		05EF14DD1BB8DFA500A9AD58 /* EntryOverlayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntryOverlayView.m; sourceTree = "<group>"; };
 		0D1E5D98B2A87B51C002D97B /* Pods-spark.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-spark.debug.xcconfig"; path = "Pods/Target Support Files/Pods-spark/Pods-spark.debug.xcconfig"; sourceTree = "<group>"; };
 		6D28D8D01EBF146990B40B3C /* libPods-spark.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-spark.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D986FAC88F7770D18F3678D3 /* Pods-spark.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-spark.release.xcconfig"; path = "Pods/Target Support Files/Pods-spark/Pods-spark.release.xcconfig"; sourceTree = "<group>"; };
@@ -272,6 +278,10 @@
 				05AF29F01BB7877E00496A05 /* TopicView.m */,
 				05AF29F21BB78F9E00496A05 /* TopicsListView.h */,
 				05AF29F31BB78F9E00496A05 /* TopicsListView.m */,
+				05EF14D91BB8DF6E00A9AD58 /* EntryDraggableView.h */,
+				05EF14DA1BB8DF6E00A9AD58 /* EntryDraggableView.m */,
+				05EF14DC1BB8DFA500A9AD58 /* EntryOverlayView.h */,
+				05EF14DD1BB8DFA500A9AD58 /* EntryOverlayView.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -544,6 +554,7 @@
 				0590CFC91BB402C300097ECF /* _SPMessage.m in Sources */,
 				0590CFCC1BB402C300097ECF /* _SPUser.m in Sources */,
 				0590CFCE1BB402C300097ECF /* SPMessage.m in Sources */,
+				05EF14DB1BB8DF6E00A9AD58 /* EntryDraggableView.m in Sources */,
 				05AF29F11BB7877E00496A05 /* TopicView.m in Sources */,
 				0590CFCB1BB402C300097ECF /* _SPTopic.m in Sources */,
 				05AF29F71BB7CAAC00496A05 /* TopicViewController.m in Sources */,
@@ -552,6 +563,7 @@
 				0590CFC81BB402C300097ECF /* _SPEntry.m in Sources */,
 				0590CFD01BB402C300097ECF /* SPTopic.m in Sources */,
 				0506FA311BB3A05500333BDD /* AppDelegate.m in Sources */,
+				05EF14DE1BB8DFA500A9AD58 /* EntryOverlayView.m in Sources */,
 				0590CFD81BB4149100097ECF /* Seed.m in Sources */,
 				0590CFD11BB402C300097ECF /* SPUser.m in Sources */,
 				0506FA6D1BB3B76C00333BDD /* MeetViewController.m in Sources */,
