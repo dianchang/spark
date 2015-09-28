@@ -8,7 +8,6 @@
 
 #import "SPTopic.h"
 #import "SPUser.h"
-#import "TopicsListView.h"
 #import "EntryDraggableView.h"
 #import "UIColor+Helper.h"
 #import <QuartzCore/QuartzCore.h>
@@ -25,7 +24,8 @@
 
 @interface EntryDraggableView ()
 
-@property (nonatomic) SPEntry *entry;
+@property (strong, nonatomic) SPEntry *entry;
+@property (strong, nonatomic) TopicsListView *topicsView;
 @property (nonatomic) CGFloat xFromCenter;
 @property (nonatomic) CGFloat yFromCenter;
 @property (nonatomic) CGPoint originalPoint;
@@ -54,6 +54,7 @@
     
     // 话题
     TopicsListView *topicsView = [[TopicsListView alloc] initWithTopics:[entry.topics allObjects]];
+    self.topicsView = topicsView;
     [self addSubview:topicsView];
     
     // 内容
@@ -288,6 +289,14 @@
 - (void)commentButtonPressed
 {
     [self.delegate commentButtonPressed:self.entry.user];
+}
+
+#pragma mark - Getters & Setters
+
+- (void)setDelegate:(id<DraggableViewDelegate,TopicsListViewDelegate>)delegate
+{
+    _delegate = delegate;
+    self.topicsView.delegate = delegate;
 }
 
 @end

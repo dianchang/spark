@@ -13,6 +13,7 @@
 
 @interface DialogViewController ()
 
+@property (strong, nonatomic) UIView *commentBarView;
 @property (strong, nonatomic) UITextField *commentInputField;
 @property (strong, nonatomic) SPUser *user;
 
@@ -52,7 +53,15 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    [self.commentInputField becomeFirstResponder];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
+    
+//    [self.commentInputField becomeFirstResponder];
+}
+
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil];
 }
 
 #pragma mark - Layout
@@ -70,6 +79,23 @@
 #pragma mark - Public Interface
 
 #pragma mark - User Interface
+
+- (void)keyboardWillShow:(NSNotification *)notification
+{
+    NSDictionary *info = [notification userInfo];
+    NSValue *kbFrame = [info objectForKey:UIKeyboardFrameEndUserInfoKey];
+    NSTimeInterval animationDuration = [[info objectForKey:UIKeyboardAnimationDurationUserInfoKey] doubleValue];
+    CGRect keyboardFrame = [kbFrame CGRectValue];
+    
+    [self.commentBarView mas_updateConstraints:^(MASConstraintMaker *make) {
+        make.bottom.equalTo(self.view).offset(-keyboardFrame.size.height);
+    }];
+    
+    [UIView animateWithDuration:animationDuration animations:^{
+        [self.view setNeedsLayout];
+        [self.view layoutIfNeeded];
+    }];
+}
 
 #pragma mark - SomeDelegate
 

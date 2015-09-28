@@ -8,6 +8,7 @@
 
 #import "SPUser.h"
 #import "SPEntry.h"
+#import "TopicsListView.h"
 #import <UIKit/UIKit.h>
 
 @protocol DraggableViewDelegate <NSObject>
@@ -20,7 +21,7 @@
 
 @interface EntryDraggableView : UIView
 
-@property (weak, nonatomic) id <DraggableViewDelegate> delegate;
+@property (weak, nonatomic) id <DraggableViewDelegate ,TopicsListViewDelegate> delegate;
 
 - (instancetype)initWithEntry:(SPEntry *)entry;
 

@@ -13,11 +13,12 @@
 #import "AddEntryViewController.h"
 #import "DialogViewController.h"
 #import "UIColor+Helper.h"
+#import "TopicViewController.h"
 #import <ionicons/IonIcons.h>
 #import <MagicalRecord/MagicalRecord.h>
 #import <Masonry/Masonry.h>
 
-@interface MeetViewController () <DraggableViewDelegate>
+@interface MeetViewController () <DraggableViewDelegate, TopicsListViewDelegate>
 
 @property (strong, nonatomic) UIView *cardWapView;
 @property (strong, nonatomic) NSMutableArray *draggableViews;
@@ -142,6 +143,14 @@
 - (void)didDismissPresentedViewController
 {
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+#pragma mark - TopicsListViewDelegate
+
+- (void)topicPressed:(SPTopic *)topic
+{
+    UIViewController *controller = [[TopicViewController alloc] initWithTopic:topic];
+    [self.navigationController pushViewController:controller animated:YES];
 }
 
 #pragma mark - Internal Helpers
