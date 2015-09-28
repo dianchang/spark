@@ -120,10 +120,10 @@ static NSString * const cellIdentifier = @"EntryCell";
     return cell;
 }
 
-//- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-//{
-//    [tableView deselectRowAtIndexPath:indexPath animated:YES];
-//}
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
 
 #pragma mark - TopicsListViewDelegate
 

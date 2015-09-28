@@ -4,6 +4,7 @@
 #import <CoreData/CoreData.h>
 
 extern const struct SPTopicAttributes {
+	__unsafe_unretained NSString *desc;
 	__unsafe_unretained NSString *entriesCount;
 	__unsafe_unretained NSString *followersCount;
 	__unsafe_unretained NSString *name;
@@ -23,6 +24,10 @@ extern const struct SPTopicRelationships {
 + (NSString*)entityName;
 + (NSEntityDescription*)entityInManagedObjectContext:(NSManagedObjectContext*)moc_;
 @property (nonatomic, readonly, strong) SPTopicID* objectID;
+
+@property (nonatomic, strong) NSString* desc;
+
+//- (BOOL)validateDesc:(id*)value_ error:(NSError**)error_;
 
 @property (nonatomic, strong) NSNumber* entriesCount;
 
@@ -59,6 +64,9 @@ extern const struct SPTopicRelationships {
 @end
 
 @interface _SPTopic (CoreDataGeneratedPrimitiveAccessors)
+
+- (NSString*)primitiveDesc;
+- (void)setPrimitiveDesc:(NSString*)value;
 
 - (NSNumber*)primitiveEntriesCount;
 - (void)setPrimitiveEntriesCount:(NSNumber*)value;
