@@ -66,7 +66,7 @@
 
     // 用户头像
     UIImageView *userAvatarView = [UIImageView new];
-    userAvatarView.layer.cornerRadius = 25;
+    userAvatarView.layer.cornerRadius = 20;
     userAvatarView.layer.masksToBounds = YES;
     [userAvatarView setImageWithURL:[NSURL URLWithString:entry.user.avatarUrl]];
     [self addSubview:userAvatarView];
@@ -126,7 +126,7 @@
     
     [userAvatarView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(self);
-        make.width.height.equalTo(@50);
+        make.width.height.equalTo(@40);
         make.bottom.equalTo(userNameButton.mas_top).offset(-2);
     }];
     
