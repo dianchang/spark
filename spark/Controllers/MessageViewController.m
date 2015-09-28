@@ -11,6 +11,7 @@
 #import "SPNotification.h"
 #import "MessageTableViewCell.h"
 #import "MessageViewController.h"
+#import "DialogViewController.h"
 #import "Constants.h"
 #import "UIColor+Helper.h"
 #import <Masonry/Masonry.h>
@@ -159,6 +160,17 @@ static UIColor *navButtonInactiveColor;
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    DialogViewController *controller;
+    
+    if (self.currentSelectedIndex == 0) {
+        SPMessage *message = self.messages[indexPath.row];
+        controller = [[DialogViewController alloc] initWithUser:message.sender];
+    } else {
+        SPNotification *notification = self.notifications[indexPath.row];
+        controller = [[DialogViewController alloc] initWithUser:notification.sender];
+    }
+    
+    [self.navigationController pushViewController:controller animated:YES];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 

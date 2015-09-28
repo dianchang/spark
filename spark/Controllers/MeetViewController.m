@@ -7,9 +7,11 @@
 //
 
 #import "SPEntry.h"
+#import "SPUser.h"
 #import "EntryDraggableView.h"
 #import "MeetViewController.h"
 #import "AddEntryViewController.h"
+#import "DialogViewController.h"
 #import "UIColor+Helper.h"
 #import <ionicons/IonIcons.h>
 #import <MagicalRecord/MagicalRecord.h>
@@ -58,8 +60,6 @@
 
 - (void)createViews
 {
-
-    
     UIView *secondBottomView = [UIView new];
     secondBottomView.backgroundColor = [UIColor whiteColor];
     secondBottomView.layer.borderWidth = 1;
@@ -117,6 +117,8 @@
     [self presentViewController:navController animated:YES completion:nil];
 }
 
+#pragma mark - DraggableViewDelegate
+
 - (void)cardSwipedLeft:(UIView *)card
 {
     [self.draggableViews removeObjectAtIndex:0];
@@ -127,6 +129,12 @@
 {
     [self.draggableViews removeObjectAtIndex:0];
     [self loadDraggableView];
+}
+
+- (void)commentButtonPressed:(SPUser *)user
+{
+    UIViewController *controller = [[DialogViewController alloc] initWithUser:user];
+    [self.navigationController pushViewController:controller animated:YES];
 }
 
 #pragma mark - SPPresentedViewControllerProtocol

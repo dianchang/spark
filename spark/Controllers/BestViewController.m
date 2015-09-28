@@ -10,6 +10,7 @@
 #import "EntryTableViewCell.h"
 #import "BestViewController.h"
 #import "AddEntryViewController.h"
+#import "DialogViewController.h"
 #import "TopicViewController.h"
 #import "UIColor+Helper.h"
 #import "Constants.h"
@@ -19,7 +20,7 @@
 
 static NSString * const cellIdentifier = @"EntryCell";
 
-@interface BestViewController () <UITableViewDataSource, UITableViewDelegate>
+@interface BestViewController () <UITableViewDataSource, UITableViewDelegate, TopicsListViewDelegate, EntryCellDelegate>
 
 @property (strong, nonatomic) UITableView *tableView;
 @property (strong, nonatomic) NSArray *entries;
@@ -114,22 +115,30 @@ static NSString * const cellIdentifier = @"EntryCell";
 {
     SPEntry *entry = self.entries[indexPath.row];
     EntryTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-    cell.viewController = self;
+    cell.delegate = self;
     [cell updateWithEntry:entry];
     return cell;
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
-}
+//- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+//{
+//    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+//}
 
-#pragma mard - TopicsListViewDelegate
+#pragma mark - TopicsListViewDelegate
 
 - (void)topicPressed:(SPTopic *)topic
 {
     TopicViewController *viewController = [[TopicViewController alloc] initWithTopic:topic];
     [self.navigationController pushViewController:viewController animated:YES];
+}
+
+#pragma mark - EntryCellDelegate
+
+- (void)commentButtonPressed:(SPUser *)user
+{
+    UIViewController *controller = [[DialogViewController alloc] initWithUser:user];
+    [self.navigationController pushViewController:controller animated:YES];
 }
 
 #pragma mark - SPPresentedViewControllerProtocol

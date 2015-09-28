@@ -74,6 +74,7 @@
     [commentButton setTitle:ion_chatbubble_working forState:UIControlStateNormal];
     [commentButton setTitleColor:[UIColor colorWithRGBA:0xC0D6DEFF] forState:UIControlStateNormal];
     commentButton.titleLabel.font = [IonIcons fontWithSize:18];
+    [commentButton addTarget:self action:@selector(commentButtonPressed) forControlEvents:UIControlEventTouchUpInside];
     [self.contentView addSubview:commentButton];
     
     // 下边框
@@ -153,11 +154,17 @@
     self.userNameLabel.text = entry.user.name;
 }
 
+- (void)commentButtonPressed
+{
+    [self.delegate commentButtonPressed:self.entry.user];
+}
+
 #pragma mark - Getters & Setters
 
-- (void)setViewController:(id<TopicsListViewDelegate>)viewController
+- (void)setDelegate:(id<TopicsListViewDelegate,EntryCellDelegate>)delegate
 {
-    self.topicsView.delegate = viewController;
+    _delegate = delegate;
+    self.topicsView.delegate = delegate;
 }
 
 @end

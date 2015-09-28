@@ -25,6 +25,7 @@
 
 @interface EntryDraggableView ()
 
+@property (nonatomic) SPEntry *entry;
 @property (nonatomic) CGFloat xFromCenter;
 @property (nonatomic) CGFloat yFromCenter;
 @property (nonatomic) CGPoint originalPoint;
@@ -39,6 +40,8 @@
     if (!self) {
         return nil;
     }
+    
+    self.entry = entry;
     
     self.backgroundColor = [UIColor whiteColor];
     self.layer.borderWidth = 1;
@@ -101,6 +104,8 @@
     commentButton.titleLabel.font = [IonIcons fontWithSize:20];
     [commentButton setTitle:ion_chatbubble_working forState:UIControlStateNormal];
     [commentButton setTitleColor:[UIColor colorWithRGBA:0xC1D6DEFF] forState:UIControlStateNormal];
+    commentButton.contentEdgeInsets = UIEdgeInsetsMake(10, 10, 10, 10);
+    [commentButton addTarget:self action:@selector(commentButtonPressed) forControlEvents:UIControlEventTouchUpInside];
     [commandsWapView addSubview:commentButton];
     
     // 讨厌
@@ -230,7 +235,7 @@
     }
 }
 
--(void)leftAction
+- (void)leftAction
 {
     CGPoint finishPoint = CGPointMake(-500, 2 * self.yFromCenter +self.originalPoint.y);
     [UIView animateWithDuration:0.3
@@ -240,10 +245,6 @@
                          [self removeFromSuperview];
                          [self.delegate cardSwipedLeft:self];
                      }];
-    
-
-    
-    NSLog(@"YES");
 }
 
 - (void)rightAction
@@ -256,11 +257,9 @@
                          [self removeFromSuperview];
                          [self.delegate cardSwipedRight:self];
                      }];
-
-    NSLog(@"NO");
 }
 
--(void)leftClickAction
+- (void)leftClickAction
 {
     CGPoint finishPoint = CGPointMake(-600, self.center.y);
     [UIView animateWithDuration:0.3
@@ -271,11 +270,9 @@
                          [self removeFromSuperview];
                          [self.delegate cardSwipedLeft:self];
                      }];
-    
-    NSLog(@"YES");
 }
 
--(void)rightClickAction
+- (void)rightClickAction
 {
     CGPoint finishPoint = CGPointMake(600, self.center.y);
     [UIView animateWithDuration:0.3
@@ -286,8 +283,11 @@
                          [self removeFromSuperview];
                          [self.delegate cardSwipedRight:self];
                      }];
-    
-    NSLog(@"NO");
+}
+
+- (void)commentButtonPressed
+{
+    [self.delegate commentButtonPressed:self.entry.user];
 }
 
 @end

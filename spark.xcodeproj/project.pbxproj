@@ -21,6 +21,7 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		0506E7FD1BB930F0000780AD /* DialogViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0506E7FC1BB930F0000780AD /* DialogViewController.m */; settings = {ASSET_TAGS = (); }; };
 		0506FA2E1BB3A05500333BDD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0506FA2D1BB3A05500333BDD /* main.m */; };
 		0506FA311BB3A05500333BDD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0506FA301BB3A05500333BDD /* AppDelegate.m */; };
 		0506FA3A1BB3A05500333BDD /* spark.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0506FA381BB3A05500333BDD /* spark.xcdatamodeld */; };
@@ -75,6 +76,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0506E7FB1BB930F0000780AD /* DialogViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DialogViewController.h; sourceTree = "<group>"; };
+		0506E7FC1BB930F0000780AD /* DialogViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DialogViewController.m; sourceTree = "<group>"; };
 		0506FA291BB3A05500333BDD /* spark.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = spark.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0506FA2D1BB3A05500333BDD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		0506FA2F1BB3A05500333BDD /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -263,6 +266,8 @@
 				057A12ED1BB4F5F600190955 /* AddTopicViewController.m */,
 				05AF29F51BB7CAAC00496A05 /* TopicViewController.h */,
 				05AF29F61BB7CAAC00496A05 /* TopicViewController.m */,
+				0506E7FB1BB930F0000780AD /* DialogViewController.h */,
+				0506E7FC1BB930F0000780AD /* DialogViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -558,6 +563,7 @@
 				05AF29F11BB7877E00496A05 /* TopicView.m in Sources */,
 				0590CFCB1BB402C300097ECF /* _SPTopic.m in Sources */,
 				05AF29F71BB7CAAC00496A05 /* TopicViewController.m in Sources */,
+				0506E7FD1BB930F0000780AD /* DialogViewController.m in Sources */,
 				0506FA731BB3B79500333BDD /* MessageViewController.m in Sources */,
 				057A12EA1BB4E09300190955 /* AddEntryViewController.m in Sources */,
 				0590CFC81BB402C300097ECF /* _SPEntry.m in Sources */,

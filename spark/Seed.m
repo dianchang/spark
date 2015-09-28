@@ -39,7 +39,6 @@ static const NSString *CDN = @"http://7xn16r.com1.z0.glb.clouddn.com";
     SPTopic *topicSentence = [self createTopicWithName:@"每日好句" entriesCount:@283 followersCount:@313];
     
     // 聊天
-    [self createMessageWithSender:userHardin content:@"好的，有机会再说" createdAt:@"18:44"];
     [self createMessageWithSender:userJiuqi content:@"我得把比我高的都删掉..." createdAt:@"18:37"];
     [self createMessageWithSender:userHustlzp content:@"这个，也很像，是做创业问答的" createdAt:@"12:05"];
     [self createMessageWithSender:userHuangbo content:@"看好你的。" createdAt:@"昨天"];
