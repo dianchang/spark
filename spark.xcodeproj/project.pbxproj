@@ -33,6 +33,7 @@
 		0506FA701BB3B78300333BDD /* BestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0506FA6F1BB3B78300333BDD /* BestViewController.m */; settings = {ASSET_TAGS = (); }; };
 		0506FA731BB3B79500333BDD /* MessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0506FA721BB3B79500333BDD /* MessageViewController.m */; settings = {ASSET_TAGS = (); }; };
 		0506FA761BB3B7AE00333BDD /* MyProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0506FA751BB3B7AE00333BDD /* MyProfileViewController.m */; settings = {ASSET_TAGS = (); }; };
+		055A7E761BBC205500B1BC11 /* UserPopupView.m in Sources */ = {isa = PBXBuildFile; fileRef = 055A7E751BBC205500B1BC11 /* UserPopupView.m */; settings = {ASSET_TAGS = (); }; };
 		057A12EA1BB4E09300190955 /* AddEntryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 057A12E91BB4E09300190955 /* AddEntryViewController.m */; settings = {ASSET_TAGS = (); }; };
 		057A12EE1BB4F5F600190955 /* AddTopicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 057A12ED1BB4F5F600190955 /* AddTopicViewController.m */; settings = {ASSET_TAGS = (); }; };
 		057A12F11BB5068900190955 /* EntryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 057A12F01BB5068900190955 /* EntryTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
@@ -100,6 +101,8 @@
 		0506FA721BB3B79500333BDD /* MessageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageViewController.m; sourceTree = "<group>"; };
 		0506FA741BB3B7AE00333BDD /* MyProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyProfileViewController.h; sourceTree = "<group>"; };
 		0506FA751BB3B7AE00333BDD /* MyProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyProfileViewController.m; sourceTree = "<group>"; };
+		055A7E741BBC205500B1BC11 /* UserPopupView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserPopupView.h; sourceTree = "<group>"; };
+		055A7E751BBC205500B1BC11 /* UserPopupView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserPopupView.m; sourceTree = "<group>"; };
 		057A12E81BB4E09300190955 /* AddEntryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddEntryViewController.h; sourceTree = "<group>"; };
 		057A12E91BB4E09300190955 /* AddEntryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddEntryViewController.m; sourceTree = "<group>"; };
 		057A12EB1BB4E49D00190955 /* SPPresentedViewControllerProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPPresentedViewControllerProtocol.h; sourceTree = "<group>"; };
@@ -287,6 +290,8 @@
 				05EF14DA1BB8DF6E00A9AD58 /* EntryDraggableView.m */,
 				05EF14DC1BB8DFA500A9AD58 /* EntryOverlayView.h */,
 				05EF14DD1BB8DFA500A9AD58 /* EntryOverlayView.m */,
+				055A7E741BBC205500B1BC11 /* UserPopupView.h */,
+				055A7E751BBC205500B1BC11 /* UserPopupView.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -580,6 +585,7 @@
 				057A12F51BB54B5A00190955 /* UIColor+Helper.m in Sources */,
 				0506FA2E1BB3A05500333BDD /* main.m in Sources */,
 				05AF29F41BB78F9E00496A05 /* TopicsListView.m in Sources */,
+				055A7E761BBC205500B1BC11 /* UserPopupView.m in Sources */,
 				0590CFCF1BB402C300097ECF /* SPNotification.m in Sources */,
 				057A12F11BB5068900190955 /* EntryTableViewCell.m in Sources */,
 				0590CFCD1BB402C300097ECF /* SPEntry.m in Sources */,

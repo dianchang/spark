@@ -8,6 +8,7 @@
 
 #import "SPUser.h"
 #import "EntryTableViewCell.h"
+#import "UserPopupView.h"
 #import "UIColor+Helper.h"
 #import <QuartzCore/QuartzCore.h>
 #import <AFNetworking/UIImageView+AFNetworking.h>
@@ -21,7 +22,7 @@
 @property (strong, nonatomic) UILabel *popularityLabel;
 @property (strong, nonatomic) UILabel *contentLabel;
 @property (strong, nonatomic) UIImageView *userAvatarView;
-@property (strong, nonatomic) UILabel *userNameLabel;
+@property (strong, nonatomic) UIButton *userNameButton;
 
 @end
 
@@ -62,12 +63,17 @@
     userAvatarView.layer.cornerRadius = 15;
     userAvatarView.layer.masksToBounds = YES;
     [self.contentView addSubview:userAvatarView];
+    userAvatarView.userInteractionEnabled = YES;
+    UITapGestureRecognizer *gestureForAvatar = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(userElementPressed)];
+    [userAvatarView addGestureRecognizer:gestureForAvatar];
     
     // 用户名
-    UILabel *userNameLabel = [UILabel new];
-    self.userNameLabel = userNameLabel;
-    userNameLabel.font = [UIFont boldSystemFontOfSize:12];
-    [self.contentView addSubview:userNameLabel];
+    UIButton *userNameButton = [UIButton new];
+    self.userNameButton = userNameButton;
+    userNameButton.titleLabel.font = [UIFont boldSystemFontOfSize:12];
+    [userNameButton setTitleColor:[UIColor colorWithRGBA:0x444444FF] forState:UIControlStateNormal];
+    [userNameButton addTarget:self action:@selector(userElementPressed) forControlEvents:UIControlEventTouchUpInside];
+    [self.contentView addSubview:userNameButton];
     
     // 评论按钮
     UIButton *commentButton = [UIButton new];
@@ -117,7 +123,7 @@
         make.top.equalTo(contentLabel.mas_bottom).offset(15);
     }];
     
-    [userNameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+    [userNameButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(userAvatarView.mas_right).offset(8);
         make.centerY.equalTo(userAvatarView);
     }];
@@ -151,12 +157,20 @@
     self.contentLabel.attributedText = attributedString;
     
     [self.userAvatarView setImageWithURL:[NSURL URLWithString:entry.user.avatarUrl]];
-    self.userNameLabel.text = entry.user.name;
+    [self.userNameButton setTitle:entry.user.name forState:UIControlStateNormal];
 }
+
+#pragma mark - User Interface
 
 - (void)commentButtonPressed
 {
     [self.delegate commentButtonPressed:self.entry.user];
+}
+
+- (void)userElementPressed
+{
+    UserPopupView *popupView = [[UserPopupView alloc] initWithUser:self.entry.user];
+    [popupView show];
 }
 
 #pragma mark - Getters & Setters

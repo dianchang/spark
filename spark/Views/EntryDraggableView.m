@@ -9,6 +9,7 @@
 #import "SPTopic.h"
 #import "SPUser.h"
 #import "EntryDraggableView.h"
+#import "UserPopupView.h"
 #import "UIColor+Helper.h"
 #import <QuartzCore/QuartzCore.h>
 #import <ionicons/IonIcons.h>
@@ -74,12 +75,16 @@
     userAvatarView.layer.masksToBounds = YES;
     [userAvatarView setImageWithURL:[NSURL URLWithString:entry.user.avatarUrl]];
     [self addSubview:userAvatarView];
+    userAvatarView.userInteractionEnabled = YES;
+    UITapGestureRecognizer *gestureForAvatar = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(userElementPressed)];
+    [userAvatarView addGestureRecognizer:gestureForAvatar];
     
     // 用户名
     UIButton *userNameButton = [UIButton new];
     userNameButton.titleLabel.font = [UIFont systemFontOfSize:14];
     [userNameButton setTitle:entry.user.name forState:UIControlStateNormal];
     [userNameButton setTitleColor:[UIColor colorWithRGBA:0x9E9E9EFF] forState:UIControlStateNormal];
+    [userNameButton addTarget:self action:@selector(userElementPressed) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:userNameButton];
     
     // border
@@ -289,6 +294,12 @@
 - (void)commentButtonPressed
 {
     [self.delegate commentButtonPressed:self.entry.user];
+}
+
+- (void)userElementPressed
+{
+    UserPopupView *userPopupView = [[UserPopupView alloc] initWithUser:self.entry.user];
+    [userPopupView show];
 }
 
 #pragma mark - Getters & Setters
