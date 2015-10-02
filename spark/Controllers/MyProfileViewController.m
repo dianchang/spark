@@ -53,6 +53,7 @@
 
 - (void)viewDidLayoutSubviews
 {
+    [super viewDidLayoutSubviews];
     [self sizeHeaderViewToFit];
 }
 

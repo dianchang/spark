@@ -11,5 +11,6 @@
 
 #define SPTabBarHeight 49
 #define SPNavBarHeight 64
+#define SPStatusBarHeight 20
 
 #endif

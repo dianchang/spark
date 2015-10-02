@@ -4,6 +4,7 @@
 #import "_SPTopic.h"
 
 const struct SPTopicAttributes SPTopicAttributes = {
+	.avatarUrl = @"avatarUrl",
 	.desc = @"desc",
 	.entriesCount = @"entriesCount",
 	.followersCount = @"followersCount",
@@ -53,6 +54,8 @@ const struct SPTopicRelationships SPTopicRelationships = {
 
 	return keyPaths;
 }
+
+@dynamic avatarUrl;
 
 @dynamic desc;
 

@@ -7,9 +7,15 @@
 //
 
 #import "EntryTableViewCell.h"
+#import "SPLabel.h"
 #import "TopicViewController.h"
 #import "DialogViewController.h"
+#import "Constants.h"
+#import "UIColor+Helper.h"
+#import <QuartzCore/QuartzCore.h>
 #import <Masonry/Masonry.h>
+#import <ionicons/IonIcons.h>
+#import <AFNetworking/UIImageView+AFNetworking.h>
 
 static NSString * const cellIdentifier = @"EntryCell";
 
@@ -48,11 +54,43 @@ static NSString * const cellIdentifier = @"EntryCell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationItem.title = [NSString stringWithFormat:@"「%@」", self.topic.name];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    
+    [self.navigationController setNavigationBarHidden:YES animated:NO];
+    
+    UINavigationBar *newNavBar = [[UINavigationBar alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), SPNavBarHeight)];
+    newNavBar.backgroundColor = [UIColor SPBackgroundColor];
+    
+    UINavigationItem *newItem = [[UINavigationItem alloc] init];
+    [newNavBar setItems:@[newItem]];
+    
+    newNavBar.shadowImage = [[UIImage alloc] init];
+    [newNavBar setBackgroundImage:[[UIImage alloc] init] forBarMetrics:UIBarMetricsDefault];
+    
+    UIImage *adminIcon = [IonIcons imageWithIcon:ion_ios_gear_outline size:28 color:[UIColor lightGrayColor]];
+    UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithImage:adminIcon style:UIBarButtonItemStylePlain target:self action:@selector(adminTopic)];
+    newNavBar.topItem.rightBarButtonItem = rightButton;
+    
+    UIImage *backIcon = [IonIcons imageWithIcon:ion_ios_arrow_left size:28 color:[UIColor lightGrayColor]];
+    UIBarButtonItem *leftButton = [[UIBarButtonItem alloc] initWithImage:backIcon style:UIBarButtonItemStylePlain target:self action:@selector(back)];
+    newNavBar.topItem.leftBarButtonItem = leftButton;
+    
+    [self.view addSubview:newNavBar];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    
+    [self.navigationController setNavigationBarHidden:NO animated:NO];
+}
+
+- (void)viewDidLayoutSubviews
+{
+    [self sizeHeaderViewToFit];
 }
 
 #pragma mark - Layout
@@ -69,17 +107,140 @@ static NSString * const cellIdentifier = @"EntryCell";
     tableView.estimatedRowHeight = 150;
     [self.view addSubview:tableView];
     [tableView registerClass:[EntryTableViewCell class] forCellReuseIdentifier:cellIdentifier];
+    tableView.tableHeaderView = [self createHeaderView];
     
     // 约束
     
     [tableView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.equalTo(self.view);
+        make.left.right.bottom.equalTo(self.view);
+        make.top.equalTo(self.view).offset(SPNavBarHeight - SPStatusBarHeight);
     }];
+}
+
+- (UIView *)createHeaderView
+{
+    UIView *headerView = [UIView new];
+    headerView.backgroundColor = [UIColor SPBackgroundColor];
+    
+    // 头像
+    UIImageView *avatarView = [UIImageView new];
+    [avatarView setImageWithURL:[NSURL URLWithString:self.topic.avatarUrl]];
+    avatarView.layer.cornerRadius = 3;
+    avatarView.layer.masksToBounds = YES;
+    [headerView addSubview:avatarView];
+    
+    // 话题名
+    SPLabel *topicNameLabel = [SPLabel new];
+    topicNameLabel.text = self.topic.name;
+    topicNameLabel.font = [UIFont fontWithName:SPLanTingFontName size:16];
+    [headerView addSubview:topicNameLabel];
+    
+    // 简介
+    SPLabel *descLabel = [SPLabel new];
+    descLabel.text = self.topic.desc;
+    descLabel.font = [UIFont systemFontOfSize:12];
+    descLabel.numberOfLines = 0;
+    descLabel.lineBreakMode = NSLineBreakByWordWrapping;
+    descLabel.textColor = [UIColor grayColor];
+    [headerView addSubview:descLabel];
+    
+    // 数据wap
+    UIView *countWapView = [UIView new];
+    [headerView addSubview:countWapView];
+    CALayer *border = [CALayer layer];
+    border.frame = CGRectMake(0, 0, CGRectGetWidth(self.view.frame) - 40, .5);
+    border.backgroundColor = [UIColor colorWithRGBA:0xDDDDDDFF].CGColor;
+    [countWapView.layer addSublayer:border];
+    UILabel *countLabel = [UILabel new];
+    countLabel.text = @"271 条笔记";
+    countLabel.textColor = [UIColor grayColor];
+    countLabel.font = [UIFont systemFontOfSize:12];
+    [countWapView addSubview:countLabel];
+    
+    NSMutableAttributedString *entriesCountString = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"%d", self.topic.entriesCountValue] attributes:@{NSFontAttributeName: [UIFont boldSystemFontOfSize:12]}];
+    NSMutableAttributedString *entriesCountTextString = [[NSMutableAttributedString alloc] initWithString:@" 条笔记，" attributes:@{NSFontAttributeName: [UIFont systemFontOfSize:12]}];
+    NSMutableAttributedString *followersCountString = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"%d", self.topic.followersCountValue] attributes:@{NSFontAttributeName: [UIFont boldSystemFontOfSize:12]}];
+    NSMutableAttributedString *followerCountTextString = [[NSMutableAttributedString alloc] initWithString:@" 人关注" attributes:@{NSFontAttributeName: [UIFont systemFontOfSize:12]}];
+    [entriesCountString appendAttributedString:entriesCountTextString];
+    [entriesCountString appendAttributedString:followersCountString];
+    [entriesCountString appendAttributedString:followerCountTextString];
+    countLabel.attributedText = entriesCountString;
+    
+    UIButton *followButton = [UIButton new];
+    followButton.layer.cornerRadius = 3;
+    followButton.layer.masksToBounds = YES;
+    [followButton setTitle:@"+ 关注" forState:UIControlStateNormal];
+    [followButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    followButton.titleLabel.font = [UIFont boldSystemFontOfSize:12];
+    followButton.contentEdgeInsets = UIEdgeInsetsMake(6, 10, 6, 10);
+    followButton.backgroundColor = [UIColor colorWithRGBA:0x23CC95FF];
+    [countWapView addSubview:followButton];
+    
+    // 约束
+    
+    [avatarView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.width.height.equalTo(@60);
+        make.top.equalTo(headerView).offset(0);
+        make.centerX.equalTo(headerView);
+    }];
+    
+    [topicNameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerX.equalTo(headerView);
+        make.top.equalTo(avatarView.mas_bottom).offset(10);
+    }];
+    
+    [descLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(topicNameLabel.mas_bottom).offset(15).priorityHigh();
+        make.left.equalTo(headerView).offset(20);
+        make.right.equalTo(headerView).offset(-20);
+    }];
+    
+    [countWapView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(descLabel.mas_bottom).offset(20);
+        make.left.equalTo(headerView).offset(20);
+        make.right.equalTo(headerView).offset(-20);
+        make.bottom.equalTo(headerView);
+    }];
+    
+    [countLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(countWapView);
+        make.top.equalTo(countWapView).offset(18);
+        make.bottom.equalTo(countWapView).offset(-18);
+    }];
+    
+    [followButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerY.equalTo(countLabel);
+        make.right.equalTo(countWapView);
+    }];
+    
+    return headerView;
+}
+
+- (void)sizeHeaderViewToFit
+{
+    UIView *headerView = self.tableView.tableHeaderView;
+    [headerView setNeedsLayout];
+    [headerView layoutIfNeeded];
+    CGSize size = [headerView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
+    CGRect frame = headerView.frame;
+    frame.size.height = size.height;
+    headerView.frame = frame;
+    [self.tableView setTableHeaderView:headerView];
 }
 
 #pragma mark - Public Interface
 
 #pragma mark - User Interface
+
+- (void)adminTopic
+{
+
+}
+
+- (void)back
+{
+    [self.navigationController popViewControllerAnimated:YES];
+}
 
 # pragma mark - tableview delegate
 

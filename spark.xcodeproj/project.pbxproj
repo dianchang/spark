@@ -53,6 +53,7 @@
 		0590CFD01BB402C300097ECF /* SPTopic.m in Sources */ = {isa = PBXBuildFile; fileRef = 0590CFC51BB402C300097ECF /* SPTopic.m */; settings = {ASSET_TAGS = (); }; };
 		0590CFD11BB402C300097ECF /* SPUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 0590CFC71BB402C300097ECF /* SPUser.m */; settings = {ASSET_TAGS = (); }; };
 		0590CFD81BB4149100097ECF /* Seed.m in Sources */ = {isa = PBXBuildFile; fileRef = 0590CFD71BB4149100097ECF /* Seed.m */; settings = {ASSET_TAGS = (); }; };
+		05978AF91BBEDA9C00972623 /* SPLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 05978AF81BBEDA9C00972623 /* SPLabel.m */; settings = {ASSET_TAGS = (); }; };
 		05AF29F11BB7877E00496A05 /* TopicView.m in Sources */ = {isa = PBXBuildFile; fileRef = 05AF29F01BB7877E00496A05 /* TopicView.m */; settings = {ASSET_TAGS = (); }; };
 		05AF29F41BB78F9E00496A05 /* TopicsListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 05AF29F31BB78F9E00496A05 /* TopicsListView.m */; settings = {ASSET_TAGS = (); }; };
 		05AF29F71BB7CAAC00496A05 /* TopicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05AF29F61BB7CAAC00496A05 /* TopicViewController.m */; settings = {ASSET_TAGS = (); }; };
@@ -144,6 +145,8 @@
 		0590CFD31BB40EC300097ECF /* UIColor+Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Helper.m"; sourceTree = "<group>"; };
 		0590CFD61BB4149100097ECF /* Seed.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Seed.h; sourceTree = "<group>"; };
 		0590CFD71BB4149100097ECF /* Seed.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Seed.m; sourceTree = "<group>"; };
+		05978AF71BBEDA9B00972623 /* SPLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPLabel.h; sourceTree = "<group>"; };
+		05978AF81BBEDA9C00972623 /* SPLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPLabel.m; sourceTree = "<group>"; };
 		05AF29EF1BB7877E00496A05 /* TopicView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopicView.h; sourceTree = "<group>"; };
 		05AF29F01BB7877E00496A05 /* TopicView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopicView.m; sourceTree = "<group>"; };
 		05AF29F21BB78F9E00496A05 /* TopicsListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopicsListView.h; sourceTree = "<group>"; };
@@ -302,6 +305,8 @@
 				055188CE1BBCDE3200DC6A0D /* EntryView.m */,
 				055188D01BBCDED500DC6A0D /* TopicBriefView.h */,
 				055188D11BBCDED500DC6A0D /* TopicBriefView.m */,
+				05978AF71BBEDA9B00972623 /* SPLabel.h */,
+				05978AF81BBEDA9C00972623 /* SPLabel.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -571,6 +576,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				05978AF91BBEDA9C00972623 /* SPLabel.m in Sources */,
 				0590CFC91BB402C300097ECF /* _SPMessage.m in Sources */,
 				0590CFCC1BB402C300097ECF /* _SPUser.m in Sources */,
 				0590CFCE1BB402C300097ECF /* SPMessage.m in Sources */,
