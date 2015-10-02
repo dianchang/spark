@@ -10,5 +10,6 @@
 #define SPLanTingFontName @"FZLTTHK--GBK1-0"
 
 #define SPTabBarHeight 49
+#define SPNavBarHeight 64
 
 #endif

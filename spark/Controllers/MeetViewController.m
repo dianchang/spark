@@ -12,8 +12,9 @@
 #import "MeetViewController.h"
 #import "AddEntryViewController.h"
 #import "DialogViewController.h"
-#import "UIColor+Helper.h"
 #import "TopicViewController.h"
+#import "UIColor+Helper.h"
+#import "Constants.h"
 #import <ionicons/IonIcons.h>
 #import <MagicalRecord/MagicalRecord.h>
 #import <Masonry/Masonry.h>
@@ -42,20 +43,35 @@
     
     self.edgesForExtendedLayout = UIRectEdgeNone;
     self.navigationItem.title = @"Spark";
-    UIImage *plusIcon = [IonIcons imageWithIcon:ion_android_add size:28 color:[UIColor lightGrayColor]];
-    UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithImage:plusIcon style:UIBarButtonItemStylePlain target:self action:@selector(addEntry)];
-    self.navigationItem.rightBarButtonItem = rightButton;
+
 }
 
-//- (void)viewWillAppear:(BOOL)animated {
-//    [super viewWillAppear:animated];
-//    [self.navigationController setNavigationBarHidden:YES animated:NO];
-//}
-//
-//- (void)viewDidDisappear:(BOOL)animated {
-//    [super viewDidDisappear:animated];
-//    [self.navigationController setNavigationBarHidden:NO animated:NO];
-//}
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self.navigationController setNavigationBarHidden:YES animated:NO];
+    
+    UINavigationBar *newNavBar = [[UINavigationBar alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), SPNavBarHeight)];
+    newNavBar.backgroundColor = [UIColor SPBackgroundColor];
+    
+    UINavigationItem *newItem = [[UINavigationItem alloc] init];
+    newItem.title = @"Spark";
+    [newNavBar setItems:@[newItem]];
+    
+    newNavBar.shadowImage = [[UIImage alloc] init];
+    [newNavBar setBackgroundImage:[[UIImage alloc] init] forBarMetrics:UIBarMetricsDefault];
+    
+    UIImage *plusIcon = [IonIcons imageWithIcon:ion_android_add size:28 color:[UIColor lightGrayColor]];
+    UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithImage:plusIcon style:UIBarButtonItemStylePlain target:self action:@selector(addEntry)];
+    newNavBar.topItem.rightBarButtonItem = rightButton;
+    
+    [self.view addSubview:newNavBar];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    
+    [self.navigationController setNavigationBarHidden:NO animated:NO];
+}
 
 #pragma mark - Layout
 
@@ -82,7 +98,7 @@
     [self.view addSubview:cardWapView];
     
     [cardWapView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.view).offset(20);
+        make.top.equalTo(self.view).offset(SPNavBarHeight);
         make.left.equalTo(self.view).offset(12);
         make.right.equalTo(self.view).offset(-12);
         make.bottom.equalTo(firstBottomView).offset(-3);
