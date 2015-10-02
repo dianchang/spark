@@ -1,21 +1,27 @@
 //
-//  EntryTableViewCell.h
+//  EntryView.h
 //  spark
 //
-//  Created by hustlzp on 15/9/25.
+//  Created by hustlzp on 15/10/1.
 //  Copyright © 2015年 hustlzp. All rights reserved.
 //
 
 #import "SPEntry.h"
-#import "EntryView.h"
 #import "SPUser.h"
 #import "TopicsListView.h"
 #import <UIKit/UIKit.h>
 
-@interface EntryTableViewCell : UITableViewCell
+@protocol EntryViewDelegate <TopicsListViewDelegate>
+
+- (void)commentButtonPressed:(SPUser *)user;
+
+@end
+
+@interface EntryView : UIView
 
 @property (weak, nonatomic) id <EntryViewDelegate> delegate;
 
 - (void)updateWithEntry:(SPEntry *)entry;
+- (instancetype)initWithEntry:(SPEntry *)entry;
 
 @end

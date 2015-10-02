@@ -13,7 +13,7 @@
 
 static NSString * const cellIdentifier = @"EntryCell";
 
-@interface TopicViewController () <UITableViewDataSource, UITableViewDelegate, TopicsListViewDelegate, EntryCellDelegate>
+@interface TopicViewController () <UITableViewDataSource, UITableViewDelegate, TopicsListViewDelegate, EntryViewDelegate>
 
 @property (strong, nonatomic) SPTopic *topic;
 @property (strong, nonatomic) UITableView *tableView;

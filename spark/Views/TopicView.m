@@ -23,7 +23,7 @@
     self.borderWidth = 0;
     self.borderColor = [UIColor lightGrayColor];
     self.textColor = [UIColor SPTopicForegroundColor];
-    self.padding = UIEdgeInsetsMake(5, 10, 5, 10);
+    self.padding = UIEdgeInsetsMake(4, 10, 4, 10);
     self.tagBackgroundColor = [UIColor SPTopicBackgroundColor];
     self.tagSelectedBackgroundColor = [UIColor colorWithRGBA:0xEEEEEEFF];
     self.textFont = [UIFont systemFontOfSize:12];
@@ -32,16 +32,6 @@
     [self setTitle:topic.name forState:UIControlStateNormal];
     
     return self;
-}
-
-- (CGSize)intrinsicContentSize
-{
-    CGSize size = [self.titleLabel.text sizeWithAttributes:@{NSFontAttributeName: self.titleLabel.font}];
-    
-    size.height = self.titleLabel.font.pointSize + self.padding.top * 2;
-    size.width += self.padding.left * 2;
-    
-    return size;
 }
 
 #pragma mark - User Interface
@@ -84,7 +74,7 @@
 - (void)setPadding:(UIEdgeInsets)padding
 {
     _padding = padding;
-    self.titleEdgeInsets = padding;
+    self.contentEdgeInsets = padding;
 }
 
 - (void)setTagBackgroundColor:(UIColor *)tagBackgroundColor

@@ -112,8 +112,10 @@
      
 - (void)topicPressed:(TopicView *)topicView
 {
-    [topicView pressed];
-    [self.delegate topicPressed:topicView.topic];
+    if (self.delegate) {
+        [topicView pressed];
+        [self.delegate topicPressed:topicView.topic];
+    }
 }
 
 #pragma mark - Getters & Setters

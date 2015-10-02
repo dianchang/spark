@@ -20,7 +20,7 @@
 
 static NSString * const cellIdentifier = @"EntryCell";
 
-@interface BestViewController () <UITableViewDataSource, UITableViewDelegate, TopicsListViewDelegate, EntryCellDelegate>
+@interface BestViewController () <UITableViewDataSource, UITableViewDelegate, TopicsListViewDelegate, EntryViewDelegate>
 
 @property (strong, nonatomic) UITableView *tableView;
 @property (strong, nonatomic) NSArray *entries;
