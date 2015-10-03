@@ -8,6 +8,7 @@ target 'spark' do
 	pod 'Fabric'
 	pod 'Crashlytics'
     pod 'ionicons'
+    pod 'PNChart'
 end
 
 target 'sparkTests' do

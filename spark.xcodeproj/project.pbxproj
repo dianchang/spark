@@ -33,6 +33,11 @@
 		0506FA701BB3B78300333BDD /* BestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0506FA6F1BB3B78300333BDD /* BestViewController.m */; settings = {ASSET_TAGS = (); }; };
 		0506FA731BB3B79500333BDD /* MessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0506FA721BB3B79500333BDD /* MessageViewController.m */; settings = {ASSET_TAGS = (); }; };
 		0506FA761BB3B7AE00333BDD /* MyProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0506FA751BB3B7AE00333BDD /* MyProfileViewController.m */; settings = {ASSET_TAGS = (); }; };
+		0510F6F91BC00187000CDB38 /* PopularityPopupView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0510F6F81BC00187000CDB38 /* PopularityPopupView.m */; settings = {ASSET_TAGS = (); }; };
+		052870CF1BC028C400C81DBA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 052870CE1BC028C400C81DBA /* Foundation.framework */; };
+		052870D11BC028CC00C81DBA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 052870D01BC028CC00C81DBA /* UIKit.framework */; };
+		052870D31BC028D600C81DBA /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 052870D21BC028D600C81DBA /* CoreGraphics.framework */; };
+		052870D51BC028EA00C81DBA /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 052870D41BC028EA00C81DBA /* QuartzCore.framework */; };
 		055188CF1BBCDE3200DC6A0D /* EntryView.m in Sources */ = {isa = PBXBuildFile; fileRef = 055188CE1BBCDE3200DC6A0D /* EntryView.m */; settings = {ASSET_TAGS = (); }; };
 		055188D21BBCDED500DC6A0D /* TopicBriefView.m in Sources */ = {isa = PBXBuildFile; fileRef = 055188D11BBCDED500DC6A0D /* TopicBriefView.m */; settings = {ASSET_TAGS = (); }; };
 		055A7E761BBC205500B1BC11 /* UserPopupView.m in Sources */ = {isa = PBXBuildFile; fileRef = 055A7E751BBC205500B1BC11 /* UserPopupView.m */; settings = {ASSET_TAGS = (); }; };
@@ -104,6 +109,12 @@
 		0506FA721BB3B79500333BDD /* MessageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageViewController.m; sourceTree = "<group>"; };
 		0506FA741BB3B7AE00333BDD /* MyProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyProfileViewController.h; sourceTree = "<group>"; };
 		0506FA751BB3B7AE00333BDD /* MyProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyProfileViewController.m; sourceTree = "<group>"; };
+		0510F6F71BC00187000CDB38 /* PopularityPopupView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopularityPopupView.h; sourceTree = "<group>"; };
+		0510F6F81BC00187000CDB38 /* PopularityPopupView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopularityPopupView.m; sourceTree = "<group>"; };
+		052870CE1BC028C400C81DBA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		052870D01BC028CC00C81DBA /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		052870D21BC028D600C81DBA /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		052870D41BC028EA00C81DBA /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		055188CD1BBCDE3200DC6A0D /* EntryView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntryView.h; sourceTree = "<group>"; };
 		055188CE1BBCDE3200DC6A0D /* EntryView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntryView.m; sourceTree = "<group>"; };
 		055188D01BBCDED500DC6A0D /* TopicBriefView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopicBriefView.h; sourceTree = "<group>"; };
@@ -167,6 +178,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				052870D51BC028EA00C81DBA /* QuartzCore.framework in Frameworks */,
+				052870D31BC028D600C81DBA /* CoreGraphics.framework in Frameworks */,
+				052870D11BC028CC00C81DBA /* UIKit.framework in Frameworks */,
+				052870CF1BC028C400C81DBA /* Foundation.framework in Frameworks */,
 				84F1591E2415FBD5B0B396F4 /* libPods-spark.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -307,6 +322,8 @@
 				055188D11BBCDED500DC6A0D /* TopicBriefView.m */,
 				05978AF71BBEDA9B00972623 /* SPLabel.h */,
 				05978AF81BBEDA9C00972623 /* SPLabel.m */,
+				0510F6F71BC00187000CDB38 /* PopularityPopupView.h */,
+				0510F6F81BC00187000CDB38 /* PopularityPopupView.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -373,6 +390,10 @@
 		C26A16C8026790A84453BC45 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				052870D41BC028EA00C81DBA /* QuartzCore.framework */,
+				052870D21BC028D600C81DBA /* CoreGraphics.framework */,
+				052870D01BC028CC00C81DBA /* UIKit.framework */,
+				052870CE1BC028C400C81DBA /* Foundation.framework */,
 				6D28D8D01EBF146990B40B3C /* libPods-spark.a */,
 			);
 			name = Frameworks;
@@ -594,6 +615,7 @@
 				0506FA311BB3A05500333BDD /* AppDelegate.m in Sources */,
 				05EF14DE1BB8DFA500A9AD58 /* EntryOverlayView.m in Sources */,
 				0590CFD81BB4149100097ECF /* Seed.m in Sources */,
+				0510F6F91BC00187000CDB38 /* PopularityPopupView.m in Sources */,
 				0590CFD11BB402C300097ECF /* SPUser.m in Sources */,
 				0506FA6D1BB3B76C00333BDD /* MeetViewController.m in Sources */,
 				057A12F81BB5549900190955 /* MessageTableViewCell.m in Sources */,

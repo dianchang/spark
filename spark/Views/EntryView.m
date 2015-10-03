@@ -8,6 +8,7 @@
 
 #import "EntryView.h"
 #import "UserPopupView.h"
+#import "PopularityPopupView.h"
 #import "UIColor+Helper.h"
 #import <Masonry/Masonry.h>
 #import <ionicons/IonIcons.h>
@@ -57,6 +58,9 @@
     // 流行度
     UIView *popularityWapView = [UIView new];
     [self addSubview:popularityWapView];
+    popularityWapView.userInteractionEnabled = YES;
+    UITapGestureRecognizer *gestureForPopularity = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(popularityElementPressed)];
+    [popularityWapView addGestureRecognizer:gestureForPopularity];
     
     UILabel *heartLabel = [IonIcons labelWithIcon:ion_heart size:15 color:[UIColor colorWithRGBA:0xA0A4A6FF]];
     [popularityWapView addSubview:heartLabel];
@@ -124,7 +128,7 @@
     
     [popularityLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(heartLabel.mas_right).offset(5);
-        make.centerY.equalTo(heartLabel);
+        make.top.equalTo(heartLabel);
         make.right.equalTo(popularityWapView);
     }];
     
@@ -146,7 +150,7 @@
     }];
     
     [commentButton mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.right.equalTo(self).offset(0);
+        make.right.equalTo(self).offset(-12);
         make.centerY.equalTo(userAvatarView);
     }];
     
@@ -192,6 +196,14 @@
     if (self.delegate) {
         UserPopupView *popupView = [[UserPopupView alloc] initWithUser:self.entry.user];
         [popupView show];
+    }
+}
+
+- (void)popularityElementPressed
+{
+    if (self.delegate) {
+        PopularityPopupView *popularityPopupView = [[PopularityPopupView alloc] initWithEntry:self.entry];
+        [popularityPopupView show];
     }
 }
 
