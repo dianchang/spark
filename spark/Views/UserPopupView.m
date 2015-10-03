@@ -430,7 +430,7 @@ static const NSInteger popupHeight = 360;
     
     for (int i = 0; i < self.entries.count; i++) {
         SPEntry *entry = self.entries[i];
-        EntryView *entryView = [[EntryView alloc] initWithEntry:entry];
+        EntryView *entryView = [[EntryView alloc] initWithEntry:entry padding:UIEdgeInsetsMake(15, 15, 15, 15)];
         [entriesWapView addSubview:entryView];
         
         if (i == 0) {
@@ -457,7 +457,7 @@ static const NSInteger popupHeight = 360;
     }
     
     CGSize size = [entriesWapView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
-    entriesWapView.frame = CGRectMake(15, 0, popupWidth - 15 * 2, size.height);
+    entriesWapView.frame = CGRectMake(0, 0, popupWidth, size.height);
     self.entriesScrollView.contentSize = CGSizeMake(popupWidth, size.height);
 }
 

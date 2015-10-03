@@ -86,7 +86,6 @@
     [self.window makeKeyAndVisible];
     
     [[UINavigationBar appearance] setTitleTextAttributes: @{NSFontAttributeName: [UIFont fontWithName:SPLanTingFontName size:17.0f]}];
-
     [[UINavigationBar appearance] setBarTintColor:[UIColor SPBackgroundColor]];
     
     return YES;

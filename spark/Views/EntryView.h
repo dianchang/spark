@@ -22,6 +22,7 @@
 @property (weak, nonatomic) id <EntryViewDelegate> delegate;
 
 - (void)updateWithEntry:(SPEntry *)entry;
-- (instancetype)initWithEntry:(SPEntry *)entry;
+- (instancetype)initWithEntry:(SPEntry *)entry padding:(UIEdgeInsets)padding;
+- (instancetype)initWithPadding:(UIEdgeInsets)padding;
 
 @end

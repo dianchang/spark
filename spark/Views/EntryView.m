@@ -26,28 +26,28 @@
 
 @implementation EntryView
 
-- (instancetype)initWithEntry:(SPEntry *)entry
+- (instancetype)initWithEntry:(SPEntry *)entry padding:(UIEdgeInsets)padding
 {
-    self = [self init];
+    self = [self initWithPadding:padding];
     
     [self updateWithEntry:entry];
     
     return self;
 }
 
-- (instancetype)init
+- (instancetype)initWithPadding:(UIEdgeInsets)padding
 {
     self = [super init];
     if (!self) {
         return nil;
     }
     
-    [self createViews];
+    [self createViewsWithPadding:padding];
     
     return self;
 }
 
-- (void)createViews
+- (void)createViewsWithPadding:(UIEdgeInsets)padding
 {
     // 话题
     TopicsListView *topicsView = [TopicsListView new];
@@ -108,13 +108,13 @@
     /* 约束 */
     
     [topicsView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self);
-        make.top.equalTo(self).offset(20);
+        make.left.equalTo(self).offset(padding.left);
+        make.top.equalTo(self).offset(padding.top);
     }];
     
     [popularityWapView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.equalTo(topicsView);
-        make.right.equalTo(self);
+        make.right.equalTo(self).offset(-padding.right);
         make.left.equalTo(topicsView.mas_right).offset(10);
     }];
     
@@ -151,11 +151,11 @@
     }];
     
     [bottomBorder mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(userAvatarView.mas_bottom).offset(20).priorityHigh();
+        make.top.equalTo(userAvatarView.mas_bottom).offset(padding.bottom).priorityHigh();
         make.left.equalTo(topicsView);
         make.right.equalTo(popularityWapView);
         make.height.equalTo(@.5).priorityHigh();
-        make.bottom.equalTo(self.mas_bottom);
+        make.bottom.equalTo(self);
     }];
 
 }

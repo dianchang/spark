@@ -22,12 +22,12 @@
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     
-    EntryView *entryView = [EntryView new];
+    EntryView *entryView = [[EntryView alloc] initWithPadding:UIEdgeInsetsMake(20, 20, 20, 20)];
     [self.contentView addSubview:entryView];
     self.entryView = entryView;
     
     [entryView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.equalTo(self.contentView).insets(UIEdgeInsetsMake(0, 20, 0, 20));
+        make.edges.equalTo(self.contentView);
     }];
     
     return self;
