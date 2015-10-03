@@ -92,7 +92,7 @@ static const NSInteger popupHeight = 440;
     
     // 流行度
     UILabel *popularityLabel = [UILabel new];
-    popularityLabel.text = [NSString stringWithFormat:@"%d%%", (int)((double)self.entry.upvotesCountValue / (self.entry.upvotesCountValue + self.entry.downvotesCountValue))];
+    popularityLabel.text = [NSString stringWithFormat:@"%d%%", (int)((double)self.entry.upvotesCountValue * 100 / (self.entry.upvotesCountValue + self.entry.downvotesCountValue))];
     popularityLabel.font = [UIFont fontWithName:SPLanTingFontName size:34];
     popularityLabel.textColor = [UIColor SPColorMain];
     [wapView addSubview:popularityLabel];

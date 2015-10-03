@@ -170,7 +170,7 @@
 {
     self.entry = entry;
     self.topicsView.topics = [entry.topics allObjects];
-    self.popularityLabel.text = [NSString stringWithFormat:@"%d%%", (int)((double)entry.upvotesCountValue / (entry.upvotesCountValue + entry.downvotesCountValue))];
+    self.popularityLabel.text = [NSString stringWithFormat:@"%d%%", (int)((double)entry.upvotesCountValue * 100 / (entry.upvotesCountValue + entry.downvotesCountValue))];
     
     NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:entry.content];
     NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
