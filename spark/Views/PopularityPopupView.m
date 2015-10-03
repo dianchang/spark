@@ -73,7 +73,7 @@ static const NSInteger popupHeight = 440;
     barChart.strokeColors = @[[UIColor colorWithRGBA:0xFD9191FF], [UIColor colorWithRGBA:0x868AA4FF]];
     barChart.isGradientShow = NO;
     barChart.barRadius = 0;
-    barChart.yMaxValue = 280;
+    barChart.yMaxValue = self.entry.upvotesCountValue + 50;
     barChart.barWidth = 20;
     barChart.showChartBorder = YES;
     [barChart setYValues:@[self.entry.upvotesCount, self.entry.downvotesCount]];
