@@ -62,7 +62,7 @@ static NSString * const cellIdentifier = @"EntryCell";
     [self.navigationController setNavigationBarHidden:YES animated:NO];
     
     UINavigationBar *newNavBar = [[UINavigationBar alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), SPNavBarHeight)];
-    newNavBar.backgroundColor = [UIColor SPBackgroundColor];
+    newNavBar.backgroundColor = [UIColor clearColor];
     
     UINavigationItem *newItem = [[UINavigationItem alloc] init];
     [newNavBar setItems:@[newItem]];
@@ -113,7 +113,7 @@ static NSString * const cellIdentifier = @"EntryCell";
     
     [tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.bottom.equalTo(self.view);
-        make.top.equalTo(self.view).offset(SPNavBarHeight - SPStatusBarHeight);
+        make.top.equalTo(self.view).offset(-SPStatusBarHeight);
     }];
 }
 
@@ -132,7 +132,7 @@ static NSString * const cellIdentifier = @"EntryCell";
     // 话题名
     SPLabel *topicNameLabel = [SPLabel new];
     topicNameLabel.text = self.topic.name;
-    topicNameLabel.font = [UIFont fontWithName:SPLanTingFontName size:16];
+    topicNameLabel.font = [UIFont fontWithName:SPLanTingFontName size:18];
     [headerView addSubview:topicNameLabel];
     
     // 简介
@@ -171,16 +171,16 @@ static NSString * const cellIdentifier = @"EntryCell";
     followButton.layer.masksToBounds = YES;
     [followButton setTitle:@"+ 关注" forState:UIControlStateNormal];
     [followButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    followButton.titleLabel.font = [UIFont boldSystemFontOfSize:12];
-    followButton.contentEdgeInsets = UIEdgeInsetsMake(6, 10, 6, 10);
+    followButton.titleLabel.font = [UIFont fontWithName:SPLanTingFontName size:14];
+    followButton.contentEdgeInsets = UIEdgeInsetsMake(8, 12, 6, 12);
     followButton.backgroundColor = [UIColor colorWithRGBA:0x23CC95FF];
     [countWapView addSubview:followButton];
     
     // 约束
     
     [avatarView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.width.height.equalTo(@60);
-        make.top.equalTo(headerView).offset(0);
+        make.width.height.equalTo(@50);
+        make.top.equalTo(headerView).offset(SPStatusBarHeight + 10);
         make.centerX.equalTo(headerView);
     }];
     
@@ -225,6 +225,12 @@ static NSString * const cellIdentifier = @"EntryCell";
     CGRect frame = headerView.frame;
     frame.size.height = size.height;
     headerView.frame = frame;
+    
+    CALayer *border = [CALayer layer];
+    border.frame = CGRectMake(0, frame.size.height - .5, frame.size.width, .5);
+    border.backgroundColor = [UIColor colorWithRGBA:0xBBBBBBFF].CGColor;
+    [headerView.layer addSublayer:border];
+    
     [self.tableView setTableHeaderView:headerView];
 }
 
