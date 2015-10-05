@@ -24,7 +24,7 @@
     self.layer.masksToBounds = YES;
     
     if (withBorder) {
-        self.layer.borderWidth = .5;
+        self.layer.borderWidth = 1;
         self.layer.borderColor = [UIColor whiteColor].CGColor;
     }
     

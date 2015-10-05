@@ -8,12 +8,16 @@
 
 #import "SPUser.h"
 #import "MessageTableViewCell.h"
+#import "BadgeView.h"
 #import "UIColor+Helper.h"
 #import <QuartzCore/QuartzCore.h>
 #import <AFNetworking/UIImageView+AFNetworking.h>
 #import <Masonry/Masonry.h>
 
 @interface MessageTableViewCell ()
+
+@property (strong, nonatomic) BadgeView *numberBadgeView;
+@property (strong, nonatomic) UIView *circleBadgeView;
 
 @end
 
@@ -93,8 +97,17 @@
     [self.userAvatarView setImageWithURL:[NSURL URLWithString:message.sender.avatarUrl]];
     self.userNameLabel.text = message.sender.name;
     self.contentLabel.text = message.content;
+    
     if (message.createdAtString) {
         self.createdAtLabel.text = message.createdAtString;
+    }
+    
+    if (message.unreadMessagesCountValue == 1) {
+        [self makeCircleBadgeView];
+    } else if (message.unreadMessagesCountValue > 1) {
+        [self makeNumberBadgeView:message.unreadMessagesCountValue];
+    } else {
+        [self hideBadgeViews];
     }
 }
 
@@ -104,9 +117,56 @@
     [self.userAvatarView setImageWithURL:[NSURL URLWithString:notification.sender.avatarUrl]];
     self.userNameLabel.text = notification.sender.name;
     self.contentLabel.text = notification.content;
+    
     if (notification.createdAtString) {
         self.createdAtLabel.text = notification.createdAtString;
     }
+    
+    if (notification.unreadNotificationsCountValue == 1) {
+        [self makeCircleBadgeView];
+    } else if (notification.unreadNotificationsCountValue > 1) {
+        [self makeNumberBadgeView:notification.unreadNotificationsCountValue];
+    } else {
+        [self hideBadgeViews];
+    }
+}
+
+- (void)makeCircleBadgeView
+{
+    UIView *circleBadgeView = [UIView new];
+    circleBadgeView.backgroundColor = [UIColor redColor];
+    circleBadgeView.layer.cornerRadius = 4.5;
+    circleBadgeView.layer.masksToBounds = YES;
+    circleBadgeView.layer.borderWidth = 1;
+    circleBadgeView.layer.borderColor = [UIColor whiteColor].CGColor;
+    [self.contentView addSubview:circleBadgeView];
+    
+    self.circleBadgeView = circleBadgeView;
+    [self.numberBadgeView removeFromSuperview];
+    
+    [circleBadgeView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.width.height.equalTo(@9);
+        make.top.right.equalTo(self.userAvatarView);
+    }];
+}
+
+- (void)makeNumberBadgeView:(NSInteger)number
+{
+    BadgeView *badgeView = [[BadgeView alloc] initWithNumber:number withBorder:YES];
+    [self.contentView addSubview:badgeView];
+    
+    self.numberBadgeView = badgeView;
+    [self.circleBadgeView removeFromSuperview];
+    
+    [badgeView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.right.equalTo(self.userAvatarView);
+    }];
+}
+
+- (void)hideBadgeViews
+{
+    [self.numberBadgeView removeFromSuperview];
+    [self.circleBadgeView removeFromSuperview];
 }
 
 @end
