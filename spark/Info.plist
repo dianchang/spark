@@ -54,6 +54,10 @@
 	<array>
 		<string>armv7</string>
 	</array>
+	<key>CFBundleLocalizations</key>
+	<array>
+		<string>zh_CN</string>
+	</array>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
