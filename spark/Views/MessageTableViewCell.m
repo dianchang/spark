@@ -102,12 +102,12 @@
         self.createdAtLabel.text = message.createdAtString;
     }
     
+    [self hideBadgeViews];
+    
     if (message.unreadMessagesCountValue == 1) {
         [self makeCircleBadgeView];
     } else if (message.unreadMessagesCountValue > 1) {
         [self makeNumberBadgeView:message.unreadMessagesCountValue];
-    } else {
-        [self hideBadgeViews];
     }
 }
 
@@ -122,12 +122,12 @@
         self.createdAtLabel.text = notification.createdAtString;
     }
     
+    [self hideBadgeViews];
+    
     if (notification.unreadNotificationsCountValue == 1) {
         [self makeCircleBadgeView];
     } else if (notification.unreadNotificationsCountValue > 1) {
         [self makeNumberBadgeView:notification.unreadNotificationsCountValue];
-    } else {
-        [self hideBadgeViews];
     }
 }
 
@@ -142,7 +142,6 @@
     [self.contentView addSubview:circleBadgeView];
     
     self.circleBadgeView = circleBadgeView;
-    [self.numberBadgeView removeFromSuperview];
     
     [circleBadgeView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.width.height.equalTo(@9);
@@ -156,7 +155,6 @@
     [self.contentView addSubview:badgeView];
     
     self.numberBadgeView = badgeView;
-    [self.circleBadgeView removeFromSuperview];
     
     [badgeView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.right.equalTo(self.userAvatarView);
