@@ -14,6 +14,7 @@
 #import "UIColor+Helper.h"
 #import <ionicons/IonIcons.h>
 #import <Masonry/Masonry.h>
+#import <SZTextView/SZTextView.h>
 
 @interface AddEntryViewController ()
 
@@ -88,8 +89,10 @@
     [self.view addSubview:sendButton];
     
     // 输入框
-    UITextView *textView = [UITextView new];
+    SZTextView *textView = [SZTextView new];
     self.textView = textView;
+    textView.placeholder = @"你的想法...";
+    textView.placeholderTextColor = [UIColor colorWithRGBA:0xDDDDDDFF];
     textView.backgroundColor = [UIColor SPBackgroundColor];
     textView.font = [UIFont systemFontOfSize:16];
     [self.view addSubview:textView];

@@ -191,13 +191,13 @@ static NSString * const cellIdentifier = @"EntryCell";
     
     [descLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(topicNameLabel.mas_bottom).offset(15).priorityHigh();
-        make.left.equalTo(headerView).offset(20);
+        make.left.equalTo(headerView).offset(20).priorityHigh();
         make.right.equalTo(headerView).offset(-20);
     }];
     
     [countWapView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(descLabel.mas_bottom).offset(20);
-        make.left.equalTo(headerView).offset(20);
+        make.left.equalTo(headerView).offset(20).priorityHigh();
         make.right.equalTo(headerView).offset(-20);
         make.bottom.equalTo(headerView);
     }];

@@ -9,6 +9,7 @@ target 'spark' do
 	pod 'Crashlytics'
     pod 'ionicons'
     pod 'PNChart'
+    pod 'SZTextView'
 end
 
 target 'sparkTests' do
