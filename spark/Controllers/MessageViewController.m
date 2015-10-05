@@ -10,6 +10,7 @@
 #import "SPUser.h"
 #import "SPNotification.h"
 #import "MessageTableViewCell.h"
+#import "BadgeView.h"
 #import "MessageViewController.h"
 #import "DialogViewController.h"
 #import "Constants.h"
@@ -94,6 +95,10 @@ static UIColor *navButtonInactiveColor;
     rightButton.contentEdgeInsets = UIEdgeInsetsMake(0, 20, 0, 20);
     [titleView addSubview:rightButton];
     
+    // badge
+    BadgeView *badgeView = [[BadgeView alloc] initWithNumber:2 withBorder:NO];
+    [titleView addSubview:badgeView];
+    
     // titleView 约束
     [leftButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(titleView).offset(5);
@@ -104,6 +109,11 @@ static UIColor *navButtonInactiveColor;
         make.top.equalTo(titleView).offset(5);
         make.right.bottom.equalTo(titleView);
         make.left.equalTo(leftButton.mas_right).offset(40);
+    }];
+    
+    [badgeView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerX.equalTo(rightButton).offset(30);
+        make.centerY.equalTo(rightButton).offset(-2);
     }];
     
     CGSize size = [titleView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];

@@ -7,6 +7,7 @@ extern const struct SPMessageAttributes {
 	__unsafe_unretained NSString *content;
 	__unsafe_unretained NSString *createdAt;
 	__unsafe_unretained NSString *createdAtString;
+	__unsafe_unretained NSString *unreadMessagesCount;
 } SPMessageAttributes;
 
 extern const struct SPMessageRelationships {
@@ -36,6 +37,14 @@ extern const struct SPMessageRelationships {
 
 //- (BOOL)validateCreatedAtString:(id*)value_ error:(NSError**)error_;
 
+@property (nonatomic, strong) NSNumber* unreadMessagesCount;
+
+@property (atomic) int32_t unreadMessagesCountValue;
+- (int32_t)unreadMessagesCountValue;
+- (void)setUnreadMessagesCountValue:(int32_t)value_;
+
+//- (BOOL)validateUnreadMessagesCount:(id*)value_ error:(NSError**)error_;
+
 @property (nonatomic, strong) SPUser *sender;
 
 //- (BOOL)validateSender:(id*)value_ error:(NSError**)error_;
@@ -52,6 +61,12 @@ extern const struct SPMessageRelationships {
 
 - (NSString*)primitiveCreatedAtString;
 - (void)setPrimitiveCreatedAtString:(NSString*)value;
+
+- (NSNumber*)primitiveUnreadMessagesCount;
+- (void)setPrimitiveUnreadMessagesCount:(NSNumber*)value;
+
+- (int32_t)primitiveUnreadMessagesCountValue;
+- (void)setPrimitiveUnreadMessagesCountValue:(int32_t)value_;
 
 - (SPUser*)primitiveSender;
 - (void)setPrimitiveSender:(SPUser*)value;

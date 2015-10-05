@@ -39,17 +39,17 @@ static const NSString *CDN = @"http://7xn16r.com1.z0.glb.clouddn.com";
     SPTopic *topicSentence = [self createTopicWithName:@"每日好句" desc:@"每天分享好句子" entriesCount:@283 followersCount:@313 avatar:@"airbnb.png"];
     
     // 聊天
-    [self createMessageWithSender:userJiuqi content:@"我得把比我高的都删掉..." createdAt:@"18:37"];
-    [self createMessageWithSender:userHustlzp content:@"这个，也很像，是做创业问答的" createdAt:@"12:05"];
-    [self createMessageWithSender:userHuangbo content:@"看好你的。" createdAt:@"昨天"];
-    [self createMessageWithSender:userDante content:@"真心的，哈哈。。" createdAt:@"昨天"];
-    [self createMessageWithSender:userMichael content:@"问问那些要去硅谷工作的年轻人" createdAt:@"一周前"];
-    [self createMessageWithSender:userSizhuren content:@"好的，有机会再说" createdAt:@"一周前"];
+    [self createMessageWithSender:userJiuqi content:@"我得把比我高的都删掉..." createdAt:@"18:37" unreadMessagesCount:@1];
+    [self createMessageWithSender:userHustlzp content:@"这个，也很像，是做创业问答的" createdAt:@"12:05" unreadMessagesCount:@0];
+    [self createMessageWithSender:userHuangbo content:@"看好你的。" createdAt:@"昨天" unreadMessagesCount:@0];
+    [self createMessageWithSender:userDante content:@"真心的，哈哈。。" createdAt:@"昨天" unreadMessagesCount:@0];
+    [self createMessageWithSender:userMichael content:@"问问那些要去硅谷工作的年轻人" createdAt:@"一周前" unreadMessagesCount:@0];
+    [self createMessageWithSender:userSizhuren content:@"好的，有机会再说" createdAt:@"一周前" unreadMessagesCount:@0];
     
     // 通知
-    [self createNotificationWithSender:userGM content:@"你的笔记「我觉得创业维艰」上榜啦！" createdAt:@"刚刚"];
-    [self createNotificationWithSender:userGaomoliang content:@"你好，这个观点我不是很认同啊..." createdAt:@"18:22"];
-    [self createNotificationWithSender:userMadelong content:@"考虑加入下拉钩？" createdAt:@"前天"];
+    [self createNotificationWithSender:userGM content:@"你的笔记「我觉得创业维艰」上榜啦！" createdAt:@"刚刚" unreadNotificationsCount:@1];
+    [self createNotificationWithSender:userGaomoliang content:@"你好，这个观点我不是很认同啊..." createdAt:@"18:22" unreadNotificationsCount:@2];
+    [self createNotificationWithSender:userMadelong content:@"考虑加入下拉钩？" createdAt:@"前天" unreadNotificationsCount:@0];
     
     // 条目    
     [self createEntryWithUser:userHardin
@@ -130,7 +130,7 @@ static const NSString *CDN = @"http://7xn16r.com1.z0.glb.clouddn.com";
 }
 
 // Message
-+ (SPMessage *)createMessageWithSender:(SPUser *)sender content:(NSString *)content createdAt:(NSString *)createdAt
++ (SPMessage *)createMessageWithSender:(SPUser *)sender content:(NSString *)content createdAt:(NSString *)createdAt unreadMessagesCount:(NSNumber *)unreadMessagesCount
 {
     __block SPMessage *message;
     
@@ -139,6 +139,7 @@ static const NSString *CDN = @"http://7xn16r.com1.z0.glb.clouddn.com";
         SPUser *_sender = [sender MR_inContext:localContext];
         message.sender = _sender;
         message.content = content;
+        message.unreadMessagesCount = unreadMessagesCount;
         message.createdAtString = createdAt;
     }];
     
@@ -146,7 +147,7 @@ static const NSString *CDN = @"http://7xn16r.com1.z0.glb.clouddn.com";
 }
 
 // Notification
-+ (SPNotification *)createNotificationWithSender:(SPUser *)sender content:(NSString *)content createdAt:(NSString *)createdAt
++ (SPNotification *)createNotificationWithSender:(SPUser *)sender content:(NSString *)content createdAt:(NSString *)createdAt unreadNotificationsCount:(NSNumber *)unreadNotificationsCount
 {
     __block SPNotification *noti;
     
@@ -155,6 +156,7 @@ static const NSString *CDN = @"http://7xn16r.com1.z0.glb.clouddn.com";
         SPUser *_sender = [sender MR_inContext:localContext];
         noti.sender = _sender;
         noti.content = content;
+        noti.unreadNotificationsCount = unreadNotificationsCount;
         noti.createdAtString = createdAt;
     }];
     

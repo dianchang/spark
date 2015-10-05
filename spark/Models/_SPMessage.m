@@ -7,6 +7,7 @@ const struct SPMessageAttributes SPMessageAttributes = {
 	.content = @"content",
 	.createdAt = @"createdAt",
 	.createdAtString = @"createdAtString",
+	.unreadMessagesCount = @"unreadMessagesCount",
 };
 
 const struct SPMessageRelationships SPMessageRelationships = {
@@ -39,6 +40,12 @@ const struct SPMessageRelationships SPMessageRelationships = {
 + (NSSet*)keyPathsForValuesAffectingValueForKey:(NSString*)key {
 	NSSet *keyPaths = [super keyPathsForValuesAffectingValueForKey:key];
 
+	if ([key isEqualToString:@"unreadMessagesCountValue"]) {
+		NSSet *affectingKey = [NSSet setWithObject:@"unreadMessagesCount"];
+		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
+		return keyPaths;
+	}
+
 	return keyPaths;
 }
 
@@ -47,6 +54,26 @@ const struct SPMessageRelationships SPMessageRelationships = {
 @dynamic createdAt;
 
 @dynamic createdAtString;
+
+@dynamic unreadMessagesCount;
+
+- (int32_t)unreadMessagesCountValue {
+	NSNumber *result = [self unreadMessagesCount];
+	return [result intValue];
+}
+
+- (void)setUnreadMessagesCountValue:(int32_t)value_ {
+	[self setUnreadMessagesCount:[NSNumber numberWithInt:value_]];
+}
+
+- (int32_t)primitiveUnreadMessagesCountValue {
+	NSNumber *result = [self primitiveUnreadMessagesCount];
+	return [result intValue];
+}
+
+- (void)setPrimitiveUnreadMessagesCountValue:(int32_t)value_ {
+	[self setPrimitiveUnreadMessagesCount:[NSNumber numberWithInt:value_]];
+}
 
 @dynamic sender;
 

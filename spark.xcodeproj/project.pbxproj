@@ -62,6 +62,7 @@
 		05AF29F11BB7877E00496A05 /* TopicView.m in Sources */ = {isa = PBXBuildFile; fileRef = 05AF29F01BB7877E00496A05 /* TopicView.m */; settings = {ASSET_TAGS = (); }; };
 		05AF29F41BB78F9E00496A05 /* TopicsListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 05AF29F31BB78F9E00496A05 /* TopicsListView.m */; settings = {ASSET_TAGS = (); }; };
 		05AF29F71BB7CAAC00496A05 /* TopicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05AF29F61BB7CAAC00496A05 /* TopicViewController.m */; settings = {ASSET_TAGS = (); }; };
+		05C1C04D1BC2159D0082A5FC /* BadgeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C1C04C1BC2159D0082A5FC /* BadgeView.m */; settings = {ASSET_TAGS = (); }; };
 		05EF14DB1BB8DF6E00A9AD58 /* EntryDraggableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 05EF14DA1BB8DF6E00A9AD58 /* EntryDraggableView.m */; settings = {ASSET_TAGS = (); }; };
 		05EF14DE1BB8DFA500A9AD58 /* EntryOverlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 05EF14DD1BB8DFA500A9AD58 /* EntryOverlayView.m */; settings = {ASSET_TAGS = (); }; };
 		84F1591E2415FBD5B0B396F4 /* libPods-spark.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D28D8D01EBF146990B40B3C /* libPods-spark.a */; };
@@ -164,6 +165,8 @@
 		05AF29F31BB78F9E00496A05 /* TopicsListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopicsListView.m; sourceTree = "<group>"; };
 		05AF29F51BB7CAAC00496A05 /* TopicViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopicViewController.h; sourceTree = "<group>"; };
 		05AF29F61BB7CAAC00496A05 /* TopicViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopicViewController.m; sourceTree = "<group>"; };
+		05C1C04B1BC2159D0082A5FC /* BadgeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BadgeView.h; sourceTree = "<group>"; };
+		05C1C04C1BC2159D0082A5FC /* BadgeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BadgeView.m; sourceTree = "<group>"; };
 		05EF14D91BB8DF6E00A9AD58 /* EntryDraggableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntryDraggableView.h; sourceTree = "<group>"; };
 		05EF14DA1BB8DF6E00A9AD58 /* EntryDraggableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntryDraggableView.m; sourceTree = "<group>"; };
 		05EF14DC1BB8DFA500A9AD58 /* EntryOverlayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntryOverlayView.h; sourceTree = "<group>"; };
@@ -324,6 +327,8 @@
 				05978AF81BBEDA9C00972623 /* SPLabel.m */,
 				0510F6F71BC00187000CDB38 /* PopularityPopupView.h */,
 				0510F6F81BC00187000CDB38 /* PopularityPopupView.m */,
+				05C1C04B1BC2159D0082A5FC /* BadgeView.h */,
+				05C1C04C1BC2159D0082A5FC /* BadgeView.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -625,6 +630,7 @@
 				057A12F51BB54B5A00190955 /* UIColor+Helper.m in Sources */,
 				0506FA2E1BB3A05500333BDD /* main.m in Sources */,
 				05AF29F41BB78F9E00496A05 /* TopicsListView.m in Sources */,
+				05C1C04D1BC2159D0082A5FC /* BadgeView.m in Sources */,
 				055A7E761BBC205500B1BC11 /* UserPopupView.m in Sources */,
 				0590CFCF1BB402C300097ECF /* SPNotification.m in Sources */,
 				057A12F11BB5068900190955 /* EntryTableViewCell.m in Sources */,

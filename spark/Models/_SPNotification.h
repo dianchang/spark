@@ -7,6 +7,7 @@ extern const struct SPNotificationAttributes {
 	__unsafe_unretained NSString *content;
 	__unsafe_unretained NSString *createdAt;
 	__unsafe_unretained NSString *createdAtString;
+	__unsafe_unretained NSString *unreadNotificationsCount;
 } SPNotificationAttributes;
 
 extern const struct SPNotificationRelationships {
@@ -36,6 +37,14 @@ extern const struct SPNotificationRelationships {
 
 //- (BOOL)validateCreatedAtString:(id*)value_ error:(NSError**)error_;
 
+@property (nonatomic, strong) NSNumber* unreadNotificationsCount;
+
+@property (atomic) int32_t unreadNotificationsCountValue;
+- (int32_t)unreadNotificationsCountValue;
+- (void)setUnreadNotificationsCountValue:(int32_t)value_;
+
+//- (BOOL)validateUnreadNotificationsCount:(id*)value_ error:(NSError**)error_;
+
 @property (nonatomic, strong) SPUser *sender;
 
 //- (BOOL)validateSender:(id*)value_ error:(NSError**)error_;
@@ -52,6 +61,12 @@ extern const struct SPNotificationRelationships {
 
 - (NSString*)primitiveCreatedAtString;
 - (void)setPrimitiveCreatedAtString:(NSString*)value;
+
+- (NSNumber*)primitiveUnreadNotificationsCount;
+- (void)setPrimitiveUnreadNotificationsCount:(NSNumber*)value;
+
+- (int32_t)primitiveUnreadNotificationsCountValue;
+- (void)setPrimitiveUnreadNotificationsCountValue:(int32_t)value_;
 
 - (SPUser*)primitiveSender;
 - (void)setPrimitiveSender:(SPUser*)value;

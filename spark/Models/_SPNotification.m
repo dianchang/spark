@@ -7,6 +7,7 @@ const struct SPNotificationAttributes SPNotificationAttributes = {
 	.content = @"content",
 	.createdAt = @"createdAt",
 	.createdAtString = @"createdAtString",
+	.unreadNotificationsCount = @"unreadNotificationsCount",
 };
 
 const struct SPNotificationRelationships SPNotificationRelationships = {
@@ -39,6 +40,12 @@ const struct SPNotificationRelationships SPNotificationRelationships = {
 + (NSSet*)keyPathsForValuesAffectingValueForKey:(NSString*)key {
 	NSSet *keyPaths = [super keyPathsForValuesAffectingValueForKey:key];
 
+	if ([key isEqualToString:@"unreadNotificationsCountValue"]) {
+		NSSet *affectingKey = [NSSet setWithObject:@"unreadNotificationsCount"];
+		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
+		return keyPaths;
+	}
+
 	return keyPaths;
 }
 
@@ -47,6 +54,26 @@ const struct SPNotificationRelationships SPNotificationRelationships = {
 @dynamic createdAt;
 
 @dynamic createdAtString;
+
+@dynamic unreadNotificationsCount;
+
+- (int32_t)unreadNotificationsCountValue {
+	NSNumber *result = [self unreadNotificationsCount];
+	return [result intValue];
+}
+
+- (void)setUnreadNotificationsCountValue:(int32_t)value_ {
+	[self setUnreadNotificationsCount:[NSNumber numberWithInt:value_]];
+}
+
+- (int32_t)primitiveUnreadNotificationsCountValue {
+	NSNumber *result = [self primitiveUnreadNotificationsCount];
+	return [result intValue];
+}
+
+- (void)setPrimitiveUnreadNotificationsCountValue:(int32_t)value_ {
+	[self setPrimitiveUnreadNotificationsCount:[NSNumber numberWithInt:value_]];
+}
 
 @dynamic sender;
 
