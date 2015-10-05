@@ -26,17 +26,17 @@ static const NSString *CDN = @"http://7xn16r.com1.z0.glb.clouddn.com";
     SPUser *userMadelong = [self createUserWithName:@"马德龙" avatar:@"madelong.png"];
     
     // 话题
-    SPTopic *topicStartup = [self createTopicWithName:@"创业" desc:@"雄关漫道真如铁，而今迈步从头越。" entriesCount:@273 followersCount:@231 avatar:@"airbnb.png"];
-    SPTopic *topicProduct = [self createTopicWithName:@"产品" desc:@"产品改变世界。" entriesCount:@231 followersCount:@93 avatar:@"airbnb.png"];
-    SPTopic *topicOne = [self createTopicWithName:@"从0到1" desc:@"不看你绝对后悔。" entriesCount:@231 followersCount:@93 avatar:@"airbnb.png"];
-    SPTopic *topicDesign = [self createTopicWithName:@"设计" desc:@"设计改变世界。" entriesCount:@231 followersCount:@93 avatar:@"airbnb.png"];
-    SPTopic *topicSocial = [self createTopicWithName:@"社交" desc:@"社交是亘古不变的话题。" entriesCount:@231 followersCount:@93 avatar:@"airbnb.png"];
+    SPTopic *topicStartup = [self createTopicWithName:@"创业" desc:@"雄关漫道真如铁，而今迈步从头越。" entriesCount:@273 followersCount:@231 avatar:@"startup.jpg"];
+    SPTopic *topicProduct = [self createTopicWithName:@"产品" desc:@"产品改变世界。" entriesCount:@231 followersCount:@93 avatar:nil];
+    SPTopic *topicOne = [self createTopicWithName:@"从0到1" desc:@"不看你绝对后悔。" entriesCount:@231 followersCount:@93 avatar:@"zerotoone.png"];
+    SPTopic *topicDesign = [self createTopicWithName:@"设计" desc:@"设计改变世界。" entriesCount:@231 followersCount:@93 avatar:@"design.jpg"];
+    SPTopic *topicSocial = [self createTopicWithName:@"社交" desc:@"社交是亘古不变的话题。" entriesCount:@231 followersCount:@93 avatar:nil];
     SPTopic *topicAirbnb = [self createTopicWithName:@"Airbnb" desc:@"是一家链接旅游者和家有空房出租的房主的服务型网站，诞生于美国硅谷。" entriesCount:@231 followersCount:@93 avatar:@"airbnb.png"];
-    SPTopic *topicIPhone = [self createTopicWithName:@"iPhone" desc:@"苹果公司出品的手机。" entriesCount:@243 followersCount:@323 avatar:@"airbnb.png"];
-    SPTopic *topicMusk = [self createTopicWithName:@"Elon Musk" desc:@"狂拽酷炫吊炸天。" entriesCount:@32 followersCount:@313 avatar:@"airbnb.png"];
-    SPTopic *topicWechat = [self createTopicWithName:@"微信" desc:@"第一个拿到移动互联网船票的App。" entriesCount:@23 followersCount:@43 avatar:@"airbnb.png"];
-    SPTopic *topicZhihu = [self createTopicWithName:@"知乎" desc:@"段子平台。" entriesCount:@249 followersCount:@323 avatar:@"airbnb.png"];
-    SPTopic *topicSentence = [self createTopicWithName:@"每日好句" desc:@"每天分享好句子" entriesCount:@283 followersCount:@313 avatar:@"airbnb.png"];
+    SPTopic *topicIPhone = [self createTopicWithName:@"iPhone" desc:@"苹果公司出品的手机。" entriesCount:@243 followersCount:@323 avatar:@"iphone.png"];
+    SPTopic *topicMusk = [self createTopicWithName:@"Elon Musk" desc:@"狂拽酷炫吊炸天。" entriesCount:@32 followersCount:@313 avatar:@"elon-musk.png"];
+    SPTopic *topicWechat = [self createTopicWithName:@"微信" desc:@"第一个拿到移动互联网船票的App。" entriesCount:@23 followersCount:@43 avatar:@"wechat.png"];
+    SPTopic *topicZhihu = [self createTopicWithName:@"知乎" desc:@"段子平台。" entriesCount:@249 followersCount:@323 avatar:@"zhihu.png"];
+    SPTopic *topicSentence = [self createTopicWithName:@"每日好句" desc:@"每天分享好句子" entriesCount:@283 followersCount:@313 avatar:nil];
     
     // 聊天
     [self createMessageWithSender:userJiuqi content:@"我得把比我高的都删掉..." createdAt:@"18:37" unreadMessagesCount:@1];
@@ -121,7 +121,11 @@ static const NSString *CDN = @"http://7xn16r.com1.z0.glb.clouddn.com";
         topic = [SPTopic MR_createEntityInContext:localContext];
         topic.name = name;
         topic.desc = desc;
-        topic.avatarUrl = [NSString stringWithFormat:@"%@/%@", CDN, avatar];
+        
+        if (avatar) {
+            topic.avatarUrl = [NSString stringWithFormat:@"%@/%@", CDN, avatar];
+        }
+        
         topic.entriesCount = entriesCount;
         topic.followersCount = followersCount;
     }];

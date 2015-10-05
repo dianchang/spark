@@ -23,6 +23,7 @@ static NSString * const cellIdentifier = @"EntryCell";
 
 @property (strong, nonatomic) SPTopic *topic;
 @property (strong, nonatomic) UITableView *tableView;
+@property (strong, nonatomic) UIImageView *avatarView;
 @property (strong, nonatomic) NSArray *entries;
 
 @end
@@ -122,12 +123,15 @@ static NSString * const cellIdentifier = @"EntryCell";
     UIView *headerView = [UIView new];
     headerView.backgroundColor = [UIColor SPBackgroundColor];
     
-    // 头像
-    UIImageView *avatarView = [UIImageView new];
-    [avatarView setImageWithURL:[NSURL URLWithString:self.topic.avatarUrl]];
-    avatarView.layer.cornerRadius = 3;
-    avatarView.layer.masksToBounds = YES;
-    [headerView addSubview:avatarView];
+    if (self.topic.avatarUrl) {
+        // 头像
+        UIImageView *avatarView = [UIImageView new];
+        self.avatarView = avatarView;
+        [avatarView setImageWithURL:[NSURL URLWithString:self.topic.avatarUrl]];
+        avatarView.layer.cornerRadius = 3;
+        avatarView.layer.masksToBounds = YES;
+        [headerView addSubview:avatarView];
+    }
     
     // 话题名
     SPLabel *topicNameLabel = [SPLabel new];
@@ -178,15 +182,21 @@ static NSString * const cellIdentifier = @"EntryCell";
     
     // 约束
     
-    [avatarView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.width.height.equalTo(@50);
-        make.top.equalTo(headerView).offset(SPStatusBarHeight + 10);
-        make.centerX.equalTo(headerView);
-    }];
+    if (self.topic.avatarUrl) {
+        [self.avatarView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.width.height.equalTo(@50);
+            make.top.equalTo(headerView).offset(SPStatusBarHeight + 10);
+            make.centerX.equalTo(headerView);
+        }];
+    }
     
     [topicNameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(headerView);
-        make.top.equalTo(avatarView.mas_bottom).offset(10);
+        if (self.topic.avatarUrl) {
+            make.top.equalTo(self.avatarView.mas_bottom).offset(10);
+        } else {
+            make.top.equalTo(headerView).offset(SPStatusBarHeight + 12);
+        }
     }];
     
     [descLabel mas_makeConstraints:^(MASConstraintMaker *make) {
