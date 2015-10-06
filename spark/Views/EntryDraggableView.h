@@ -15,7 +15,7 @@
 
 - (void)cardSwipedLeft:(UIView *)card;
 - (void)cardSwipedRight:(UIView *)card;
-- (void)commentButtonPressed:(SPUser *)user;
+- (void)commentButtonPressed:(SPEntry *)entry;
 
 @end
 

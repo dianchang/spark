@@ -11,6 +11,7 @@
 #import "EntryDraggableView.h"
 #import "MeetViewController.h"
 #import "AddEntryViewController.h"
+#import "CommentEntryViewController.h"
 #import "DialogViewController.h"
 #import "TopicViewController.h"
 #import "UIColor+Helper.h"
@@ -148,10 +149,10 @@
     [self loadDraggableView];
 }
 
-- (void)commentButtonPressed:(SPUser *)user
+- (void)commentButtonPressed:(SPEntry *)entry
 {
-//    UIViewController *controller = [[DialogViewController alloc] initWithUser:user];
-//    [self.navigationController pushViewController:controller animated:YES];
+    UIViewController *controller = [[CommentEntryViewController alloc] initWithEntry:entry];
+    [self.navigationController pushViewController:controller animated:YES];
 }
 
 #pragma mark - SPPresentedViewControllerProtocol

@@ -293,7 +293,7 @@
 
 - (void)commentButtonPressed
 {
-    [self.delegate commentButtonPressed:self.entry.user];
+    [self.delegate commentButtonPressed:self.entry];
 }
 
 - (void)userElementPressed

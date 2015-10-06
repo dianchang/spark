@@ -1,43 +1,40 @@
 //
-//  DialogViewController.m
+//  CommentEntryViewController.m
 //  spark
 //
-//  Created by hustlzp on 15/9/28.
+//  Created by hustlzp on 15/10/6.
 //  Copyright © 2015年 hustlzp. All rights reserved.
 //
 
 #import "SPUser.h"
 #import "MessageView.h"
-#import "DialogViewController.h"
-#import "UIColor+Helper.h"
+#import "CommentEntryViewController.h"
 #import "Constants.h"
-#import <QuartzCore/QuartzCore.h>
+#import "UIColor+Helper.h"
 #import <Masonry/Masonry.h>
-#import <AFNetworking/UIImageView+AFNetworking.h>
 
-@interface DialogViewController ()
+@interface CommentEntryViewController ()
 
+@property (strong, nonatomic) SPUser *currentUser;
+@property (strong, nonatomic) SPEntry *entry;
 @property (strong, nonatomic) UIView *commentBarView;
 @property (strong, nonatomic) UITextField *commentInputField;
-@property (strong, nonatomic) SPBaseDialog *dialog;
 @property (strong, nonatomic) UIScrollView *scrollView;
-@property (strong, nonatomic) NSArray *messages;
-@property (strong, nonatomic) SPUser *currentUser;
 
 @end
 
-@implementation DialogViewController
+@implementation CommentEntryViewController
 
 #pragma mark - LifeCycle
 
-- (instancetype)initWithBaseDialog:(SPBaseDialog *)baseDialog;
+- (instancetype)initWithEntry:(SPEntry *)entry
 {
     self = [super init];
     if (!self) {
         return nil;
     }
     
-    self.dialog = baseDialog;
+    self.entry = entry;
     
     return self;
 }
@@ -55,7 +52,7 @@
     [super viewDidLoad];
     
     self.edgesForExtendedLayout = UIRectEdgeNone;
-    self.navigationItem.title = self.currentUser.name;
+    self.navigationItem.title = self.entry.user.name;
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -89,56 +86,32 @@
     UIView *contentView = [UIView new];
     [scrollView addSubview:contentView];
     
+    MessageView *messageView = [[MessageView alloc] initWithEntry:self.entry];
+    [contentView addSubview:messageView];
+    
     // 评论栏
     UIView *commentBarView = [self createCommentView];
     self.commentBarView = commentBarView;
     [self.view addSubview:commentBarView];
-    
-    UIView *prevMessageView;
-    
-    for (int i = 0; i < self.messages.count; i++) {
-        MessageView *messageView = [[MessageView alloc] initWithMessage:self.messages[i]];
-        [contentView addSubview:messageView];
-        
-        if (i == 0) {
-            [messageView mas_makeConstraints:^(MASConstraintMaker *make) {
-                make.top.equalTo(contentView);
-            }];
-        } else {
-            [messageView mas_makeConstraints:^(MASConstraintMaker *make) {
-                make.top.equalTo(prevMessageView.mas_bottom);
-            }];
-        }
-        
-        [messageView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.right.equalTo(contentView);
-        }];
-        
-        if (i == self.messages.count - 1) {
-            [messageView mas_makeConstraints:^(MASConstraintMaker *make) {
-                make.bottom.equalTo(contentView).offset(-15);
-            }];
-        }
-        
-        prevMessageView = messageView;
-    }
-    
-    CGSize size = [contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
-    contentView.frame = CGRectMake(0, 0, self.view.frame.size.width, size.height);
-    scrollView.contentSize = CGSizeMake(self.view.frame.size.width, size.height);
-    
+
     // 约束
     [scrollView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.left.right.equalTo(self.view);
+    }];
+    
+    [messageView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(contentView).insets(UIEdgeInsetsMake(0, 0, 15, 0));
     }];
     
     [commentBarView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.bottom.equalTo(self.view);
         make.top.equalTo(scrollView.mas_bottom);
     }];
+
+    CGSize size = [contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
+    contentView.frame = CGRectMake(0, 0, self.view.frame.size.width, size.height);
+    scrollView.contentSize = CGSizeMake(self.view.frame.size.width, size.height);
 }
-
-
 
 #pragma mark - Public Interface
 
@@ -190,7 +163,7 @@
     
     // 输入框
     UITextField *inputField = [UITextField new];
-//    inputField.delegate = self;
+    //    inputField.delegate = self;
     inputField.returnKeyType = UIReturnKeySend;
     self.commentInputField = inputField;
     inputField.backgroundColor = [UIColor whiteColor];
@@ -219,17 +192,6 @@
     }
     
     return _currentUser;
-}
-
-- (NSArray *)messages
-{
-    if (!_messages) {
-        NSSortDescriptor *sortNameDescriptor = [[NSSortDescriptor alloc] initWithKey:@"createdAt" ascending:YES];
-        NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:sortNameDescriptor, nil];
-        _messages = [[self.dialog.messages allObjects] sortedArrayUsingDescriptors:sortDescriptors];
-    }
-    
-    return _messages;
 }
 
 @end

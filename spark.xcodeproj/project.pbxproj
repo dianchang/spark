@@ -67,6 +67,8 @@
 		05C1C0531BC37EEE0082A5FC /* SPDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C1C0511BC37EEE0082A5FC /* SPDialog.m */; settings = {ASSET_TAGS = (); }; };
 		05C1C0581BC3C1D40082A5FC /* _SPBaseDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C1C0551BC3C1D40082A5FC /* _SPBaseDialog.m */; settings = {ASSET_TAGS = (); }; };
 		05C1C0591BC3C1D40082A5FC /* SPBaseDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C1C0571BC3C1D40082A5FC /* SPBaseDialog.m */; settings = {ASSET_TAGS = (); }; };
+		05C1C05C1BC3F2370082A5FC /* MessageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C1C05B1BC3F2370082A5FC /* MessageView.m */; settings = {ASSET_TAGS = (); }; };
+		05C1C05F1BC3F57B0082A5FC /* CommentEntryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C1C05E1BC3F57B0082A5FC /* CommentEntryViewController.m */; settings = {ASSET_TAGS = (); }; };
 		05EF14DB1BB8DF6E00A9AD58 /* EntryDraggableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 05EF14DA1BB8DF6E00A9AD58 /* EntryDraggableView.m */; settings = {ASSET_TAGS = (); }; };
 		05EF14DE1BB8DFA500A9AD58 /* EntryOverlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 05EF14DD1BB8DFA500A9AD58 /* EntryOverlayView.m */; settings = {ASSET_TAGS = (); }; };
 		84F1591E2415FBD5B0B396F4 /* libPods-spark.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D28D8D01EBF146990B40B3C /* libPods-spark.a */; };
@@ -179,6 +181,10 @@
 		05C1C0551BC3C1D40082A5FC /* _SPBaseDialog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _SPBaseDialog.m; sourceTree = "<group>"; };
 		05C1C0561BC3C1D40082A5FC /* SPBaseDialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPBaseDialog.h; sourceTree = "<group>"; };
 		05C1C0571BC3C1D40082A5FC /* SPBaseDialog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPBaseDialog.m; sourceTree = "<group>"; };
+		05C1C05A1BC3F2370082A5FC /* MessageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageView.h; sourceTree = "<group>"; };
+		05C1C05B1BC3F2370082A5FC /* MessageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageView.m; sourceTree = "<group>"; };
+		05C1C05D1BC3F57B0082A5FC /* CommentEntryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentEntryViewController.h; sourceTree = "<group>"; };
+		05C1C05E1BC3F57B0082A5FC /* CommentEntryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentEntryViewController.m; sourceTree = "<group>"; };
 		05EF14D91BB8DF6E00A9AD58 /* EntryDraggableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntryDraggableView.h; sourceTree = "<group>"; };
 		05EF14DA1BB8DF6E00A9AD58 /* EntryDraggableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntryDraggableView.m; sourceTree = "<group>"; };
 		05EF14DC1BB8DFA500A9AD58 /* EntryOverlayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntryOverlayView.h; sourceTree = "<group>"; };
@@ -310,6 +316,8 @@
 				05AF29F61BB7CAAC00496A05 /* TopicViewController.m */,
 				0506E7FB1BB930F0000780AD /* DialogViewController.h */,
 				0506E7FC1BB930F0000780AD /* DialogViewController.m */,
+				05C1C05D1BC3F57B0082A5FC /* CommentEntryViewController.h */,
+				05C1C05E1BC3F57B0082A5FC /* CommentEntryViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -341,6 +349,8 @@
 				0510F6F81BC00187000CDB38 /* PopularityPopupView.m */,
 				05C1C04B1BC2159D0082A5FC /* BadgeView.h */,
 				05C1C04C1BC2159D0082A5FC /* BadgeView.m */,
+				05C1C05A1BC3F2370082A5FC /* MessageView.h */,
+				05C1C05B1BC3F2370082A5FC /* MessageView.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -638,10 +648,12 @@
 				0590CFC81BB402C300097ECF /* _SPEntry.m in Sources */,
 				055188CF1BBCDE3200DC6A0D /* EntryView.m in Sources */,
 				0590CFD01BB402C300097ECF /* SPTopic.m in Sources */,
+				05C1C05C1BC3F2370082A5FC /* MessageView.m in Sources */,
 				055188D21BBCDED500DC6A0D /* TopicBriefView.m in Sources */,
 				0506FA311BB3A05500333BDD /* AppDelegate.m in Sources */,
 				05EF14DE1BB8DFA500A9AD58 /* EntryOverlayView.m in Sources */,
 				0590CFD81BB4149100097ECF /* Seed.m in Sources */,
+				05C1C05F1BC3F57B0082A5FC /* CommentEntryViewController.m in Sources */,
 				0510F6F91BC00187000CDB38 /* PopularityPopupView.m in Sources */,
 				0590CFD11BB402C300097ECF /* SPUser.m in Sources */,
 				0506FA6D1BB3B76C00333BDD /* MeetViewController.m in Sources */,

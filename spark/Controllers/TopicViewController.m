@@ -10,6 +10,7 @@
 #import "SPLabel.h"
 #import "TopicViewController.h"
 #import "DialogViewController.h"
+#import "CommentEntryViewController.h"
 #import "Constants.h"
 #import "UIColor+Helper.h"
 #import <QuartzCore/QuartzCore.h>
@@ -289,10 +290,10 @@ static NSString * const cellIdentifier = @"EntryCell";
 
 #pragma mark - EntryCellDelegate
 
-- (void)commentButtonPressed:(SPUser *)user
+- (void)commentButtonPressed:(SPEntry *)entry
 {
-//    UIViewController *controller = [[DialogViewController alloc] initWithUser:user];
-//    [self.navigationController pushViewController:controller animated:YES];
+    UIViewController *controller = [[CommentEntryViewController alloc] initWithEntry:entry];
+    [self.navigationController pushViewController:controller animated:YES];
 }
 
 #pragma mark - Internal Helpers

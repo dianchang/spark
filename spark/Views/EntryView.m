@@ -187,7 +187,7 @@
 - (void)commentButtonPressed
 {
     if (self.delegate) {
-        [self.delegate commentButtonPressed:self.entry.user];
+        [self.delegate commentButtonPressed:self.entry];
     }
 }
 

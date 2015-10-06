@@ -13,7 +13,7 @@
 
 @protocol EntryViewDelegate <TopicsListViewDelegate>
 
-- (void)commentButtonPressed:(SPUser *)user;
+- (void)commentButtonPressed:(SPEntry *)entry;
 
 @end
 
