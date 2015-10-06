@@ -13,11 +13,13 @@ extern const struct SPUserAttributes {
 } SPUserAttributes;
 
 extern const struct SPUserRelationships {
+	__unsafe_unretained NSString *dialogs;
 	__unsafe_unretained NSString *entries;
 	__unsafe_unretained NSString *sendedMessages;
 	__unsafe_unretained NSString *sendedNotifications;
 } SPUserRelationships;
 
+@class SPDialog;
 @class SPEntry;
 @class SPMessage;
 @class SPNotification;
@@ -67,6 +69,10 @@ extern const struct SPUserRelationships {
 
 //- (BOOL)validateUpvotesCount:(id*)value_ error:(NSError**)error_;
 
+@property (nonatomic, strong) NSSet *dialogs;
+
+- (NSMutableSet*)dialogsSet;
+
 @property (nonatomic, strong) NSSet *entries;
 
 - (NSMutableSet*)entriesSet;
@@ -78,6 +84,14 @@ extern const struct SPUserRelationships {
 @property (nonatomic, strong) NSSet *sendedNotifications;
 
 - (NSMutableSet*)sendedNotificationsSet;
+
+@end
+
+@interface _SPUser (DialogsCoreDataGeneratedAccessors)
+- (void)addDialogs:(NSSet*)value_;
+- (void)removeDialogs:(NSSet*)value_;
+- (void)addDialogsObject:(SPDialog*)value_;
+- (void)removeDialogsObject:(SPDialog*)value_;
 
 @end
 
@@ -133,6 +147,9 @@ extern const struct SPUserRelationships {
 
 - (int32_t)primitiveUpvotesCountValue;
 - (void)setPrimitiveUpvotesCountValue:(int32_t)value_;
+
+- (NSMutableSet*)primitiveDialogs;
+- (void)setPrimitiveDialogs:(NSMutableSet*)value;
 
 - (NSMutableSet*)primitiveEntries;
 - (void)setPrimitiveEntries:(NSMutableSet*)value;

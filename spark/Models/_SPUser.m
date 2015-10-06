@@ -13,6 +13,7 @@ const struct SPUserAttributes SPUserAttributes = {
 };
 
 const struct SPUserRelationships SPUserRelationships = {
+	.dialogs = @"dialogs",
 	.entries = @"entries",
 	.sendedMessages = @"sendedMessages",
 	.sendedNotifications = @"sendedNotifications",
@@ -127,6 +128,17 @@ const struct SPUserRelationships SPUserRelationships = {
 
 - (void)setPrimitiveUpvotesCountValue:(int32_t)value_ {
 	[self setPrimitiveUpvotesCount:[NSNumber numberWithInt:value_]];
+}
+
+@dynamic dialogs;
+
+- (NSMutableSet*)dialogsSet {
+	[self willAccessValueForKey:@"dialogs"];
+
+	NSMutableSet *result = (NSMutableSet*)[self mutableSetValueForKey:@"dialogs"];
+
+	[self didAccessValueForKey:@"dialogs"];
+	return result;
 }
 
 @dynamic entries;

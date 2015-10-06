@@ -1,41 +1,39 @@
 // DO NOT EDIT. This file is machine-generated and constantly overwritten.
-// Make changes to SPMessage.m instead.
+// Make changes to SPDialog.m instead.
 
-#import "_SPMessage.h"
+#import "_SPDialog.h"
 
-const struct SPMessageAttributes SPMessageAttributes = {
-	.content = @"content",
+const struct SPDialogAttributes SPDialogAttributes = {
 	.createdAt = @"createdAt",
-	.createdAtString = @"createdAtString",
 	.unreadMessagesCount = @"unreadMessagesCount",
 };
 
-const struct SPMessageRelationships SPMessageRelationships = {
-	.dialog = @"dialog",
+const struct SPDialogRelationships SPDialogRelationships = {
+	.messages = @"messages",
 	.sender = @"sender",
 };
 
-@implementation SPMessageID
+@implementation SPDialogID
 @end
 
-@implementation _SPMessage
+@implementation _SPDialog
 
 + (id)insertInManagedObjectContext:(NSManagedObjectContext*)moc_ {
 	NSParameterAssert(moc_);
-	return [NSEntityDescription insertNewObjectForEntityForName:@"SPMessage" inManagedObjectContext:moc_];
+	return [NSEntityDescription insertNewObjectForEntityForName:@"SPDialog" inManagedObjectContext:moc_];
 }
 
 + (NSString*)entityName {
-	return @"SPMessage";
+	return @"SPDialog";
 }
 
 + (NSEntityDescription*)entityInManagedObjectContext:(NSManagedObjectContext*)moc_ {
 	NSParameterAssert(moc_);
-	return [NSEntityDescription entityForName:@"SPMessage" inManagedObjectContext:moc_];
+	return [NSEntityDescription entityForName:@"SPDialog" inManagedObjectContext:moc_];
 }
 
-- (SPMessageID*)objectID {
-	return (SPMessageID*)[super objectID];
+- (SPDialogID*)objectID {
+	return (SPDialogID*)[super objectID];
 }
 
 + (NSSet*)keyPathsForValuesAffectingValueForKey:(NSString*)key {
@@ -50,11 +48,7 @@ const struct SPMessageRelationships SPMessageRelationships = {
 	return keyPaths;
 }
 
-@dynamic content;
-
 @dynamic createdAt;
-
-@dynamic createdAtString;
 
 @dynamic unreadMessagesCount;
 
@@ -76,7 +70,16 @@ const struct SPMessageRelationships SPMessageRelationships = {
 	[self setPrimitiveUnreadMessagesCount:[NSNumber numberWithInt:value_]];
 }
 
-@dynamic dialog;
+@dynamic messages;
+
+- (NSMutableSet*)messagesSet {
+	[self willAccessValueForKey:@"messages"];
+
+	NSMutableSet *result = (NSMutableSet*)[self mutableSetValueForKey:@"messages"];
+
+	[self didAccessValueForKey:@"messages"];
+	return result;
+}
 
 @dynamic sender;
 
