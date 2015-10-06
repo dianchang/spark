@@ -167,7 +167,19 @@
     messageLabel.lineBreakMode = NSLineBreakByWordWrapping;
     NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:message.content];
     NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
-    paragraphStyle.lineSpacing = 5;
+    
+    CGRect textRect = [message.content boundingRectWithSize:CGSizeMake(160, FLT_MAX)
+                                         options:NSStringDrawingUsesLineFragmentOrigin
+                                      attributes:@{NSFontAttributeName:messageLabel.font}
+                                         context:nil];
+    NSInteger lines = textRect.size.height / messageLabel.font.pointSize;
+    
+    if (lines > 1) {
+        paragraphStyle.lineSpacing = 5;
+    } else {
+        paragraphStyle.lineSpacing = 0;
+    }
+    
     [attributedString addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, message.content.length)];
     messageLabel.attributedText = attributedString;
     if ([message.sender isEqualToManagedObject:self.currentUser]) {
