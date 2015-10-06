@@ -6,6 +6,7 @@
 //  Copyright © 2015年 hustlzp. All rights reserved.
 //
 
+#import "SPDialog.h"
 #import "SPMessage.h"
 #import "SPUser.h"
 #import "SPNotification.h"
@@ -27,7 +28,7 @@ static UIColor *navButtonInactiveColor;
 @property (strong, nonatomic) UIButton *rightButton;
 @property (nonatomic) NSInteger currentSelectedIndex;
 @property (strong, nonatomic) UITableView *tableView;
-@property (strong, nonatomic) NSArray *messages;
+@property (strong, nonatomic) NSArray *dialogs;
 @property (strong, nonatomic) NSArray *notifications;
 
 @end
@@ -147,7 +148,7 @@ static UIColor *navButtonInactiveColor;
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     if (self.currentSelectedIndex == 0) {
-        return self.messages.count;
+        return self.dialogs.count;
     } else {
         return self.notifications.count;
     }
@@ -158,8 +159,8 @@ static UIColor *navButtonInactiveColor;
     MessageTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     
     if (self.currentSelectedIndex == 0) {
-        SPMessage *message = self.messages[indexPath.row];
-        [cell updateDataWithMessage:message];
+        SPDialog *dialog = self.dialogs[indexPath.row];
+        [cell updateDataWithDialog:dialog];
     } else {
         SPNotification *notification = self.notifications[indexPath.row];
         [cell updateDataWithNotification:notification];
@@ -173,8 +174,8 @@ static UIColor *navButtonInactiveColor;
     DialogViewController *controller;
     
     if (self.currentSelectedIndex == 0) {
-        SPMessage *message = self.messages[indexPath.row];
-        controller = [[DialogViewController alloc] initWithUser:message.sender];
+        SPDialog *dialog = self.dialogs[indexPath.row];
+        controller = [[DialogViewController alloc] initWithUser:dialog.sender];
     } else {
         SPNotification *notification = self.notifications[indexPath.row];
         controller = [[DialogViewController alloc] initWithUser:notification.sender];
@@ -188,13 +189,13 @@ static UIColor *navButtonInactiveColor;
 
 #pragma mark - Getters & Setters
 
-- (NSArray *)messages
+- (NSArray *)dialogs
 {
-    if (!_messages) {
-        _messages = [SPMessage MR_findAllSortedBy:@"createdAt" ascending:NO];
+    if (!_dialogs) {
+        _dialogs = [SPDialog MR_findAllSortedBy:@"createdAt" ascending:NO];
     }
     
-    return _messages;
+    return _dialogs;
 }
 
 - (NSArray *)notifications

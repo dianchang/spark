@@ -6,8 +6,7 @@
 const struct SPMessageAttributes SPMessageAttributes = {
 	.content = @"content",
 	.createdAt = @"createdAt",
-	.createdAtString = @"createdAtString",
-	.unreadMessagesCount = @"unreadMessagesCount",
+	.fromEntry = @"fromEntry",
 };
 
 const struct SPMessageRelationships SPMessageRelationships = {
@@ -41,8 +40,8 @@ const struct SPMessageRelationships SPMessageRelationships = {
 + (NSSet*)keyPathsForValuesAffectingValueForKey:(NSString*)key {
 	NSSet *keyPaths = [super keyPathsForValuesAffectingValueForKey:key];
 
-	if ([key isEqualToString:@"unreadMessagesCountValue"]) {
-		NSSet *affectingKey = [NSSet setWithObject:@"unreadMessagesCount"];
+	if ([key isEqualToString:@"fromEntryValue"]) {
+		NSSet *affectingKey = [NSSet setWithObject:@"fromEntry"];
 		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
 		return keyPaths;
 	}
@@ -54,26 +53,24 @@ const struct SPMessageRelationships SPMessageRelationships = {
 
 @dynamic createdAt;
 
-@dynamic createdAtString;
+@dynamic fromEntry;
 
-@dynamic unreadMessagesCount;
-
-- (int32_t)unreadMessagesCountValue {
-	NSNumber *result = [self unreadMessagesCount];
-	return [result intValue];
+- (BOOL)fromEntryValue {
+	NSNumber *result = [self fromEntry];
+	return [result boolValue];
 }
 
-- (void)setUnreadMessagesCountValue:(int32_t)value_ {
-	[self setUnreadMessagesCount:[NSNumber numberWithInt:value_]];
+- (void)setFromEntryValue:(BOOL)value_ {
+	[self setFromEntry:[NSNumber numberWithBool:value_]];
 }
 
-- (int32_t)primitiveUnreadMessagesCountValue {
-	NSNumber *result = [self primitiveUnreadMessagesCount];
-	return [result intValue];
+- (BOOL)primitiveFromEntryValue {
+	NSNumber *result = [self primitiveFromEntry];
+	return [result boolValue];
 }
 
-- (void)setPrimitiveUnreadMessagesCountValue:(int32_t)value_ {
-	[self setPrimitiveUnreadMessagesCount:[NSNumber numberWithInt:value_]];
+- (void)setPrimitiveFromEntryValue:(BOOL)value_ {
+	[self setPrimitiveFromEntry:[NSNumber numberWithBool:value_]];
 }
 
 @dynamic dialog;

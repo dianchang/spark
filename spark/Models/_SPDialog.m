@@ -5,6 +5,7 @@
 
 const struct SPDialogAttributes SPDialogAttributes = {
 	.createdAt = @"createdAt",
+	.createdAtString = @"createdAtString",
 	.unreadMessagesCount = @"unreadMessagesCount",
 };
 
@@ -49,6 +50,8 @@ const struct SPDialogRelationships SPDialogRelationships = {
 }
 
 @dynamic createdAt;
+
+@dynamic createdAtString;
 
 @dynamic unreadMessagesCount;
 

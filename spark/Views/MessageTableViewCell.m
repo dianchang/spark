@@ -91,23 +91,25 @@
     return self;
 }
 
-- (void)updateDataWithMessage:(SPMessage *)message
+- (void)updateDataWithDialog:(SPDialog *)dialog
 {
-    self.message = message;
-    [self.userAvatarView setImageWithURL:[NSURL URLWithString:message.sender.avatarUrl]];
-    self.userNameLabel.text = message.sender.name;
-    self.contentLabel.text = message.content;
+    self.dialog = dialog;
+    [self.userAvatarView setImageWithURL:[NSURL URLWithString:dialog.sender.avatarUrl]];
+    self.userNameLabel.text = dialog.sender.name;
     
-    if (message.createdAtString) {
-        self.createdAtLabel.text = message.createdAtString;
+    
+    self.contentLabel.text = dialog.latestMessage.content;
+    
+    if (dialog.createdAtString) {
+        self.createdAtLabel.text = dialog.createdAtString;
     }
     
     [self hideBadgeViews];
     
-    if (message.unreadMessagesCountValue == 1) {
+    if (dialog.unreadMessagesCountValue == 1) {
         [self makeCircleBadgeView];
-    } else if (message.unreadMessagesCountValue > 1) {
-        [self makeNumberBadgeView:message.unreadMessagesCountValue];
+    } else if (dialog.unreadMessagesCountValue > 1) {
+        [self makeNumberBadgeView:dialog.unreadMessagesCountValue];
     }
 }
 

@@ -10,6 +10,7 @@
 #import "SPEntry.h"
 #import "SPNotification.h"
 #import "SPMessage.h"
+#import "SPDialog.h"
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 #import <MagicalRecord/MagicalRecord.h>

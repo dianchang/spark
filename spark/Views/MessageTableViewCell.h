@@ -7,6 +7,7 @@
 //
 
 #import "SPMessage.h"
+#import "SPDialog.h"
 #import "SPNotification.h"
 #import "SPNotification.h"
 #import <UIKit/UIKit.h>
@@ -18,8 +19,8 @@
 @property (strong, nonatomic) UILabel *contentLabel;
 @property (strong, nonatomic) UILabel *createdAtLabel;
 
-@property (strong, nonatomic) SPMessage *message;
-- (void)updateDataWithMessage:(SPMessage *)message;
+@property (strong, nonatomic) SPDialog *dialog;
+- (void)updateDataWithDialog:(SPDialog *)dialog;
 
 @property (strong, nonatomic) SPNotification *notification;
 - (void)updateDataWithNotification:(SPNotification *)notification;

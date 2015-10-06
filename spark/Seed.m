@@ -38,13 +38,64 @@ static const NSString *CDN = @"http://7xn16r.com1.z0.glb.clouddn.com";
     SPTopic *topicZhihu = [self createTopicWithName:@"知乎" desc:@"段子平台。" entriesCount:@249 followersCount:@323 avatar:@"zhihu.png"];
     SPTopic *topicSentence = [self createTopicWithName:@"每日好句" desc:@"每天分享好句子" entriesCount:@283 followersCount:@313 avatar:nil];
     
-    // 聊天
-    [self createMessageWithSender:userJiuqi content:@"我得把比我高的都删掉..." createdAt:@"18:37" unreadMessagesCount:@1];
-    [self createMessageWithSender:userHustlzp content:@"这个，也很像，是做创业问答的" createdAt:@"12:05" unreadMessagesCount:@0];
-    [self createMessageWithSender:userHuangbo content:@"看好你的。" createdAt:@"昨天" unreadMessagesCount:@0];
-    [self createMessageWithSender:userDante content:@"真心的，哈哈。。" createdAt:@"昨天" unreadMessagesCount:@0];
-    [self createMessageWithSender:userMichael content:@"问问那些要去硅谷工作的年轻人" createdAt:@"一周前" unreadMessagesCount:@0];
-    [self createMessageWithSender:userSizhuren content:@"好的，有机会再说" createdAt:@"一周前" unreadMessagesCount:@0];
+    // 对话
+    [self
+     createDialogWithSender:userJiuqi
+     unreadMessagesCount:@1
+     createdAt:@"18:37"
+     messages:@[@[userHardin, @"讲实话，我觉得《从0到1》比《创业维艰》思维高度高了有10倍不止。《创业维艰》根本不适合每个创业者去读，而《从0到1》你应该读3遍。", @YES],
+                @[userJiuqi, @"我觉得创业维艰像一本创业字典，适合碰到具体问题的时候拿出来看看。", @NO],
+                @[userHardin, @"bingo", @NO],
+                @[userHardin, @"你那个项目怎么样了？", @NO],
+                @[userJiuqi, @"我得把比我高的都删掉...", @NO]]
+     ];
+    [self
+     createDialogWithSender:userHustlzp
+     unreadMessagesCount:@0
+     createdAt:@"12:05"
+     messages:@[@[userHustlzp, @"Airbnb CEO Brian Chesky 和他交了两年的女朋友 Elissa Patel 是通过 Tinder 认识的。", @YES],
+                @[userHardin, @"这个有意思", @NO],
+                @[userHustlzp, @"这个，也很像，是做创业问答的", @NO]]
+     ];
+    [self
+     createDialogWithSender:userHuangbo
+     unreadMessagesCount:@0
+     createdAt:@"昨天"
+     messages:@[@[userHardin, @"讲实话，我觉得《从0到1》比《创业维艰》思维高度高了有10倍不止。《创业维艰》根本不适合每个创业者去读，而《从0到1》你应该读3遍。", @YES],
+                @[userHuangbo, @"认同。我是知乎的产品经理，能认识一下吗？", @NO],
+                @[userHardin, @"当然，久仰。", @NO],
+                @[userHuangbo, @"看好你的。", @NO]]
+     ];
+    [self
+     createDialogWithSender:userDante
+     unreadMessagesCount:@0
+     createdAt:@"昨天"
+     messages:@[@[userHardin, @"讲实话，我觉得《从0到1》比《创业维艰》思维高度高了有10倍不止。《创业维艰》根本不适合每个创业者去读，而《从0到1》你应该读3遍。", @YES],
+                @[userDante, @"两本都看过，深表认同，真的是佩服 Peter Thiel 的思路。", @NO],
+                @[userHardin, @"最近在忙什么？", @NO],
+                @[userDante, @"还在陌陌呢，忙的跟狗一样。", @NO],
+                @[userHardin, @"真心在忙，还是在约妹子？", @NO],
+                @[userDante, @"真心的，哈哈。。。", @NO]]
+     ];
+    [self
+     createDialogWithSender:userMichael
+     unreadMessagesCount:@0
+     createdAt:@"一周前"
+     messages:@[@[userHardin, @"讲实话，我觉得《从0到1》比《创业维艰》思维高度高了有10倍不止。《创业维艰》根本不适合每个创业者去读，而《从0到1》你应该读3遍。", @YES],
+                @[userMichael, @"我觉得创业维艰挺值得读三遍，因为在大部分时候把创业者挑下马的不是缺乏那些高屋建瓴式的思想，而是一个发不出工资的困难。", @NO],
+                @[userHardin, @"我是认为创业维艰不管读几遍都不能解决发不出工资的困难，想要发的出工资，你需要的是一个好生意。", @NO],
+                @[userMichael, @"这个怎么讲呢，是个心理预期的问题。没创业过的人不知道其中的困难，带着改变的心态去做事情，喜欢高举高打，落差蛮大的。读什么书也不会显性的帮助创业成功。", @NO],
+                @[userMichael, @"问问那些要去硅谷工作的年轻人", @NO]]
+     ];
+    [self
+     createDialogWithSender:userSizhuren
+     unreadMessagesCount:@0
+     createdAt:@"一周前"
+     messages:@[@[userSizhuren, @"像知乎这样的泛话题社区，女生涨粉的最佳方法就是先po几张修过图的美照，还不管和问题沾不沾边儿。", @YES],
+                @[userHardin, @"bingo！", @NO],
+                @[userHardin, @"先去忙了，回聊！", @NO],
+                @[userSizhuren, @"好的，有机会再说 ", @NO]]
+     ];
     
     // 通知
     [self createNotificationWithSender:userGM content:@"你的笔记「我觉得创业维艰」上榜啦！" createdAt:@"刚刚" unreadNotificationsCount:@1];
@@ -133,18 +184,43 @@ static const NSString *CDN = @"http://7xn16r.com1.z0.glb.clouddn.com";
     return topic;
 }
 
+// Dialog
++ (SPDialog *)createDialogWithSender:(SPUser *)sender unreadMessagesCount:(NSNumber *)unreadMessagesCount createdAt:(NSString *)createdAt messages:(NSArray *)messages
+{
+    __block SPDialog *dialog;
+    
+    [MagicalRecord saveWithBlockAndWait:^(NSManagedObjectContext *localContext) {
+        dialog = [SPDialog MR_createEntityInContext:localContext];
+        SPUser *_sender = [sender MR_inContext:localContext];
+        dialog.sender = _sender;
+        dialog.createdAtString = createdAt;
+        dialog.unreadMessagesCount = unreadMessagesCount;
+    }];
+    
+    for (NSArray *message in messages) {
+        SPUser *messageSender = (SPUser *)[message objectAtIndex:0];
+        NSString *content = (NSString *)[message objectAtIndex:1];
+        NSNumber *fromEntry = (NSNumber *)[message objectAtIndex:2];
+                                 
+        [self createMessageWithSender:messageSender dialog:dialog content:content fromEntry:fromEntry];
+    }
+    
+    return dialog;
+}
+
 // Message
-+ (SPMessage *)createMessageWithSender:(SPUser *)sender content:(NSString *)content createdAt:(NSString *)createdAt unreadMessagesCount:(NSNumber *)unreadMessagesCount
++ (SPMessage *)createMessageWithSender:(SPUser *)sender dialog:(SPDialog *)dialog content:(NSString *)content fromEntry:(NSNumber *)fromEntry
 {
     __block SPMessage *message;
     
     [MagicalRecord saveWithBlockAndWait:^(NSManagedObjectContext *localContext) {
         message = [SPMessage MR_createEntityInContext:localContext];
         SPUser *_sender = [sender MR_inContext:localContext];
+        SPDialog *_dialog = [dialog MR_inContext:localContext];
         message.sender = _sender;
+        message.dialog = _dialog;
         message.content = content;
-        message.unreadMessagesCount = unreadMessagesCount;
-        message.createdAtString = createdAt;
+        message.fromEntry = fromEntry;
     }];
     
     return message;
@@ -195,6 +271,7 @@ static const NSString *CDN = @"http://7xn16r.com1.z0.glb.clouddn.com";
     [SPEntry MR_truncateAll];
     [SPTopic MR_truncateAll];
     [SPUser MR_truncateAll];
+    [SPDialog MR_truncateAll];
     
     [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
 }

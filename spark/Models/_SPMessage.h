@@ -6,8 +6,7 @@
 extern const struct SPMessageAttributes {
 	__unsafe_unretained NSString *content;
 	__unsafe_unretained NSString *createdAt;
-	__unsafe_unretained NSString *createdAtString;
-	__unsafe_unretained NSString *unreadMessagesCount;
+	__unsafe_unretained NSString *fromEntry;
 } SPMessageAttributes;
 
 extern const struct SPMessageRelationships {
@@ -35,17 +34,13 @@ extern const struct SPMessageRelationships {
 
 //- (BOOL)validateCreatedAt:(id*)value_ error:(NSError**)error_;
 
-@property (nonatomic, strong) NSString* createdAtString;
+@property (nonatomic, strong) NSNumber* fromEntry;
 
-//- (BOOL)validateCreatedAtString:(id*)value_ error:(NSError**)error_;
+@property (atomic) BOOL fromEntryValue;
+- (BOOL)fromEntryValue;
+- (void)setFromEntryValue:(BOOL)value_;
 
-@property (nonatomic, strong) NSNumber* unreadMessagesCount;
-
-@property (atomic) int32_t unreadMessagesCountValue;
-- (int32_t)unreadMessagesCountValue;
-- (void)setUnreadMessagesCountValue:(int32_t)value_;
-
-//- (BOOL)validateUnreadMessagesCount:(id*)value_ error:(NSError**)error_;
+//- (BOOL)validateFromEntry:(id*)value_ error:(NSError**)error_;
 
 @property (nonatomic, strong) SPDialog *dialog;
 
@@ -65,14 +60,11 @@ extern const struct SPMessageRelationships {
 - (NSDate*)primitiveCreatedAt;
 - (void)setPrimitiveCreatedAt:(NSDate*)value;
 
-- (NSString*)primitiveCreatedAtString;
-- (void)setPrimitiveCreatedAtString:(NSString*)value;
+- (NSNumber*)primitiveFromEntry;
+- (void)setPrimitiveFromEntry:(NSNumber*)value;
 
-- (NSNumber*)primitiveUnreadMessagesCount;
-- (void)setPrimitiveUnreadMessagesCount:(NSNumber*)value;
-
-- (int32_t)primitiveUnreadMessagesCountValue;
-- (void)setPrimitiveUnreadMessagesCountValue:(int32_t)value_;
+- (BOOL)primitiveFromEntryValue;
+- (void)setPrimitiveFromEntryValue:(BOOL)value_;
 
 - (SPDialog*)primitiveDialog;
 - (void)setPrimitiveDialog:(SPDialog*)value;

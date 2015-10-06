@@ -8,10 +8,10 @@
 
 @implementation SPNotification
 
-//- (void)awakeFromInsert
-//{
-//    [super awakeFromInsert];
-//    [self setPrimitiveCreatedAt:[NSDate date]];
-//}
+- (void)awakeFromInsert
+{
+    [super awakeFromInsert];
+    [self setPrimitiveCreatedAt:[NSDate date]];
+}
 
 @end

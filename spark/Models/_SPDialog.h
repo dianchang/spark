@@ -5,6 +5,7 @@
 
 extern const struct SPDialogAttributes {
 	__unsafe_unretained NSString *createdAt;
+	__unsafe_unretained NSString *createdAtString;
 	__unsafe_unretained NSString *unreadMessagesCount;
 } SPDialogAttributes;
 
@@ -28,6 +29,10 @@ extern const struct SPDialogRelationships {
 @property (nonatomic, strong) NSDate* createdAt;
 
 //- (BOOL)validateCreatedAt:(id*)value_ error:(NSError**)error_;
+
+@property (nonatomic, strong) NSString* createdAtString;
+
+//- (BOOL)validateCreatedAtString:(id*)value_ error:(NSError**)error_;
 
 @property (nonatomic, strong) NSNumber* unreadMessagesCount;
 
@@ -59,6 +64,9 @@ extern const struct SPDialogRelationships {
 
 - (NSDate*)primitiveCreatedAt;
 - (void)setPrimitiveCreatedAt:(NSDate*)value;
+
+- (NSString*)primitiveCreatedAtString;
+- (void)setPrimitiveCreatedAtString:(NSString*)value;
 
 - (NSNumber*)primitiveUnreadMessagesCount;
 - (void)setPrimitiveUnreadMessagesCount:(NSNumber*)value;

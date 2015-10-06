@@ -1,5 +1,8 @@
 #import "_SPDialog.h"
+#import "SPMessage.h"
 
 @interface SPDialog : _SPDialog {}
-// Custom logic goes here.
+
+@property (strong, nonatomic) SPMessage *latestMessage;
+
 @end
