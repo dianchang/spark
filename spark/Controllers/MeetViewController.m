@@ -150,8 +150,8 @@
 
 - (void)commentButtonPressed:(SPUser *)user
 {
-    UIViewController *controller = [[DialogViewController alloc] initWithUser:user];
-    [self.navigationController pushViewController:controller animated:YES];
+//    UIViewController *controller = [[DialogViewController alloc] initWithUser:user];
+//    [self.navigationController pushViewController:controller animated:YES];
 }
 
 #pragma mark - SPPresentedViewControllerProtocol

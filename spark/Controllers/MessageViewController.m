@@ -172,15 +172,16 @@ static UIColor *navButtonInactiveColor;
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     DialogViewController *controller;
+    SPBaseDialog *dialog;
     
     if (self.currentSelectedIndex == 0) {
-        SPDialog *dialog = self.dialogs[indexPath.row];
-        controller = [[DialogViewController alloc] initWithUser:dialog.sender];
+        dialog = self.dialogs[indexPath.row];
+        
     } else {
-        SPNotification *notification = self.notifications[indexPath.row];
-        controller = [[DialogViewController alloc] initWithUser:notification.sender];
+        dialog = self.notifications[indexPath.row];
     }
     
+    controller = [[DialogViewController alloc] initWithBaseDialog:dialog];
     [self.navigationController pushViewController:controller animated:YES];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
@@ -192,7 +193,7 @@ static UIColor *navButtonInactiveColor;
 - (NSArray *)dialogs
 {
     if (!_dialogs) {
-        _dialogs = [SPDialog MR_findAllSortedBy:@"createdAt" ascending:NO];
+        _dialogs = [SPDialog MR_findAllSortedBy:@"createdAt" ascending:YES];
     }
     
     return _dialogs;
@@ -201,7 +202,7 @@ static UIColor *navButtonInactiveColor;
 - (NSArray *)notifications
 {
     if (!_notifications) {
-        _notifications = [SPNotification MR_findAllSortedBy:@"createdAt" ascending:NO];
+        _notifications = [SPNotification MR_findAllSortedBy:@"createdAt" ascending:YES];
     }
     
     return _notifications;

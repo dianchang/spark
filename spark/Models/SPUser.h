@@ -4,5 +4,6 @@
 // Custom logic goes here.
 
 + (SPUser *)findCurrentUser;
+- (BOOL)isEqualToManagedObject:(NSManagedObject *)object;
 
 @end

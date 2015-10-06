@@ -15,7 +15,7 @@ const struct SPUserAttributes SPUserAttributes = {
 const struct SPUserRelationships SPUserRelationships = {
 	.dialogs = @"dialogs",
 	.entries = @"entries",
-	.sendedMessages = @"sendedMessages",
+	.messages = @"messages",
 	.sendedNotifications = @"sendedNotifications",
 };
 
@@ -152,14 +152,14 @@ const struct SPUserRelationships SPUserRelationships = {
 	return result;
 }
 
-@dynamic sendedMessages;
+@dynamic messages;
 
-- (NSMutableSet*)sendedMessagesSet {
-	[self willAccessValueForKey:@"sendedMessages"];
+- (NSMutableSet*)messagesSet {
+	[self willAccessValueForKey:@"messages"];
 
-	NSMutableSet *result = (NSMutableSet*)[self mutableSetValueForKey:@"sendedMessages"];
+	NSMutableSet *result = (NSMutableSet*)[self mutableSetValueForKey:@"messages"];
 
-	[self didAccessValueForKey:@"sendedMessages"];
+	[self didAccessValueForKey:@"messages"];
 	return result;
 }
 

@@ -3,15 +3,8 @@
 
 #import "_SPDialog.h"
 
-const struct SPDialogAttributes SPDialogAttributes = {
-	.createdAt = @"createdAt",
-	.createdAtString = @"createdAtString",
-	.unreadMessagesCount = @"unreadMessagesCount",
-};
-
 const struct SPDialogRelationships SPDialogRelationships = {
-	.messages = @"messages",
-	.sender = @"sender",
+	.dialogist = @"dialogist",
 };
 
 @implementation SPDialogID
@@ -40,51 +33,10 @@ const struct SPDialogRelationships SPDialogRelationships = {
 + (NSSet*)keyPathsForValuesAffectingValueForKey:(NSString*)key {
 	NSSet *keyPaths = [super keyPathsForValuesAffectingValueForKey:key];
 
-	if ([key isEqualToString:@"unreadMessagesCountValue"]) {
-		NSSet *affectingKey = [NSSet setWithObject:@"unreadMessagesCount"];
-		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
-		return keyPaths;
-	}
-
 	return keyPaths;
 }
 
-@dynamic createdAt;
-
-@dynamic createdAtString;
-
-@dynamic unreadMessagesCount;
-
-- (int32_t)unreadMessagesCountValue {
-	NSNumber *result = [self unreadMessagesCount];
-	return [result intValue];
-}
-
-- (void)setUnreadMessagesCountValue:(int32_t)value_ {
-	[self setUnreadMessagesCount:[NSNumber numberWithInt:value_]];
-}
-
-- (int32_t)primitiveUnreadMessagesCountValue {
-	NSNumber *result = [self primitiveUnreadMessagesCount];
-	return [result intValue];
-}
-
-- (void)setPrimitiveUnreadMessagesCountValue:(int32_t)value_ {
-	[self setPrimitiveUnreadMessagesCount:[NSNumber numberWithInt:value_]];
-}
-
-@dynamic messages;
-
-- (NSMutableSet*)messagesSet {
-	[self willAccessValueForKey:@"messages"];
-
-	NSMutableSet *result = (NSMutableSet*)[self mutableSetValueForKey:@"messages"];
-
-	[self didAccessValueForKey:@"messages"];
-	return result;
-}
-
-@dynamic sender;
+@dynamic dialogist;
 
 @end
 

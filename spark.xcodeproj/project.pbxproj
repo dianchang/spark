@@ -65,6 +65,8 @@
 		05C1C04D1BC2159D0082A5FC /* BadgeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C1C04C1BC2159D0082A5FC /* BadgeView.m */; settings = {ASSET_TAGS = (); }; };
 		05C1C0521BC37EEE0082A5FC /* _SPDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C1C04F1BC37EEE0082A5FC /* _SPDialog.m */; settings = {ASSET_TAGS = (); }; };
 		05C1C0531BC37EEE0082A5FC /* SPDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C1C0511BC37EEE0082A5FC /* SPDialog.m */; settings = {ASSET_TAGS = (); }; };
+		05C1C0581BC3C1D40082A5FC /* _SPBaseDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C1C0551BC3C1D40082A5FC /* _SPBaseDialog.m */; settings = {ASSET_TAGS = (); }; };
+		05C1C0591BC3C1D40082A5FC /* SPBaseDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C1C0571BC3C1D40082A5FC /* SPBaseDialog.m */; settings = {ASSET_TAGS = (); }; };
 		05EF14DB1BB8DF6E00A9AD58 /* EntryDraggableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 05EF14DA1BB8DF6E00A9AD58 /* EntryDraggableView.m */; settings = {ASSET_TAGS = (); }; };
 		05EF14DE1BB8DFA500A9AD58 /* EntryOverlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 05EF14DD1BB8DFA500A9AD58 /* EntryOverlayView.m */; settings = {ASSET_TAGS = (); }; };
 		84F1591E2415FBD5B0B396F4 /* libPods-spark.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D28D8D01EBF146990B40B3C /* libPods-spark.a */; };
@@ -173,6 +175,10 @@
 		05C1C04F1BC37EEE0082A5FC /* _SPDialog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _SPDialog.m; sourceTree = "<group>"; };
 		05C1C0501BC37EEE0082A5FC /* SPDialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPDialog.h; sourceTree = "<group>"; };
 		05C1C0511BC37EEE0082A5FC /* SPDialog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPDialog.m; sourceTree = "<group>"; };
+		05C1C0541BC3C1D40082A5FC /* _SPBaseDialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _SPBaseDialog.h; sourceTree = "<group>"; };
+		05C1C0551BC3C1D40082A5FC /* _SPBaseDialog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _SPBaseDialog.m; sourceTree = "<group>"; };
+		05C1C0561BC3C1D40082A5FC /* SPBaseDialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPBaseDialog.h; sourceTree = "<group>"; };
+		05C1C0571BC3C1D40082A5FC /* SPBaseDialog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPBaseDialog.m; sourceTree = "<group>"; };
 		05EF14D91BB8DF6E00A9AD58 /* EntryDraggableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntryDraggableView.h; sourceTree = "<group>"; };
 		05EF14DA1BB8DF6E00A9AD58 /* EntryDraggableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntryDraggableView.m; sourceTree = "<group>"; };
 		05EF14DC1BB8DFA500A9AD58 /* EntryOverlayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntryOverlayView.h; sourceTree = "<group>"; };
@@ -342,6 +348,8 @@
 		0506FA641BB3B5A600333BDD /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				05C1C0541BC3C1D40082A5FC /* _SPBaseDialog.h */,
+				05C1C0551BC3C1D40082A5FC /* _SPBaseDialog.m */,
 				05C1C04E1BC37EEE0082A5FC /* _SPDialog.h */,
 				05C1C04F1BC37EEE0082A5FC /* _SPDialog.m */,
 				0590CFB41BB402C300097ECF /* _SPEntry.h */,
@@ -356,6 +364,8 @@
 				0590CFBD1BB402C300097ECF /* _SPUser.m */,
 				0590CFBE1BB402C300097ECF /* SPEntry.h */,
 				0590CFBF1BB402C300097ECF /* SPEntry.m */,
+				05C1C0561BC3C1D40082A5FC /* SPBaseDialog.h */,
+				05C1C0571BC3C1D40082A5FC /* SPBaseDialog.m */,
 				05C1C0501BC37EEE0082A5FC /* SPDialog.h */,
 				05C1C0511BC37EEE0082A5FC /* SPDialog.m */,
 				0590CFC01BB402C300097ECF /* SPMessage.h */,
@@ -615,6 +625,7 @@
 				05978AF91BBEDA9C00972623 /* SPLabel.m in Sources */,
 				0590CFC91BB402C300097ECF /* _SPMessage.m in Sources */,
 				0590CFCC1BB402C300097ECF /* _SPUser.m in Sources */,
+				05C1C0581BC3C1D40082A5FC /* _SPBaseDialog.m in Sources */,
 				0590CFCE1BB402C300097ECF /* SPMessage.m in Sources */,
 				05EF14DB1BB8DF6E00A9AD58 /* EntryDraggableView.m in Sources */,
 				05AF29F11BB7877E00496A05 /* TopicView.m in Sources */,
@@ -649,6 +660,7 @@
 				0590CFCD1BB402C300097ECF /* SPEntry.m in Sources */,
 				0506FA3A1BB3A05500333BDD /* spark.xcdatamodeld in Sources */,
 				0590CFCA1BB402C300097ECF /* _SPNotification.m in Sources */,
+				05C1C0591BC3C1D40082A5FC /* SPBaseDialog.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

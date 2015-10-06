@@ -40,7 +40,7 @@ static const NSString *CDN = @"http://7xn16r.com1.z0.glb.clouddn.com";
     
     // 对话
     [self
-     createDialogWithSender:userJiuqi
+     createDialogWithDialogist:userJiuqi
      unreadMessagesCount:@1
      createdAt:@"18:37"
      messages:@[@[userHardin, @"讲实话，我觉得《从0到1》比《创业维艰》思维高度高了有10倍不止。《创业维艰》根本不适合每个创业者去读，而《从0到1》你应该读3遍。", @YES],
@@ -50,7 +50,7 @@ static const NSString *CDN = @"http://7xn16r.com1.z0.glb.clouddn.com";
                 @[userJiuqi, @"我得把比我高的都删掉...", @NO]]
      ];
     [self
-     createDialogWithSender:userHustlzp
+     createDialogWithDialogist:userHustlzp
      unreadMessagesCount:@0
      createdAt:@"12:05"
      messages:@[@[userHustlzp, @"Airbnb CEO Brian Chesky 和他交了两年的女朋友 Elissa Patel 是通过 Tinder 认识的。", @YES],
@@ -58,7 +58,7 @@ static const NSString *CDN = @"http://7xn16r.com1.z0.glb.clouddn.com";
                 @[userHustlzp, @"这个，也很像，是做创业问答的", @NO]]
      ];
     [self
-     createDialogWithSender:userHuangbo
+     createDialogWithDialogist:userHuangbo
      unreadMessagesCount:@0
      createdAt:@"昨天"
      messages:@[@[userHardin, @"讲实话，我觉得《从0到1》比《创业维艰》思维高度高了有10倍不止。《创业维艰》根本不适合每个创业者去读，而《从0到1》你应该读3遍。", @YES],
@@ -67,7 +67,7 @@ static const NSString *CDN = @"http://7xn16r.com1.z0.glb.clouddn.com";
                 @[userHuangbo, @"看好你的。", @NO]]
      ];
     [self
-     createDialogWithSender:userDante
+     createDialogWithDialogist:userDante
      unreadMessagesCount:@0
      createdAt:@"昨天"
      messages:@[@[userHardin, @"讲实话，我觉得《从0到1》比《创业维艰》思维高度高了有10倍不止。《创业维艰》根本不适合每个创业者去读，而《从0到1》你应该读3遍。", @YES],
@@ -78,7 +78,7 @@ static const NSString *CDN = @"http://7xn16r.com1.z0.glb.clouddn.com";
                 @[userDante, @"真心的，哈哈。。。", @NO]]
      ];
     [self
-     createDialogWithSender:userMichael
+     createDialogWithDialogist:userMichael
      unreadMessagesCount:@0
      createdAt:@"一周前"
      messages:@[@[userHardin, @"讲实话，我觉得《从0到1》比《创业维艰》思维高度高了有10倍不止。《创业维艰》根本不适合每个创业者去读，而《从0到1》你应该读3遍。", @YES],
@@ -88,7 +88,7 @@ static const NSString *CDN = @"http://7xn16r.com1.z0.glb.clouddn.com";
                 @[userMichael, @"问问那些要去硅谷工作的年轻人", @NO]]
      ];
     [self
-     createDialogWithSender:userSizhuren
+     createDialogWithDialogist:userSizhuren
      unreadMessagesCount:@0
      createdAt:@"一周前"
      messages:@[@[userSizhuren, @"像知乎这样的泛话题社区，女生涨粉的最佳方法就是先po几张修过图的美照，还不管和问题沾不沾边儿。", @YES],
@@ -98,9 +98,27 @@ static const NSString *CDN = @"http://7xn16r.com1.z0.glb.clouddn.com";
      ];
     
     // 通知
-    [self createNotificationWithSender:userGM content:@"你的笔记「我觉得创业维艰」上榜啦！" createdAt:@"刚刚" unreadNotificationsCount:@1];
-    [self createNotificationWithSender:userGaomoliang content:@"你好，这个观点我不是很认同啊..." createdAt:@"18:22" unreadNotificationsCount:@2];
-    [self createNotificationWithSender:userMadelong content:@"考虑加入下拉钩？" createdAt:@"前天" unreadNotificationsCount:@0];
+    [self
+     createNotificationWithSender:userGM
+     unreadMessagesCount:@1
+     createdAt:@"刚刚"
+     messages:@[@[userHardin, @"讲实话，我觉得《从0到1》比《创业维艰》思维高度高了有10倍不止。《创业维艰》根本不适合每个创业者去读，而《从0到1》你应该读3遍。", @YES],
+                @[userGM, @"你的笔记「我觉得创业维艰」上榜啦！", @NO]]
+     ];
+    [self
+     createNotificationWithSender:userGaomoliang
+     unreadMessagesCount:@2
+     createdAt:@"18:22"
+     messages:@[@[userHardin, @"讲实话，我觉得《从0到1》比《创业维艰》思维高度高了有10倍不止。《创业维艰》根本不适合每个创业者去读，而《从0到1》你应该读3遍。", @YES],
+                @[userGaomoliang, @"你好，这个观点我不是很认同啊...", @NO]]
+     ];
+    [self
+     createNotificationWithSender:userMadelong
+     unreadMessagesCount:@0
+     createdAt:@"前天"
+     messages:@[@[userHardin, @"讲实话，我觉得《从0到1》比《创业维艰》思维高度高了有10倍不止。《创业维艰》根本不适合每个创业者去读，而《从0到1》你应该读3遍。", @YES],
+                @[userMadelong, @"考虑加入下拉钩？", @NO]]
+     ];
     
     // 条目    
     [self createEntryWithUser:userHardin
@@ -185,38 +203,50 @@ static const NSString *CDN = @"http://7xn16r.com1.z0.glb.clouddn.com";
 }
 
 // Dialog
-+ (SPDialog *)createDialogWithSender:(SPUser *)sender unreadMessagesCount:(NSNumber *)unreadMessagesCount createdAt:(NSString *)createdAt messages:(NSArray *)messages
++ (SPDialog *)createDialogWithDialogist:(SPUser *)dialogist unreadMessagesCount:(NSNumber *)unreadMessagesCount createdAt:(NSString *)createdAt messages:(NSArray *)messages
 {
     __block SPDialog *dialog;
     
     [MagicalRecord saveWithBlockAndWait:^(NSManagedObjectContext *localContext) {
         dialog = [SPDialog MR_createEntityInContext:localContext];
-        SPUser *_sender = [sender MR_inContext:localContext];
-        dialog.sender = _sender;
+        SPUser *_dialogist = [dialogist MR_inContext:localContext];
+        dialog.dialogist = _dialogist;
         dialog.createdAtString = createdAt;
         dialog.unreadMessagesCount = unreadMessagesCount;
     }];
     
-    for (NSArray *message in messages) {
-        SPUser *messageSender = (SPUser *)[message objectAtIndex:0];
-        NSString *content = (NSString *)[message objectAtIndex:1];
-        NSNumber *fromEntry = (NSNumber *)[message objectAtIndex:2];
-                                 
-        [self createMessageWithSender:messageSender dialog:dialog content:content fromEntry:fromEntry];
-    }
+    [self addMessages:messages toDialog:dialog];
     
     return dialog;
 }
 
+// Notification
++ (SPNotification *)createNotificationWithSender:(SPUser *)sender unreadMessagesCount:(NSNumber *)unreadMessagesCount createdAt:(NSString *)createdAt messages:(NSArray *)messages
+{
+    __block SPNotification *notification;
+    
+    [MagicalRecord saveWithBlockAndWait:^(NSManagedObjectContext *localContext) {
+        notification = [SPNotification MR_createEntityInContext:localContext];
+        SPUser *_sender = [sender MR_inContext:localContext];
+        notification.sender = _sender;
+        notification.createdAtString = createdAt;
+        notification.unreadMessagesCount = unreadMessagesCount;
+    }];
+    
+    [self addMessages:messages toDialog:notification];
+    
+    return notification;
+}
+
 // Message
-+ (SPMessage *)createMessageWithSender:(SPUser *)sender dialog:(SPDialog *)dialog content:(NSString *)content fromEntry:(NSNumber *)fromEntry
++ (SPMessage *)createMessageWithSender:(SPUser *)sender dialog:(SPBaseDialog *)dialog content:(NSString *)content fromEntry:(NSNumber *)fromEntry
 {
     __block SPMessage *message;
     
     [MagicalRecord saveWithBlockAndWait:^(NSManagedObjectContext *localContext) {
         message = [SPMessage MR_createEntityInContext:localContext];
         SPUser *_sender = [sender MR_inContext:localContext];
-        SPDialog *_dialog = [dialog MR_inContext:localContext];
+        SPBaseDialog *_dialog = [dialog MR_inContext:localContext];
         message.sender = _sender;
         message.dialog = _dialog;
         message.content = content;
@@ -226,21 +256,15 @@ static const NSString *CDN = @"http://7xn16r.com1.z0.glb.clouddn.com";
     return message;
 }
 
-// Notification
-+ (SPNotification *)createNotificationWithSender:(SPUser *)sender content:(NSString *)content createdAt:(NSString *)createdAt unreadNotificationsCount:(NSNumber *)unreadNotificationsCount
++ (void)addMessages:(NSArray *)messages toDialog:(SPBaseDialog *)dialog
 {
-    __block SPNotification *noti;
-    
-    [MagicalRecord saveWithBlockAndWait:^(NSManagedObjectContext *localContext) {
-        noti = [SPNotification MR_createEntityInContext:localContext];
-        SPUser *_sender = [sender MR_inContext:localContext];
-        noti.sender = _sender;
-        noti.content = content;
-        noti.unreadNotificationsCount = unreadNotificationsCount;
-        noti.createdAtString = createdAt;
-    }];
-    
-    return noti;
+    for (NSArray *message in messages) {
+        SPUser *messageSender = (SPUser *)[message objectAtIndex:0];
+        NSString *content = (NSString *)[message objectAtIndex:1];
+        NSNumber *fromEntry = (NSNumber *)[message objectAtIndex:2];
+        
+        [self createMessageWithSender:messageSender dialog:dialog content:content fromEntry:fromEntry];
+    }
 }
 
 + (SPEntry *)createEntryWithUser:(SPUser *)user content:(NSString *)content topics:(NSArray *)topics upvotesCount:(NSNumber *)upvotesCount downvotesCount:(NSNumber *)downvotesCount

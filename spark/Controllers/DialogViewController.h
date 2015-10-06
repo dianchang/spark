@@ -6,10 +6,11 @@
 //  Copyright © 2015年 hustlzp. All rights reserved.
 //
 
+#import "SPBaseDialog.h"
 #import <UIKit/UIKit.h>
 
 @interface DialogViewController : UIViewController
 
-- (instancetype)initWithUser:(SPUser *)user;
+- (instancetype)initWithBaseDialog:(SPBaseDialog *)baseDialog;
 
 @end

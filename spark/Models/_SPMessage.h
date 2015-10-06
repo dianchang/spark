@@ -14,7 +14,7 @@ extern const struct SPMessageRelationships {
 	__unsafe_unretained NSString *sender;
 } SPMessageRelationships;
 
-@class SPDialog;
+@class SPBaseDialog;
 @class SPUser;
 
 @interface SPMessageID : NSManagedObjectID {}
@@ -42,7 +42,7 @@ extern const struct SPMessageRelationships {
 
 //- (BOOL)validateFromEntry:(id*)value_ error:(NSError**)error_;
 
-@property (nonatomic, strong) SPDialog *dialog;
+@property (nonatomic, strong) SPBaseDialog *dialog;
 
 //- (BOOL)validateDialog:(id*)value_ error:(NSError**)error_;
 
@@ -66,8 +66,8 @@ extern const struct SPMessageRelationships {
 - (BOOL)primitiveFromEntryValue;
 - (void)setPrimitiveFromEntryValue:(BOOL)value_;
 
-- (SPDialog*)primitiveDialog;
-- (void)setPrimitiveDialog:(SPDialog*)value;
+- (SPBaseDialog*)primitiveDialog;
+- (void)setPrimitiveDialog:(SPBaseDialog*)value;
 
 - (SPUser*)primitiveSender;
 - (void)setPrimitiveSender:(SPUser*)value;

@@ -94,9 +94,8 @@
 - (void)updateDataWithDialog:(SPDialog *)dialog
 {
     self.dialog = dialog;
-    [self.userAvatarView setImageWithURL:[NSURL URLWithString:dialog.sender.avatarUrl]];
-    self.userNameLabel.text = dialog.sender.name;
-    
+    [self.userAvatarView setImageWithURL:[NSURL URLWithString:dialog.dialogist.avatarUrl]];
+    self.userNameLabel.text = dialog.dialogist.name;
     
     self.contentLabel.text = dialog.latestMessage.content;
     
@@ -118,7 +117,8 @@
     self.notification = notification;
     [self.userAvatarView setImageWithURL:[NSURL URLWithString:notification.sender.avatarUrl]];
     self.userNameLabel.text = notification.sender.name;
-    self.contentLabel.text = notification.content;
+    
+    self.contentLabel.text = notification.latestMessage.content;
     
     if (notification.createdAtString) {
         self.createdAtLabel.text = notification.createdAtString;
@@ -126,10 +126,10 @@
     
     [self hideBadgeViews];
     
-    if (notification.unreadNotificationsCountValue == 1) {
+    if (notification.unreadMessagesCountValue == 1) {
         [self makeCircleBadgeView];
-    } else if (notification.unreadNotificationsCountValue > 1) {
-        [self makeNumberBadgeView:notification.unreadNotificationsCountValue];
+    } else if (notification.unreadMessagesCountValue > 1) {
+        [self makeNumberBadgeView:notification.unreadMessagesCountValue];
     }
 }
 

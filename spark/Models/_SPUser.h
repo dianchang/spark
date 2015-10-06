@@ -15,7 +15,7 @@ extern const struct SPUserAttributes {
 extern const struct SPUserRelationships {
 	__unsafe_unretained NSString *dialogs;
 	__unsafe_unretained NSString *entries;
-	__unsafe_unretained NSString *sendedMessages;
+	__unsafe_unretained NSString *messages;
 	__unsafe_unretained NSString *sendedNotifications;
 } SPUserRelationships;
 
@@ -77,9 +77,9 @@ extern const struct SPUserRelationships {
 
 - (NSMutableSet*)entriesSet;
 
-@property (nonatomic, strong) NSSet *sendedMessages;
+@property (nonatomic, strong) NSSet *messages;
 
-- (NSMutableSet*)sendedMessagesSet;
+- (NSMutableSet*)messagesSet;
 
 @property (nonatomic, strong) NSSet *sendedNotifications;
 
@@ -103,11 +103,11 @@ extern const struct SPUserRelationships {
 
 @end
 
-@interface _SPUser (SendedMessagesCoreDataGeneratedAccessors)
-- (void)addSendedMessages:(NSSet*)value_;
-- (void)removeSendedMessages:(NSSet*)value_;
-- (void)addSendedMessagesObject:(SPMessage*)value_;
-- (void)removeSendedMessagesObject:(SPMessage*)value_;
+@interface _SPUser (MessagesCoreDataGeneratedAccessors)
+- (void)addMessages:(NSSet*)value_;
+- (void)removeMessages:(NSSet*)value_;
+- (void)addMessagesObject:(SPMessage*)value_;
+- (void)removeMessagesObject:(SPMessage*)value_;
 
 @end
 
@@ -154,8 +154,8 @@ extern const struct SPUserRelationships {
 - (NSMutableSet*)primitiveEntries;
 - (void)setPrimitiveEntries:(NSMutableSet*)value;
 
-- (NSMutableSet*)primitiveSendedMessages;
-- (void)setPrimitiveSendedMessages:(NSMutableSet*)value;
+- (NSMutableSet*)primitiveMessages;
+- (void)setPrimitiveMessages:(NSMutableSet*)value;
 
 - (NSMutableSet*)primitiveSendedNotifications;
 - (void)setPrimitiveSendedNotifications:(NSMutableSet*)value;
