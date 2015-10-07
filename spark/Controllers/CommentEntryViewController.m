@@ -11,6 +11,7 @@
 #import "CommentEntryViewController.h"
 #import "Constants.h"
 #import "UIColor+Helper.h"
+#import "UIViewController+CustomBackButton.h"
 #import <Masonry/Masonry.h>
 
 @interface CommentEntryViewController ()
@@ -54,6 +55,7 @@
     
     self.edgesForExtendedLayout = UIRectEdgeNone;
     self.navigationItem.title = self.entry.user.name;
+    [self replaceBackButton];
 }
 
 - (void)viewWillAppear:(BOOL)animated

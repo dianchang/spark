@@ -76,7 +76,7 @@ static NSString * const cellIdentifier = @"EntryCell";
     UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithImage:adminIcon style:UIBarButtonItemStylePlain target:self action:@selector(adminTopic)];
     newNavBar.topItem.rightBarButtonItem = rightButton;
     
-    UIImage *backIcon = [IonIcons imageWithIcon:ion_ios_arrow_left size:28 color:[UIColor lightGrayColor]];
+    UIImage *backIcon = [IonIcons imageWithIcon:ion_android_arrow_back size:28 color:[UIColor lightGrayColor]];
     UIBarButtonItem *leftButton = [[UIBarButtonItem alloc] initWithImage:backIcon style:UIBarButtonItemStylePlain target:self action:@selector(back)];
     newNavBar.topItem.leftBarButtonItem = leftButton;
     

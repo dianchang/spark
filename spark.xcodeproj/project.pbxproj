@@ -38,6 +38,7 @@
 		052870D11BC028CC00C81DBA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 052870D01BC028CC00C81DBA /* UIKit.framework */; };
 		052870D31BC028D600C81DBA /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 052870D21BC028D600C81DBA /* CoreGraphics.framework */; };
 		052870D51BC028EA00C81DBA /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 052870D41BC028EA00C81DBA /* QuartzCore.framework */; };
+		0545D2621BC4C26300410895 /* UIViewController+CustomBackButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 0545D2611BC4C26300410895 /* UIViewController+CustomBackButton.m */; settings = {ASSET_TAGS = (); }; };
 		055188CF1BBCDE3200DC6A0D /* EntryView.m in Sources */ = {isa = PBXBuildFile; fileRef = 055188CE1BBCDE3200DC6A0D /* EntryView.m */; settings = {ASSET_TAGS = (); }; };
 		055188D21BBCDED500DC6A0D /* TopicBriefView.m in Sources */ = {isa = PBXBuildFile; fileRef = 055188D11BBCDED500DC6A0D /* TopicBriefView.m */; settings = {ASSET_TAGS = (); }; };
 		055A7E761BBC205500B1BC11 /* UserPopupView.m in Sources */ = {isa = PBXBuildFile; fileRef = 055A7E751BBC205500B1BC11 /* UserPopupView.m */; settings = {ASSET_TAGS = (); }; };
@@ -122,6 +123,8 @@
 		052870D01BC028CC00C81DBA /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		052870D21BC028D600C81DBA /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		052870D41BC028EA00C81DBA /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		0545D2601BC4C26300410895 /* UIViewController+CustomBackButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+CustomBackButton.h"; sourceTree = "<group>"; };
+		0545D2611BC4C26300410895 /* UIViewController+CustomBackButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+CustomBackButton.m"; sourceTree = "<group>"; };
 		055188CD1BBCDE3200DC6A0D /* EntryView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntryView.h; sourceTree = "<group>"; };
 		055188CE1BBCDE3200DC6A0D /* EntryView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntryView.m; sourceTree = "<group>"; };
 		055188D01BBCDED500DC6A0D /* TopicBriefView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopicBriefView.h; sourceTree = "<group>"; };
@@ -409,6 +412,8 @@
 			children = (
 				0590CFD21BB40EC300097ECF /* UIColor+Helper.h */,
 				0590CFD31BB40EC300097ECF /* UIColor+Helper.m */,
+				0545D2601BC4C26300410895 /* UIViewController+CustomBackButton.h */,
+				0545D2611BC4C26300410895 /* UIViewController+CustomBackButton.m */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -640,6 +645,7 @@
 				05EF14DB1BB8DF6E00A9AD58 /* EntryDraggableView.m in Sources */,
 				05AF29F11BB7877E00496A05 /* TopicView.m in Sources */,
 				0590CFCB1BB402C300097ECF /* _SPTopic.m in Sources */,
+				0545D2621BC4C26300410895 /* UIViewController+CustomBackButton.m in Sources */,
 				05AF29F71BB7CAAC00496A05 /* TopicViewController.m in Sources */,
 				05C1C0521BC37EEE0082A5FC /* _SPDialog.m in Sources */,
 				0506E7FD1BB930F0000780AD /* DialogViewController.m in Sources */,

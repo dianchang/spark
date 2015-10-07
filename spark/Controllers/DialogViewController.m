@@ -11,9 +11,11 @@
 #import "DialogViewController.h"
 #import "UIColor+Helper.h"
 #import "Constants.h"
+#import "UIViewController+CustomBackButton.h"
 #import <QuartzCore/QuartzCore.h>
 #import <Masonry/Masonry.h>
 #import <AFNetworking/UIImageView+AFNetworking.h>
+#import <ionicons/IonIcons.h>
 
 @interface DialogViewController ()
 
@@ -58,6 +60,7 @@
     
     self.edgesForExtendedLayout = UIRectEdgeNone;
     self.navigationItem.title = self.currentUser.name;
+    [self replaceBackButton];
 }
 
 - (void)viewWillAppear:(BOOL)animated

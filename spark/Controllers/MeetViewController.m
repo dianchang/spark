@@ -44,8 +44,6 @@
     [super viewDidLoad];
     
     self.edgesForExtendedLayout = UIRectEdgeNone;
-    self.navigationItem.title = @"Spark";
-
 }
 
 - (void)viewWillAppear:(BOOL)animated {

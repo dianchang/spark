@@ -16,6 +16,7 @@
 #import "Constants.h"
 #import "UIColor+Helper.h"
 #import <Fabric/Fabric.h>
+#import <ionicons/IonIcons.h>
 #import <MagicalRecord/MagicalRecord.h>
 #import <Crashlytics/Crashlytics.h>
 #import <ionicons/IonIcons.h>
@@ -87,6 +88,9 @@
     
     [[UINavigationBar appearance] setTitleTextAttributes: @{NSFontAttributeName: [UIFont fontWithName:SPLanTingFontName size:17.0f]}];
     [[UINavigationBar appearance] setBarTintColor:[UIColor SPBackgroundColor]];
+
+    [[UIBarButtonItem appearance] setBackButtonTitlePositionAdjustment:UIOffsetMake(0, -20)
+                                                         forBarMetrics:UIBarMetricsDefault];
     
     return YES;
 }
