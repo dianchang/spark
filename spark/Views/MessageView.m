@@ -22,7 +22,7 @@
 
 - (instancetype)initWithMessage:(SPMessage *)message
 {
-    return [self initWithUser:message.sender content:message.content fromEntry:message.fromEntry];
+    return [self initWithUser:message.sender content:message.content fromEntry:message.fromEntryValue];
 }
 
 - (instancetype)initWithEntry:(SPEntry *)entry
@@ -51,13 +51,13 @@
     } else {
         messageContentWapView.backgroundColor = [UIColor colorWithRGBA:0xF3F3F9FF];
     }
-    messageContentWapView.layer.cornerRadius = 2;
+    messageContentWapView.layer.cornerRadius = 3;
     messageContentWapView.layer.masksToBounds = YES;
     [self addSubview:messageContentWapView];
     
     // message
     UILabel *messageLabel = [UILabel new];
-    messageLabel.font = [UIFont systemFontOfSize:14];
+    messageLabel.font = [UIFont systemFontOfSize:15];
     messageLabel.numberOfLines = 0;
     messageLabel.lineBreakMode = NSLineBreakByWordWrapping;
     NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:content];
@@ -70,7 +70,7 @@
     NSInteger lines = textRect.size.height / messageLabel.font.pointSize;
     
     if (lines > 1) {
-        paragraphStyle.lineSpacing = 5;
+        paragraphStyle.lineSpacing = 3;
     } else {
         paragraphStyle.lineSpacing = 0;
     }
