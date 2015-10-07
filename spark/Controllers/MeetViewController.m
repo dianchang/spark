@@ -24,6 +24,7 @@
 
 @property (strong, nonatomic) UIView *cardWapView;
 @property (strong, nonatomic) NSMutableArray *draggableViews;
+@property (strong, nonatomic) UINavigationBar *navBar;
 
 @end
 
@@ -64,14 +65,16 @@
     UIImage *plusIcon = [IonIcons imageWithIcon:ion_android_add size:28 color:[UIColor lightGrayColor]];
     UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithImage:plusIcon style:UIBarButtonItemStylePlain target:self action:@selector(addEntry)];
     newNavBar.topItem.rightBarButtonItem = rightButton;
+    self.navBar = newNavBar;
     
     [self.view addSubview:newNavBar];
 }
 
-- (void)viewWillDisappear:(BOOL)animated {
+- (void)viewWillDisappear:(BOOL)animated
+{
     [super viewWillDisappear:animated];
-    
     [self.navigationController setNavigationBarHidden:NO animated:NO];
+    [self.navBar removeFromSuperview];
 }
 
 #pragma mark - Layout
