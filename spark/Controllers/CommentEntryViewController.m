@@ -56,6 +56,38 @@
     self.edgesForExtendedLayout = UIRectEdgeNone;
     self.navigationItem.title = self.entry.user.name;
     [self replaceBackButton];
+    
+    // titleView
+    UIView *titleView = [UIView new];
+    
+    UILabel *userLabel = [UILabel new];
+    userLabel.text = self.entry.user.name;
+    userLabel.textColor = [UIColor SPColorMain];
+    userLabel.font = [UIFont fontWithName:SPLanTingFontName size:17];
+    [titleView addSubview:userLabel];
+    
+    UILabel *descLabel = [UILabel new];
+    descLabel.text = self.entry.user.desc;
+    descLabel.textColor = [UIColor lightGrayColor];
+    descLabel.font = [UIFont systemFontOfSize:10];
+    [titleView addSubview:descLabel];
+    
+    // titleView 约束
+    [userLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(titleView);
+        make.centerX.equalTo(titleView);
+    }];
+    
+    [descLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(userLabel.mas_bottom);
+        make.centerX.equalTo(titleView);
+        make.bottom.equalTo(titleView);
+    }];
+    
+    CGSize size = [titleView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
+    titleView.frame = CGRectMake(0, 0, size.width, size.height);
+    
+    self.navigationItem.titleView = titleView;
 }
 
 - (void)viewWillAppear:(BOOL)animated
