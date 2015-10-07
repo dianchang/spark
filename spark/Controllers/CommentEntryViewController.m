@@ -20,6 +20,7 @@
 @property (strong, nonatomic) UIView *commentBarView;
 @property (strong, nonatomic) UITextField *commentInputField;
 @property (strong, nonatomic) UIScrollView *scrollView;
+@property (strong, nonatomic) UIView *backdropView;
 
 @end
 
@@ -60,6 +61,7 @@
     [super viewWillAppear:animated];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -72,6 +74,7 @@
 {
     [super viewDidDisappear:animated];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardDidShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil];
 }
 
 #pragma mark - Layout
@@ -124,6 +127,12 @@
     NSTimeInterval animationDuration = [[info objectForKey:UIKeyboardAnimationDurationUserInfoKey] doubleValue];
     CGRect keyboardFrame = [kbFrame CGRectValue];
     
+    [self.view addSubview:self.backdropView];
+    [self.backdropView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.left.right.equalTo(self.view);
+        make.bottom.equalTo(self.commentBarView.mas_top);
+    }];
+    
     [self.commentBarView mas_updateConstraints:^(MASConstraintMaker *make) {
         make.bottom.equalTo(self.view).offset(-keyboardFrame.size.height + SPTabBarHeight);
     }];
@@ -137,6 +146,28 @@
             [self.scrollView setContentOffset:bottomOffset animated:NO];
         }
     }];
+}
+
+- (void)keyboardWillHide:(NSNotification *)notification
+{
+    NSDictionary *info = [notification userInfo];
+    NSTimeInterval animationDuration = [[info objectForKey:UIKeyboardAnimationDurationUserInfoKey] doubleValue];
+    
+    [self.commentBarView mas_updateConstraints:^(MASConstraintMaker *make) {
+        make.bottom.equalTo(self.view);
+    }];
+    
+    [UIView animateWithDuration:animationDuration animations:^{
+        [self.view setNeedsLayout];
+        [self.view layoutIfNeeded];
+    } completion:^(BOOL finished) {
+        [self.backdropView removeFromSuperview];
+    }];
+}
+
+- (void)hideKeyboard
+{
+    [self.commentInputField resignFirstResponder];
 }
 
 #pragma mark - SomeDelegate
@@ -192,6 +223,19 @@
     }
     
     return _currentUser;
+}
+
+- (UIView *)backdropView
+{
+    if (!_backdropView) {
+        _backdropView = [UIView new];
+        UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideKeyboard)];
+        UIPanGestureRecognizer *panGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(hideKeyboard)];
+        [_backdropView addGestureRecognizer:tapGesture];
+        [_backdropView addGestureRecognizer:panGesture];
+    }
+    
+    return _backdropView;
 }
 
 @end
