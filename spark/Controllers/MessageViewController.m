@@ -97,7 +97,7 @@ static UIColor *navButtonInactiveColor;
     [titleView addSubview:rightButton];
     
     // badge
-    BadgeView *badgeView = [[BadgeView alloc] initWithNumber:2 withBorder:NO];
+    BadgeView *badgeView = [[BadgeView alloc] initWithNumber:1 withBorder:NO];
     [titleView addSubview:badgeView];
     
     // titleView 约束

@@ -41,7 +41,8 @@ static const NSString *CDN = @"http://7xn16r.com1.z0.glb.clouddn.com";
     // 对话
     [self
      createDialogWithDialogist:userJiuqi
-     unreadMessagesCount:@1
+     unreadMessagesCount:@0
+     hasNewMessage:@YES
      createdAt:@"18:37"
      messages:@[@[userHardin, @"讲实话，我觉得《从0到1》比《创业维艰》思维高度高了有10倍不止。《创业维艰》根本不适合每个创业者去读，而《从0到1》你应该读3遍。", @YES],
                 @[userJiuqi, @"我觉得创业维艰像一本创业字典，适合碰到具体问题的时候拿出来看看。", @NO],
@@ -52,6 +53,7 @@ static const NSString *CDN = @"http://7xn16r.com1.z0.glb.clouddn.com";
     [self
      createDialogWithDialogist:userHustlzp
      unreadMessagesCount:@0
+     hasNewMessage:@NO
      createdAt:@"12:05"
      messages:@[@[userHustlzp, @"Airbnb CEO Brian Chesky 和他交了两年的女朋友 Elissa Patel 是通过 Tinder 认识的。", @YES],
                 @[userHardin, @"这个有意思", @NO],
@@ -60,6 +62,7 @@ static const NSString *CDN = @"http://7xn16r.com1.z0.glb.clouddn.com";
     [self
      createDialogWithDialogist:userHuangbo
      unreadMessagesCount:@0
+     hasNewMessage:@NO
      createdAt:@"昨天"
      messages:@[@[userHardin, @"讲实话，我觉得《从0到1》比《创业维艰》思维高度高了有10倍不止。《创业维艰》根本不适合每个创业者去读，而《从0到1》你应该读3遍。", @YES],
                 @[userHuangbo, @"认同。我是知乎的产品经理，能认识一下吗？", @NO],
@@ -69,6 +72,7 @@ static const NSString *CDN = @"http://7xn16r.com1.z0.glb.clouddn.com";
     [self
      createDialogWithDialogist:userDante
      unreadMessagesCount:@0
+     hasNewMessage:@NO
      createdAt:@"昨天"
      messages:@[@[userHardin, @"讲实话，我觉得《从0到1》比《创业维艰》思维高度高了有10倍不止。《创业维艰》根本不适合每个创业者去读，而《从0到1》你应该读3遍。", @YES],
                 @[userDante, @"两本都看过，深表认同，真的是佩服 Peter Thiel 的思路。", @NO],
@@ -80,6 +84,7 @@ static const NSString *CDN = @"http://7xn16r.com1.z0.glb.clouddn.com";
     [self
      createDialogWithDialogist:userMichael
      unreadMessagesCount:@0
+     hasNewMessage:@NO
      createdAt:@"一周前"
      messages:@[@[userHardin, @"讲实话，我觉得《从0到1》比《创业维艰》思维高度高了有10倍不止。《创业维艰》根本不适合每个创业者去读，而《从0到1》你应该读3遍。", @YES],
                 @[userMichael, @"我觉得创业维艰挺值得读三遍，因为在大部分时候把创业者挑下马的不是缺乏那些高屋建瓴式的思想，而是一个发不出工资的困难。", @NO],
@@ -90,6 +95,7 @@ static const NSString *CDN = @"http://7xn16r.com1.z0.glb.clouddn.com";
     [self
      createDialogWithDialogist:userSizhuren
      unreadMessagesCount:@0
+     hasNewMessage:@NO
      createdAt:@"一周前"
      messages:@[@[userSizhuren, @"像知乎这样的泛话题社区，女生涨粉的最佳方法就是先po几张修过图的美照，还不管和问题沾不沾边儿。", @YES],
                 @[userHardin, @"bingo！", @NO],
@@ -100,14 +106,16 @@ static const NSString *CDN = @"http://7xn16r.com1.z0.glb.clouddn.com";
     // 通知
     [self
      createNotificationWithSender:userGM
-     unreadMessagesCount:@1
+     unreadMessagesCount:@0
+     hasNewMessage:@YES
      createdAt:@"刚刚"
      messages:@[@[userHardin, @"讲实话，我觉得《从0到1》比《创业维艰》思维高度高了有10倍不止。《创业维艰》根本不适合每个创业者去读，而《从0到1》你应该读3遍。", @YES],
                 @[userGM, @"你的笔记「我觉得创业维艰」上榜啦！", @NO]]
      ];
     [self
      createNotificationWithSender:userGaomoliang
-     unreadMessagesCount:@2
+     unreadMessagesCount:@1
+     hasNewMessage:@NO
      createdAt:@"18:22"
      messages:@[@[userHardin, @"讲实话，我觉得《从0到1》比《创业维艰》思维高度高了有10倍不止。《创业维艰》根本不适合每个创业者去读，而《从0到1》你应该读3遍。", @YES],
                 @[userGaomoliang, @"你好，这个观点我不是很认同啊...", @NO]]
@@ -115,6 +123,7 @@ static const NSString *CDN = @"http://7xn16r.com1.z0.glb.clouddn.com";
     [self
      createNotificationWithSender:userMadelong
      unreadMessagesCount:@0
+     hasNewMessage:@NO
      createdAt:@"前天"
      messages:@[@[userHardin, @"讲实话，我觉得《从0到1》比《创业维艰》思维高度高了有10倍不止。《创业维艰》根本不适合每个创业者去读，而《从0到1》你应该读3遍。", @YES],
                 @[userMadelong, @"考虑加入下拉钩？", @NO]]
@@ -123,7 +132,7 @@ static const NSString *CDN = @"http://7xn16r.com1.z0.glb.clouddn.com";
     // 条目    
     [self createEntryWithUser:userHardin
                       content:@"讲实话，我觉得《从0到1》比《创业维艰》思维高度高了有10倍不止。《创业维艰》根本不适合每个创业者去读，而《从0到1》你应该读3遍。"
-                       topics:@[topicStartup, topicOne, topicAirbnb]
+                       topics:@[topicStartup, topicOne]
                  upvotesCount:@213
                downvotesCount:@19];
     [self createEntryWithUser:userJiuqi
@@ -203,7 +212,7 @@ static const NSString *CDN = @"http://7xn16r.com1.z0.glb.clouddn.com";
 }
 
 // Dialog
-+ (SPDialog *)createDialogWithDialogist:(SPUser *)dialogist unreadMessagesCount:(NSNumber *)unreadMessagesCount createdAt:(NSString *)createdAt messages:(NSArray *)messages
++ (SPDialog *)createDialogWithDialogist:(SPUser *)dialogist unreadMessagesCount:(NSNumber *)unreadMessagesCount hasNewMessage:(NSNumber *)hasNewMessage createdAt:(NSString *)createdAt messages:(NSArray *)messages
 {
     __block SPDialog *dialog;
     
@@ -211,6 +220,7 @@ static const NSString *CDN = @"http://7xn16r.com1.z0.glb.clouddn.com";
         dialog = [SPDialog MR_createEntityInContext:localContext];
         SPUser *_dialogist = [dialogist MR_inContext:localContext];
         dialog.dialogist = _dialogist;
+        dialog.hasNewMessage = hasNewMessage;
         dialog.createdAtString = createdAt;
         dialog.unreadMessagesCount = unreadMessagesCount;
     }];
@@ -221,7 +231,7 @@ static const NSString *CDN = @"http://7xn16r.com1.z0.glb.clouddn.com";
 }
 
 // Notification
-+ (SPNotification *)createNotificationWithSender:(SPUser *)sender unreadMessagesCount:(NSNumber *)unreadMessagesCount createdAt:(NSString *)createdAt messages:(NSArray *)messages
++ (SPNotification *)createNotificationWithSender:(SPUser *)sender unreadMessagesCount:(NSNumber *)unreadMessagesCount hasNewMessage:(NSNumber *)hasNewMessage createdAt:(NSString *)createdAt messages:(NSArray *)messages
 {
     __block SPNotification *notification;
     
@@ -230,6 +240,7 @@ static const NSString *CDN = @"http://7xn16r.com1.z0.glb.clouddn.com";
         SPUser *_sender = [sender MR_inContext:localContext];
         notification.sender = _sender;
         notification.createdAtString = createdAt;
+        notification.hasNewMessage = hasNewMessage;
         notification.unreadMessagesCount = unreadMessagesCount;
     }];
     

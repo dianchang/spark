@@ -104,7 +104,7 @@
     
     [messageContentWapView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(avatarView);
-        make.width.lessThanOrEqualTo(@180);
+        make.width.lessThanOrEqualTo(@190);
         
         if ([user isEqualToManagedObject:self.currentUser]) {
             make.right.equalTo(avatarView.mas_left).offset(-10);
@@ -114,7 +114,7 @@
     }];
     
     [messageLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.equalTo(messageContentWapView).insets(UIEdgeInsetsMake(10, 10, 10, 10));
+        make.edges.equalTo(messageContentWapView).insets(UIEdgeInsetsMake(8, 8, 8, 8));
     }];
     
     [tipLable mas_makeConstraints:^(MASConstraintMaker *make) {

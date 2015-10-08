@@ -105,9 +105,9 @@
     
     [self hideBadgeViews];
     
-    if (dialog.unreadMessagesCountValue == 1) {
+    if (dialog.hasNewMessageValue) {
         [self makeCircleBadgeView];
-    } else if (dialog.unreadMessagesCountValue > 1) {
+    } else if (dialog.unreadMessagesCountValue >= 1) {
         [self makeNumberBadgeView:dialog.unreadMessagesCountValue];
     }
 }
@@ -126,9 +126,9 @@
     
     [self hideBadgeViews];
     
-    if (notification.unreadMessagesCountValue == 1) {
+    if (notification.hasNewMessageValue) {
         [self makeCircleBadgeView];
-    } else if (notification.unreadMessagesCountValue > 1) {
+    } else if (notification.unreadMessagesCountValue >= 1) {
         [self makeNumberBadgeView:notification.unreadMessagesCountValue];
     }
 }

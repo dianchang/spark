@@ -26,7 +26,7 @@
     self.padding = UIEdgeInsetsMake(4, 10, 4, 10);
     self.tagBackgroundColor = [UIColor SPTopicBackgroundColor];
     self.tagSelectedBackgroundColor = [UIColor colorWithRGBA:0xEEEEEEFF];
-    self.textFont = [UIFont systemFontOfSize:12];
+    self.textFont = [UIFont boldSystemFontOfSize:12];
     self.topic = topic;
     
     [self setTitle:topic.name forState:UIControlStateNormal];

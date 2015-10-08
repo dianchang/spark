@@ -6,6 +6,7 @@
 extern const struct SPBaseDialogAttributes {
 	__unsafe_unretained NSString *createdAt;
 	__unsafe_unretained NSString *createdAtString;
+	__unsafe_unretained NSString *hasNewMessage;
 	__unsafe_unretained NSString *unreadMessagesCount;
 } SPBaseDialogAttributes;
 
@@ -31,6 +32,14 @@ extern const struct SPBaseDialogRelationships {
 @property (nonatomic, strong) NSString* createdAtString;
 
 //- (BOOL)validateCreatedAtString:(id*)value_ error:(NSError**)error_;
+
+@property (nonatomic, strong) NSNumber* hasNewMessage;
+
+@property (atomic) BOOL hasNewMessageValue;
+- (BOOL)hasNewMessageValue;
+- (void)setHasNewMessageValue:(BOOL)value_;
+
+//- (BOOL)validateHasNewMessage:(id*)value_ error:(NSError**)error_;
 
 @property (nonatomic, strong) NSNumber* unreadMessagesCount;
 
@@ -61,6 +70,12 @@ extern const struct SPBaseDialogRelationships {
 
 - (NSString*)primitiveCreatedAtString;
 - (void)setPrimitiveCreatedAtString:(NSString*)value;
+
+- (NSNumber*)primitiveHasNewMessage;
+- (void)setPrimitiveHasNewMessage:(NSNumber*)value;
+
+- (BOOL)primitiveHasNewMessageValue;
+- (void)setPrimitiveHasNewMessageValue:(BOOL)value_;
 
 - (NSNumber*)primitiveUnreadMessagesCount;
 - (void)setPrimitiveUnreadMessagesCount:(NSNumber*)value;

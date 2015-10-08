@@ -161,7 +161,6 @@
         make.height.equalTo(@.5).priorityHigh();
         make.bottom.equalTo(self);
     }];
-
 }
 
 #pragma mark - Public methods

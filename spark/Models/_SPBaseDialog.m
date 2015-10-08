@@ -6,6 +6,7 @@
 const struct SPBaseDialogAttributes SPBaseDialogAttributes = {
 	.createdAt = @"createdAt",
 	.createdAtString = @"createdAtString",
+	.hasNewMessage = @"hasNewMessage",
 	.unreadMessagesCount = @"unreadMessagesCount",
 };
 
@@ -39,6 +40,11 @@ const struct SPBaseDialogRelationships SPBaseDialogRelationships = {
 + (NSSet*)keyPathsForValuesAffectingValueForKey:(NSString*)key {
 	NSSet *keyPaths = [super keyPathsForValuesAffectingValueForKey:key];
 
+	if ([key isEqualToString:@"hasNewMessageValue"]) {
+		NSSet *affectingKey = [NSSet setWithObject:@"hasNewMessage"];
+		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
+		return keyPaths;
+	}
 	if ([key isEqualToString:@"unreadMessagesCountValue"]) {
 		NSSet *affectingKey = [NSSet setWithObject:@"unreadMessagesCount"];
 		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
@@ -51,6 +57,26 @@ const struct SPBaseDialogRelationships SPBaseDialogRelationships = {
 @dynamic createdAt;
 
 @dynamic createdAtString;
+
+@dynamic hasNewMessage;
+
+- (BOOL)hasNewMessageValue {
+	NSNumber *result = [self hasNewMessage];
+	return [result boolValue];
+}
+
+- (void)setHasNewMessageValue:(BOOL)value_ {
+	[self setHasNewMessage:[NSNumber numberWithBool:value_]];
+}
+
+- (BOOL)primitiveHasNewMessageValue {
+	NSNumber *result = [self primitiveHasNewMessage];
+	return [result boolValue];
+}
+
+- (void)setPrimitiveHasNewMessageValue:(BOOL)value_ {
+	[self setPrimitiveHasNewMessage:[NSNumber numberWithBool:value_]];
+}
 
 @dynamic unreadMessagesCount;
 

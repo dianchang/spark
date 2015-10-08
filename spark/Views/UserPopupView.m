@@ -35,9 +35,11 @@ static const NSInteger popupHeight = 360;
 @property (strong, nonatomic) UILabel *upvotesLabel;
 @property (strong, nonatomic) UILabel *descLabel;
 @property (strong, nonatomic) UIView *metaDataView;
+
 @property (strong, nonatomic) UIView *showEntriesView;
 @property (strong, nonatomic) UILabel *entriesCountLabel;
 @property (strong, nonatomic) UILabel *entriesTextLabel;
+
 @property (strong, nonatomic) UIView *showTopicsView;
 @property (strong, nonatomic) UILabel *topicsCountLabel;
 @property (strong, nonatomic) UILabel *topicsTextLabel;
@@ -299,6 +301,12 @@ static const NSInteger popupHeight = 360;
 
 - (void)showEntries
 {
+    self.entriesCountLabel.textColor = [UIColor colorWithRGBA:0x111111FF];
+    self.entriesTextLabel.textColor = [UIColor colorWithRGBA:0x444444FF];
+    
+    self.topicsCountLabel.textColor = [UIColor colorWithRGBA:0x666666FF];
+    self.topicsTextLabel.textColor = [UIColor colorWithRGBA:0x999999FF];
+
     if (!self.detailsDidShow) {
         [self showDetailsWithCompletion:^{
             self.entriesScrollView.hidden = NO;
@@ -312,6 +320,12 @@ static const NSInteger popupHeight = 360;
 
 - (void)showTopics
 {
+    self.entriesCountLabel.textColor = [UIColor colorWithRGBA:0x666666FF];
+    self.entriesTextLabel.textColor = [UIColor colorWithRGBA:0x999999FF];
+    
+    self.topicsCountLabel.textColor = [UIColor colorWithRGBA:0x111111FF];
+    self.topicsTextLabel.textColor = [UIColor colorWithRGBA:0x444444FF];
+    
     if (!self.detailsDidShow) {
         [self showDetailsWithCompletion:^{
             self.entriesScrollView.hidden = YES;
