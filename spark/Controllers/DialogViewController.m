@@ -60,7 +60,7 @@
 {
     [super viewDidLoad];
     
-    self.edgesForExtendedLayout = UIRectEdgeNone;
+//    self.edgesForExtendedLayout = UIRectEdgeNone;
     [self replaceBackButton];
     
     // titleView
@@ -108,8 +108,16 @@
 {
     [super viewWillAppear:animated];
     
+    self.tabBarController.tabBar.hidden = YES;
+    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    self.tabBarController.tabBar.hidden = NO;
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -121,6 +129,7 @@
 - (void)viewDidDisappear:(BOOL)animated
 {
     [super viewDidDisappear:animated];
+    
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardDidShowNotification object:nil];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil];
 }
@@ -178,11 +187,11 @@
     // 约束
     [scrollView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.left.right.equalTo(self.view);
+        make.bottom.equalTo(commentBarView.mas_top);
     }];
     
     [commentBarView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.bottom.equalTo(self.view);
-        make.top.equalTo(scrollView.mas_bottom);
     }];
 }
 
@@ -204,7 +213,11 @@
     }];
     
     [self.commentBarView mas_updateConstraints:^(MASConstraintMaker *make) {
-        make.bottom.equalTo(self.view).offset(-keyboardFrame.size.height + SPTabBarHeight);
+        make.bottom.equalTo(self.view).offset(-keyboardFrame.size.height);
+    }];
+    
+    [self.scrollView mas_updateConstraints:^(MASConstraintMaker *make) {
+        make.bottom.equalTo(self.commentBarView.mas_top);
     }];
     
     [UIView animateWithDuration:animationDuration animations:^{
@@ -225,6 +238,10 @@
     
     [self.commentBarView mas_updateConstraints:^(MASConstraintMaker *make) {
         make.bottom.equalTo(self.view);
+    }];
+    
+    [self.scrollView mas_updateConstraints:^(MASConstraintMaker *make) {
+        make.bottom.equalTo(self.commentBarView.mas_top).offset(SPTabBarHeight);
     }];
     
     [UIView animateWithDuration:animationDuration animations:^{
