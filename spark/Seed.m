@@ -301,12 +301,12 @@ static const NSString *CDN = @"http://7xn16r.com1.z0.glb.clouddn.com";
 
 // Truncate all data
 + (void)truncateAllData {
-    [SPNotification MR_truncateAll];
     [SPMessage MR_truncateAll];
+    [SPNotification MR_truncateAll];
+    [SPDialog MR_truncateAll];
     [SPEntry MR_truncateAll];
     [SPTopic MR_truncateAll];
     [SPUser MR_truncateAll];
-    [SPDialog MR_truncateAll];
     
     [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
 }

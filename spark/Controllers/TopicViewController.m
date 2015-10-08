@@ -61,6 +61,7 @@ static NSString * const cellIdentifier = @"EntryCell";
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
+    self.tabBarController.tabBar.hidden = YES;
     [self.navigationController setNavigationBarHidden:YES animated:NO];
     
     UINavigationBar *newNavBar = [[UINavigationBar alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), SPNavBarHeight)];
@@ -87,6 +88,7 @@ static NSString * const cellIdentifier = @"EntryCell";
 {
     [super viewWillDisappear:animated];
     
+    self.tabBarController.tabBar.hidden = NO;
     [self.navigationController setNavigationBarHidden:NO animated:NO];
 }
 
